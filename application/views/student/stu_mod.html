@@ -1,0 +1,107 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人信息 -@ACAT</title>
+        <link rel="stylesheet" type="text/css" href="<?php  echo base_url() .'style/index/' ?>css/student/stu_mod.css">
+
+    
+</head>
+<body>
+<div class="logo">
+         <!-- <img src="<?php  echo base_url() .'style/index/' ?>images/login/logo.png"> -->
+    </div>
+    <div class="nav">
+        <input type="submit" value="注销" onclick="location.href='<?php echo site_url('index') ?>'"">    
+    </div>
+       
+             <div id="userChoose">
+        <ul class="user_title">
+            <li>
+                <a href="<?php  echo  site_url() .'/index/student_test/inf'  ?>">开始答题</a>
+            </li>
+            <li>
+                <a href="<?php  echo  site_url() .'/index/student_grade'  ?>">查看成绩</a>
+            </li>
+            <li>
+                <a href="<?php  echo  site_url() .'/index/home/stu_home'  ?>">返回主页</a>
+            </li>
+            <li>
+                <a href="">关于我们</a>
+            </li>
+        </ul>
+    </div>
+                    <div class="content">
+
+                            <h2 class="s_title">我的 资料:</h2>
+                       <form method="POST" action="<?php echo site_url('index/student_info/mod_inf') ?>">
+                            <div class="sub_content">
+            
+                                <label for="username">姓名：</label>
+                                <input type="text"  name="username" value="<?php echo $name; ?>"  required>
+                            </div>
+
+                            <div class="sub_content">
+                                <label for="userid">学号：</label>
+                                <input type="text" name="userid"  value="<?php $this->load->library('session');
+                                $inf=$this->session->userdata('user');
+                                echo $inf; ?>"  required >
+                            </div>
+
+                            <div class="sub_content">
+                                <label for="usermajor">专业班级：</label>
+                                <input type="text"  name="usermajor" value="<?php $this->load->library('session');
+                                $m=$this->session->userdata('inf_m');
+                                echo $m; ?>" required >
+                            </div>
+
+
+                            <div  class="choose" id="specil">
+                                <label for="usersex">性别：</label>
+                                <input type="radio"  id="man" class="userName" value="1" name="sex">
+                                <label for="man"  class="specil">男</label>
+                                <input type="radio"  id="lady" class="userName" value="0" name="sex">
+                                <label for="lady"  class="specil">女</label>
+                            </div>
+                            <div class="choose" id="specil">
+                                <label for="usergroup">方向：</label>
+                                <input type="radio" id="web前端" class="userName" value="1" name="group">
+                                <label for="web前端" class="specil">前端</label>
+                                <input type="radio" id="PHP" class="userName" value="2" name="group">
+                                <label for="PHP" class="specil">PHP</label>
+                                <input type="radio" id="python"class="userName" value="3" name="group">
+                                <label for="python" class="specil">python</label>&nbsp;
+                                <input type="radio" id="JAVA" class="userName" value="4" name="group">
+                                <label for="JAVA" class="specil">JAVA</label>
+                            </div>
+                            <div>
+                                <button type="submit" class="divBtn" id="btn">确认修改</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="content">
+                        <h2 class="s_title">修改密码:</h2>
+                         <form method="POST" action="<?php echo site_url('index/student_info/mod_pwd') ?>">
+                              
+                                <div class="sub_content">
+                                    <label for="Pasword">旧密码：</label>
+                                    <input type="password" id="userPasword" name="password" class="userName" required>
+                                </div>
+                                <div class="sub_content">
+                                    <label for="Npasword">新密码：</label>
+                                    <input type="password" id="Pasword" name="newpassword" class="userName" required>
+                                </div>
+                                <div class="sub_content">
+                                        <label for="Rpasword">确认密码：</label>
+                                        <input type="password" id="Rpasswd" name="repassword" class="userName" required>
+                                    </div>
+                                <div>
+                                    <button type="submit" class="divBtn" id="btn">确认修改</button>
+                                </div>
+                            </form>
+                </div>
+</body>
+</html>

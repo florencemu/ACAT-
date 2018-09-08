@@ -1,0 +1,101 @@
+    li{
+        	list-style: none;
+        }
+		a{
+			text-decoration: none;
+			color: black;
+		}
+        body{
+    
+            background-image: url(bg/stu_home.jpg);
+            background-size: 100% 1500px;
+            background-repeat: no-repeat;
+            font-family: 方正姚体;
+        }
+
+
+       .header li {
+            float: left;
+        }
+
+        #logo {
+            width: 1300px;
+            height: 120px;
+        }
+
+        #logoImg {
+            width: 500px;
+        height: 120px;
+            display: inline;
+        }
+
+    
+
+     #userChoose {
+
+            width: 1300px;
+            height: 30px;
+            margin: 1px auto;
+           
+        }
+
+        .user_title {
+            list-style: none;
+            line-height: 50px;
+      
+        }
+
+        .user_title li {
+            float: left;
+            padding-right: 30px;
+            text-align: center;
+            border-right: 1px solid #ccc;
+            margin-left: 130px;
+        }
+
+        .user_title li button {
+            border: none;
+            cursor: pointer;
+            outline: none;
+            font-family: 方正姚体;
+            font-size: 25px;
+            color: #000000;
+            background: none;
+        }
+
+        .user_title li button:hover {
+            -webkit-transform: rotate(10deg);
+            -moz-transform: rotate(10deg);
+        }
+
+
+
+        #content {
+            width: 1300px;
+            margin: 50px auto;
+           
+        }
+
+        #content h3 {
+            font-weight: normal;
+            margin-left: 20px;
+        }
+
+        .direction {
+            width: 1100px;
+            height: 300px;
+            border-top: 1px solid #ccc;
+            margin: 5px auto;
+        }
+
+        .direction img {
+            width: 300px;
+            height: 200px;
+            margin: 30px 5px;
+            float: left;
+        }
+        .direction p{
+            text-indent: 2em;
+            margin: 100px 0 0 50px;
+            padding-left: 20px;
+        }
