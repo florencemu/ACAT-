@@ -46,7 +46,7 @@
 	<br><br>
 	
 	<table id="tab1" border="1" width="1000" cellspacing="0" >
-		<thead>
+		<!--<thead>
 			<td>题号</td>
 			<td>类型</td>
 			<td>题目</td>
@@ -57,7 +57,20 @@
 		</thead>
 
 		<tbody>
-			<?php foreach($sub as $item ): ?>
+		 <!-- <?php foreach($sub as $v):?>
+        <tr>
+            <td><?php echo $v['sub_id'] ?></td>
+				<td><?php echo $v['sub_type'] ?></td>
+				<td><?php echo $que=str_replace("\n","<br>",$v['sub_que']); ?></td>
+				<td><?php echo $que=str_replace("\n","<br>",$v['sub_ans']); ?></td>
+				<td><?php echo $v['sub_diff'] ?></td>
+				<td><a href="<?php echo site_url('index/subject/mod_que').'?'.'id='.$v['sub_id']; ?>" style="color: #8B636C" >编辑</a></td>
+			
+				<td><a href="<?php echo site_url('index/subject/sub_del').'?'.'id='.$v['sub_id']; ?>" style="color: #8B636C" >删除</a></td>
+        </tr>
+        <?php endforeach?>
+
+		<!--	<?php foreach($sub as $item ): ?>
 			<tr>
 				<td><?php echo $item['sub_id'] ?></td>
 				<td><?php echo $item['sub_type'] ?></td>
@@ -65,13 +78,17 @@
 				<td><?php echo $que=str_replace("\n","<br>",$item['sub_ans']); ?></td>
 				<td><?php echo $item['sub_diff'] ?></td>
 
+				
 				<td><a href="<?php echo site_url('index/subject/mod_que').'?'.'id='.$item['sub_id']; ?>" style="color: #8B636C" >编辑</a></td>
 			
 				<td><a href="<?php echo site_url('index/subject/sub_del').'?'.'id='.$item['sub_id']; ?>" style="color: #8B636C" >删除</a></td>
 			</tr>
-		  		<?php endforeach ?>
-		  	<!--<?php echo $this->pagination->create_links(); ?>-->
+		  		<?php endforeach ?> -->
+		  <?php echo  $this->table->generate($results);  ?>
+		  <?php echo $this->pagination->create_links(); ?> 
 		</tbody>
+
+    
 	</form>
 	</table>
 	</div>
