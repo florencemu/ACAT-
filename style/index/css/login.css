@@ -1,5 +1,5 @@
 body{
-	background-image: url(../images/login/bg.jpg);
+	background-image: url(../images/login/000045.jpg);
 	background-size: 100% 800px;
 	background-repeat: no-repeat;
 }
@@ -28,6 +28,13 @@ body{
 		width: 550px;
 		height: 300px;
 	}
+	.logo{
+		position: absolute;
+		left: 300px;
+		top: -30px;
+		width: 100px;
+		height: 30px;
+	}
 	.nav{
 		padding: 10px;
 		position: absolute;
@@ -41,6 +48,13 @@ body{
 		font-weight: 800;
 		text-align: center;
 		border-radius: 30px;
+	}
+	.captcha{
+		position: absolute;
+		top: 200px;
+		left: 168px;
+		width: 100px;
+		height: 30px;
 	}
 	.submit{
 		appearance:none;

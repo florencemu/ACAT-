@@ -30,7 +30,7 @@
                 <a href="<?php  echo  site_url() .'/index/home/stu_home'  ?>">返回主页</a>
             </li>
             <li>
-                <a href="<?php  echo  site_url() .'/index/student_inf'  ?>">个人信息</a>
+                <a href="<?php  echo  site_url() .'/index/student_info'  ?>">个人信息</a>
             </li>
             <li>
                 <a href="">关于我们</a>
@@ -40,8 +40,8 @@
 
 
     <div id="content">
-      <div class="direction">
-            <p>学号为<?php $this->load->library('session');
+      <div class="grade">
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学号为<?php $this->load->library('session');
                                 $inf=$this->session->userdata('user');
                                 echo $inf; ?>同学，你好！<br><br>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;你的最终成绩为<?php $this->load->library('session');

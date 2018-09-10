@@ -508,15 +508,15 @@ class CI_Table {
 	protected function _default_template()
 	{
 		return array(
-			'table_open'		=> '<table border="0" cellpadding="4" cellspacing="0">',
+			'table_open'		=> '<table border="1" cellpadding="1" cellspacing="0">',
 
 			'thead_open'		=> '<thead>',
 			'thead_close'		=> '</thead>',
 
 			'heading_row_start'	=> '<tr>',
 			'heading_row_end'	=> '</tr>',
-			'heading_cell_start'	=> '<th>',
-			'heading_cell_end'	=> '</th>',
+			'heading_cell_start'	=> '<td>',
+			'heading_cell_end'	=> '</td>',
 
 			'tbody_open'		=> '<tbody>',
 			'tbody_close'		=> '</tbody>',

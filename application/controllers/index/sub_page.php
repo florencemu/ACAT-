@@ -7,7 +7,7 @@ class Sub_page extends CI_Controller {
 
 
  /*曾经成功调用create_links*/
-  function index() {
+ /* function index() {
     // load pagination class
     $this->load->library('pagination');
     $config['base_url'] = site_url() .'/index/subject';
@@ -25,19 +25,20 @@ class Sub_page extends CI_Controller {
     $data['results'] = $this->sub_all_p->get_inf($config['per_page'],$this->uri->segment(3));
                 
     // load the HTML Table Class
-    $this->load->library('table');
-    $this->table->set_heading('题号', '题型', '难度', '题目','答案','操作');
+   /* $this->load->library('table');
+    $this->table->set_heading('题号', '题型', '难度', '题目','答案','操作');*/
   //              
     // load the view
+   /*  var_dump($data);
     $this->load->view('index/subject.html', $data);
   }
-
+*/
 
 
 
 /*前端无法调用create_links*/
 
-  /*public function index(){
+  public function index(){
         //载入分页类
         $this->load->library('pagination');
         $perPage=4;//每页4条
@@ -61,10 +62,10 @@ class Sub_page extends CI_Controller {
         //加载模型类和视图
         $this->load->model("sub_all_p","sub_all_p");
         $data['sub']=$this->sub_all_p->get_inf();
-        /*var_dump($data['user']);
+       /* var_dump($data['sub']);*/
         $this->load->view('index/subject.html',$data);
     }
-*/
+
 
 
 

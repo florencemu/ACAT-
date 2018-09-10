@@ -7,8 +7,8 @@
         }
 body{
     
-            background-image: url(bg/stu_home.jpg);
-            background-size: 100% 1500px;
+             background-image: url(../../images/student/stu_home.jpg);
+            background-size: 100% 650px;
             background-repeat: no-repeat;
             font-family: 方正姚体;
         }
@@ -17,6 +17,9 @@ body{
 			color: black;
 		}
 
+ .header li {
+            float: left;
+        }
 
  /*#logo {
             width: 1300px;
@@ -28,12 +31,12 @@ body{
         height: 120px;
             display: inline;
         }*/
-	#myself{
+	/*#myself{
 		margin-top: 30px;
 		width: 100%;
 		height: 35px;
 		
-	}
+	}*/
 	   
 
 	   .nav{
@@ -48,7 +51,8 @@ body{
     color:rgb(0,0,0);
     background-color: rgb(255,255,255); 
 } 
-	#userChoose {
+
+     #userChoose {
 
             width: 1000px;
             height: 2px;
@@ -64,11 +68,19 @@ body{
 
         .user_title li {
             float: left;
+            text-decoration:none;
+            display:block; 
             padding-right: 30px;
             text-align: center;
             border-right: 1px solid #ccc;
             margin-left: 130px;
         }
+
+     .user_title li a:hover{
+    background-color:#FFFFFF;
+     
+    } 
+
  #content {
             width: 1000px;
             margin: 50px auto;
@@ -102,11 +114,11 @@ body{
         }
 	.footer{
 
-width: 100%;
-height: 50px;
-left:450px;
-position: fixed;
-bottom: 0;
-}
+    width: 100%;
+    height: 50px;
+    left:450px;
+    position: fixed;
+    bottom: 0;
+    }
     
 }

@@ -7,8 +7,8 @@
 		}
         body{
     
-            background-image: url(../../images/student/stu_home.png);
-            background-size: 100% 500px;
+            background-image: url(../../images/student/stu_home.jpg);
+            background-size: 100% 620px;
             background-repeat: no-repeat;
             font-family: 方正姚体;
         }
@@ -18,7 +18,7 @@
             float: left;
         }
 
-       .logo{
+    /*   .logo{
         position: absolute;
         left: 200px;
         top: 0px;
@@ -30,10 +30,21 @@
             height: 10px;
             display: inline;
         }
-
+*/
     .nav{
     height: 30px;
     width: 100%;
+}
+
+.grade{
+    position: relative;
+    margin-top: 140px;
+    height: 200px;
+    width: 400px;
+    left:300px;
+    opacity:0.7;
+    border:6px rgb(170,138,87) solid ;
+    border-radius: 30px;
 }
 
 .nav input{
@@ -60,12 +71,18 @@
 
         .user_title li {
             float: left;
+            text-decoration:none;
+            display:block; 
             padding-right: 30px;
             text-align: center;
             border-right: 1px solid #ccc;
             margin-left: 130px;
         }
 
+     .user_title li a:hover{
+    background-color:#FFFFFF;
+     
+    } 
   
 
         #content {

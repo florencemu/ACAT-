@@ -9,6 +9,7 @@ class Home extends CI_Controller {
     {
     	$this->load->library('session');
  		$session_inf['inf']=$this->session->userdata('user');
+ 		if(!$session_inf) error("登录信息过期！请重新登录");
 		$this->load->view('student/stu_home.html',$session_inf);
 	}
 
@@ -19,6 +20,7 @@ class Home extends CI_Controller {
 		
 		$this->load->library('session');
  		$session_inf['inf']=$this->session->userdata('user');
+ 		if(!$session_inf) error("登录信息过期！请重新登录");
  		$this->load->view('index/home.html',$session_inf); 
 
 	}

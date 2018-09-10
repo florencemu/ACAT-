@@ -22,7 +22,7 @@ class Login extends CI_Controller {
 			'word'=>$word,
 			'img_path'=>'./captcha/',
 			'img_url'=>base_url() .'/captcha/',
-			'img_width'=>80,
+			'img_width'=>170,
 			'img_height'=>25,
 			'expiration'=>60
 			);
@@ -32,8 +32,11 @@ class Login extends CI_Controller {
 /*存入session*/
 		$this->load->library('session');
 			$this->session->set_userdata('cap',$cap['word']);
+		$a=$this->session->userdata('cap');
 		$data['captcha'] = $cap['image'];
 		$this->load->view('index/login.html',$data);
+		var_dump($a);
+		/*var_dump($cap['word']);*/
 	}
 
 
@@ -48,6 +51,8 @@ class Login extends CI_Controller {
  			$this->load->model('index', 'index');
 //考官登录
 //
+			var_dump($cap);
+		var_dump($captcha);
 
  			if($cap != $captcha)
  				error("验证码输入有误！");

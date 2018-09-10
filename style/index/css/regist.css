@@ -1,5 +1,5 @@
 body{
-	background-image: url(../images/login/bg.jpg);
+	background-image: url(../images/login/000034.jpg);
 	background-size: 100% 800px;
 	background-repeat: no-repeat;
 }
@@ -44,6 +44,6 @@ body{
 	}
 .bt{
 	position: absolute;
-	top: 475px;
+	top: 460px;
 	left: 650px;
 }

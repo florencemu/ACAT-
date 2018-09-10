@@ -7,8 +7,8 @@
 		}
         body{
     
-            background-image: url(../../images/student/stu_home.png);
-            background-size: 100% 500px;
+            background-image: url(../../images/student/stu_home.jpg);
+            background-size: 100% 4000px;
             background-repeat: no-repeat;
             font-family: 方正姚体;
         }
@@ -60,13 +60,19 @@
 
         .user_title li {
             float: left;
+            text-decoration:none;
+            display:block; 
             padding-right: 30px;
             text-align: center;
             border-right: 1px solid #ccc;
             margin-left: 130px;
         }
 
-  
+     .user_title li a:hover{
+    background-color:#FFFFFF;
+     
+    } 
+
 
         #content {
             width: 1000px;

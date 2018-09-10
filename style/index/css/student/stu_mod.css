@@ -4,8 +4,8 @@ input {
     }
 body{
     
-            background-image: url(bg/stu_home.jpg);
-            background-size: 100% 1500px;
+            background-image: url(../../images/student/stu_home.jpg);
+            background-size: 100% 1000px;
             background-repeat: no-repeat;
             font-family: 方正姚体;
         }
@@ -42,7 +42,8 @@ a{
     color:rgb(0,0,0);
     background-color: rgb(255,255,255); 
 } 
-    #userChoose {
+
+     #userChoose {
 
             width: 1000px;
             height: 2px;
@@ -58,11 +59,18 @@ a{
 
         .user_title li {
             float: left;
+            text-decoration:none;
+            display:block; 
             padding-right: 30px;
             text-align: center;
             border-right: 1px solid #ccc;
             margin-left: 130px;
         }
+
+     .user_title li a:hover{
+    background-color:#FFFFFF;
+     
+    } 
 
     #head_title {
         color: white;
@@ -73,7 +81,7 @@ a{
     }
 
     #userChoose {
-        width: 1200px;
+        width: 1000px;
         height: 50px;
         margin: 30px auto;
     }
