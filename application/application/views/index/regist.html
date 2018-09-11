@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>考生注册 - @ACAT</title>
+    <link rel="stylesheet" type="text/css" href="<?php  echo base_url() .'style/index/' ?>css/regist.css">
+</head>
+<body>
+
+
+ <!--<script type="text/javascript">
+    function insertManager() {
+    var password = document.getElementById("password").value;
+    var repassword = document.getElementById("password1").value;
+         if(password!=repassword){
+             window.alert("您输入的新密码与确认密码确认不一致");
+             signupForm.repassword.focus();
+             return false;
+             
+             }
+          return true;
+    }
+</script> -->
+
+
+
+    <div class="logo">
+        <img src="<?php  echo base_url() .'style/index/' ?>images/login/logo.png">
+    </div>
+        <form method="POST" action="<?php echo site_url('index/regist/register') ?>">
+    <div class="nav">
+        <form class="navForm" method="POST">
+            <h2>注&nbsp;&nbsp;册</h2>
+            <label>姓名：</label>
+            <input type="text" name="user_name" placeholder="请输入姓名">
+            <br><br>
+            <label>学号：</label>
+            <input type="text" name="user_id" placeholder="请输入学号">
+            <br><br>
+            <labal>密码：</labal>
+            <input type="password" name="password" placeholder="请输入密码">
+            <br><br>
+            <labal>确认密码：</labal>
+            <input type="password" name="password1" placeholder="请确认密码">
+            <br><br>
+          <br>
+
+            <input type="submit"  value="完成注册">
+        </form>
+    </div>
+	<div class="bt">
+        <input type="button" value="返回" onclick="javascript:history.back();" style="color:grey;font-size: 0.85em;"> 
+    </div>
+
+   
+
+</body>
+</html>

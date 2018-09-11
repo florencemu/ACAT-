@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>学生管理 -@ACAT</title>
+	<link rel="stylesheet" type="text/css" href="<?php  echo base_url() .'style/index' ?>/css/student.css">
+</head>
+<body>
+	<div class="logo">
+        <img src="<?php  echo base_url() .'style/index/' ?>images/home/logo.png">
+    </div>
+    <div class="nav1">
+	     <input type="submit" value="返回上一层" onclick="location.href='<?php echo site_url('index/student') ?>'">
+
+	     <input type="submit" value="返回主页面" onclick="location.href='<?php echo site_url('index/home') ?>'">
+
+	</div>
+	<div class="nav">
+	<form method="post" action="<?php echo site_url('index/student/stu_sel') ?>">
+	组别:
+	<select name="group">
+	  <option value ="0">-</option>
+	  <option value ="1">PHP</option>
+	  <option value ="2">前端</option>
+	  <option value="3">JAVA</option>
+	  <option value="4">PYTHON</option>
+	</select>
+	&nbsp;&nbsp;&nbsp;
+	性别：
+	<select name="sex">
+	  <option value ="0">-</option>
+	  <option value ="1">男</option>
+	  <option value ="2">女</option>
+	</select>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	姓名：<input type="text" name="name" style="width:100px;" >
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input id="btn1" type="submit" value="查找">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	
+	<br><br>
+
+	<table id="tab1" border="1" width="500" cellspacing="0" >
+
+		<thead>
+			<td>学号</td>
+			<td>姓名</td>
+			<td>性别</td>
+			<td>专业班级</td>
+			<td>组别</td>
+			<td>最终成绩</td>
+			
+			<td>修改信息</td>
+			<td>删除信息</td>
+		
+		</thead>
+
+
+		<tbody>
+			<?php  foreach($stu as $item): ?>
+			<tr>
+				<td><?php echo $item['stu_id']  ?></td>
+				<td><?php echo $item['stu_name'] ?></td>
+				<td><?php echo $item['stu_sex'] ?></td>
+				<td><?php echo $item['stu_major'] ?></td>
+				<td><?php echo $item['stu_group'] ?></td>
+				<td><?php echo $item['grade'] ?></td>
+
+				<td><a href="<?php echo site_url('index/student/mod_inf').'?'.'id='.$item['stu_id']; ?>" style="color: #8B636C" >修改</a></td>
+			
+				<td><a href="<?php echo site_url('index/student/stu_del').'?'.'id='.$item['stu_id']; ?>" style="color: #8B636C" >删除</a></td>
+			
+			</tr>
+		<?php endforeach;?>
+
+		</tbody>
+		</form>
+	
+	</table>
+	</div>
+
+</body>
+</html>

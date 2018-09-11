@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>批阅试卷 -@ACAT</title>
+	<link rel="stylesheet" type="text/css" href="<?php  echo base_url() .'style/index' ?>/css/correct.css">
+</head>
+<body>
+	<div class="logo">
+        <img src="<?php  echo base_url() .'style/index/' ?>images/home/logo.png">
+    </div>
+    <div class="nav1">
+	     <input type="submit" value="返回上一层" onclick="location.href='<?php echo site_url('index/test/test_add_html') ?>'">
+
+	     <input type="submit" value="返回主页面" onclick="location.href='<?php echo site_url('index/home') ?>'">
+
+	</div>
+	<div class="nav">
+		<form method="POST" action="<?php echo site_url('index/category/cate_mod') ?>">
+	<!--		<label>姓名：<?php $this->load->library('session');
+                                $inf=$this->session->userdata('name');
+                                echo $inf; ?></label>&nbsp;&nbsp;
+			<label>学号：<?php $this->load->library('session');
+                                $inf=$this->session->userdata('id');
+                                echo $inf; ?></label>&nbsp;&nbsp;
+			<label>专业：<?php $this->load->library('session');
+                                $inf=$this->session->userdata('major');
+                                echo $inf; ?></label>&nbsp;&nbsp;
+			<label>方向：<?php $this->load->library('session');
+                                $inf=$this->session->userdata('group');
+                                echo $inf; ?></label>&nbsp;&nbsp;
+		
+			
+			<br><br>
+
+-->
+		<div class ="content">
+			 <!--<?php  foreach($test as $paper): ?>
+			 	 &nbsp;&nbsp;&nbsp;&nbsp;
+			 	 题目：· <?php echo $paper[0][0]['sub_que']?>
+			 	<!-- <br><br>
+			 	 &nbsp;&nbsp;&nbsp;&nbsp;
+			<!-- 	 考生答案： <?php echo $paper[0][0]['sub_ans'][]?> 
+			 	 <br><br>
+        		参考答案： <?php echo $paper[0][0]['sub_ans']?>
+		
+         	 <br><br>
+          <?php endforeach;?> -->
+          
+
+		</div>
+
+			<br><br><br><br><br><br><br><br><br>
+
+			<div class="footer">
+		
+			<input type="button" value="重新批阅" name="" >
+			<br><br>
+			<input type="submit" value="批阅下一卷" name="" >
+			</div>
+		</form>
+	</div>
+	<br><br><br><br><br><br><br><br><br>
+	<br><br>
+</body>
+</html>

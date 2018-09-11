@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>修改试题 -@ACAT</title>
+	<link rel="stylesheet" type="text/css" href="<?php  echo base_url() .'style/index' ?>/css/sub-mod.css">
+</head>
+<body>
+<div class="logo">
+        <img src="<?php  echo base_url() .'style/index/' ?>images/home/logo.png">
+    </div>
+    <div class="nav1">
+	     <input type="submit" value="返回上一层" onclick="location.href='<?php echo site_url('index/subject') ?>'">
+
+	     <input type="submit" value="返回主页面" onclick="location.href='<?php echo site_url('index/home') ?>'">
+
+	</div> 
+<form method="POST" action="<?php echo site_url('index/subject/sub_mod') ?>">
+		<div class="nav">
+
+
+			<label>&nbsp;&nbsp;&nbsp;> 题目:&nbsp;&nbsp;&nbsp;<tr><td><textarea name="question"cols="49" rows="1"><?php $this->load->library('session');
+                                $inf=$this->session->userdata('que');
+                                echo $inf; ?></textarea></td></tr>
+			<br><br>
+			<label>&nbsp;&nbsp;&nbsp;> 答案:&nbsp;&nbsp;&nbsp;<tr><td><textarea name="answer"cols="49" rows="10"><?php $this->load->library('session');
+                                $inf=$this->session->userdata('ans');
+                                echo $inf; ?></textarea></td></tr>
+			<br><br>
+			<label>&nbsp;&nbsp;&nbsp;> 类型:&nbsp;&nbsp;&nbsp;
+			<select name = "sub_type">
+			<option value ="0">-</option>
+			<option value ="1">基础题</option>
+	  		<option value ="2">Php</option>
+	  		<option value ="3">前端</option>
+	  		<option value="4">Java</option>
+	  		<option value="5">Python</option>
+			</select>
+			<br><br>
+			<label>&nbsp;&nbsp;&nbsp;> 难度:&nbsp;&nbsp;&nbsp;
+			<select name = "sub_diff">
+			<option value ="0">-</option>
+			<option value ="1">1</option>
+	  		<option value ="2">2</option>
+	  		<option value ="3">3</option>
+	  		<option value="4">4</option>
+	  		<option value="5">5</option>
+			</select>
+			<br><br>
+		
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="submit" value="确认修改" name="" >
+		</form>
+	</div>
+	
+</form>
+</body>
+</html>
