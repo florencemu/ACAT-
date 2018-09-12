@@ -1,0 +1,40 @@
+body{
+	background-image: url(../images/home/home.png);
+	background-size: 100% 800px;
+	background-repeat: repeat;
+}
+.logo{
+		position: absolute;
+		left: 565px;
+		top: 10px;
+		width: 100px;
+		height: 30px;
+	}
+	.logo img{
+		width: 100px;
+		height: 100px;
+	}
+
+.nav{
+	position: absolute;
+	top: 150px;
+	font-size:12px;
+	left: 350px;
+}
+.nav1{
+	height: 30px;
+	width: 100%;
+}
+
+.nav1 input{
+	float: right;
+	font-family: 方正姚体;
+	font-size: 1em;
+	color:rgb(0,0,0);
+	background-color: rgb(255,255,255); 
+} 
+.bt{
+	position: absolute;
+	top: 408px;
+	left: 790px;
+}

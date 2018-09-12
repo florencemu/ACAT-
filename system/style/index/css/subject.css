@@ -1,0 +1,48 @@
+body{
+	background-image: url(../images/home/home.png);
+	background-size: 100%,100%;
+	background-attachment:scroll;
+	
+}
+.logo{
+		position: absolute;
+		left: 565px;
+		top: 10px;
+		width: 100px;
+		height: 30px;
+	}
+	.logo img{
+		width: 100px;
+		height: 100px;
+	}
+.nav{
+	position: absolute;
+	font-size:12px;
+	top: 120px;
+	left: 100px;
+	
+}
+
+.nav1{
+	height: 30px;
+	width: 100%;
+	
+}
+
+.nav1 input{
+	float: right;
+	font-family: 方正姚体;
+	font-size: 1em;
+	color:rgb(0,0,0);
+	background-color: rgb(255,255,255); 
+} 
+.bt{
+	position: absolute;
+	top: 400px;
+	left: 800px;
+}
+.nav link{
+	position: absolute;
+	bottom: 0;
+	right:500px;
+}

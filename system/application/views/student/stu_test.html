@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>学生答题 -@ACAT</title>
+	<meta charset="utf-8">
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="<?php  echo base_url() .'style/index/' ?>css/student/stu_test.css">
+
+</head>
+<body>
+ <div class="nav">
+        <input type="submit" value="注销" onclick="location.href='<?php echo site_url('index') ?>'"">    
+    </div>
+
+
+
+    <div id="userChoose">
+        <ul class="user_title">
+            <li>
+                <a href="<?php  echo  site_url() .'/index/home/stu_home'  ?>">返回主页</a>
+            </li>
+            <li>
+                <a href="<?php  echo  site_url() .'/index/student_grade'  ?>">查看成绩</a>
+            </li>
+            <li>
+                <a href="<?php  echo  site_url() .'/index/student_info'  ?>">个人信息</a>
+            </li>
+            <li>
+                <a href="">关于我们</a>
+            </li>
+        </ul>
+    </div>
+	
+<form method="POST" action="<?php echo site_url('index/student_test/stu_ans') ?>">
+	 <div id="content">
+
+	  <div class="direction1">    
+         
+		<p>学号为<?php $this->load->library('session');$inf=$this->session->userdata('user');echo $inf ?> 的同学，你好！
+        以下为你抽到的试题，请仔细审题，认真作答！</p>
+
+        </div>
+
+
+        <div class="direction">  
+        <br><br>
+       <?php  foreach($test as $paper): ?>
+          · <?php echo $paper[0]['sub_que']?>
+          <br><br>你的答案: <textarea name="answer"></textarea><br><br><br><br><br>
+          <?php endforeach;?> 
+
+         
+
+        </div>
+    </div>
+	<div class="footer">
+ 
+      <input type="submit" value="确认交卷">
+     
+    </div>
+</form>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>题库管理 -@ACAT</title>
+	<link rel="stylesheet" type="text/css" href="<?php  echo base_url() .'style/index' ?>/css/subject.css">
+</head>
+<body>
+		<div class="logo">
+        <img src="<?php  echo base_url() .'style/index/' ?>images/home/logo.png">
+    </div>
+    <div class="nav1">
+	     <input type="submit" value="返回上一层" onclick="location.href='<?php echo site_url('index/sub_page') ?>'">
+
+	     <input type="submit" value="返回主页面" onclick="location.href='<?php echo site_url('index/home') ?>'">
+
+	</div> 
+
+
+	<div class="nav">
+	 <form method="GET"  action="<?php echo site_url('index/sub_sel_page/page') ?>"> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	类型:
+	<select name="type">
+	<option value ="0">-</option>
+	<option value ="1">基础题</option>
+	  <option value ="2">PHP</option>
+	  <option value ="3">前端</option>
+	  <option value="4">Java</option>
+	  <option value="5">Python</option>
+	</select>
+	&nbsp;&nbsp;
+	难度:
+	<select name="diff">
+	<option value ="0">-</option>
+	  <option value ="1">1</option>
+	  <option value ="2">2</option>
+	  <option value="3">3</option>
+	  <option value="4">4</option>
+	  <option value="5">5</option>
+	</select>
+
+	&nbsp;&nbsp;&nbsp;
+	<input id="btn1" type="submit" value="查找">
+	<input type="button" value="添加新试题" onclick="location.href='<?php echo site_url('index/subject/sub_add_html') ?>'">
+	<br><br>
+	
+	<table id="tab1" border="1" width="1000" cellspacing="0" >
+		<thead>
+			<td>题号</td>
+			<td>类型</td>
+			<td>题目</td>
+			<td>答案</td>
+			<td>难度</td>
+			<td>编辑题目</td>
+			<td>删除题目</td>
+		</thead>
+
+		<tbody>
+		  <?php foreach($sub as $v):?>
+        <tr>
+            <td><?php echo $v['sub_id'] ?></td>
+				<td><?php echo $v['sub_type'] ?></td>
+				<td><?php echo $que=str_replace("\n","<br>",$v['sub_que']); ?></td>
+				<td><?php echo $que=str_replace("\n","<br>",$v['sub_ans']); ?></td>
+				<td><?php echo $v['sub_diff'] ?></td>
+				<td><a href="<?php echo site_url('index/subject/mod_que').'?'.'id='.$v['sub_id']; ?>" style="color: #8B636C" >编辑</a></td>
+			
+				<td><a href="<?php echo site_url('index/subject/sub_del').'?'.'id='.$v['sub_id']; ?>" style="color: #8B636C" >删除</a></td>
+        </tr>
+        <?php endforeach?>
+		</tbody>
+
+    </table>
+	</form>
+
+		<div class="link">
+		<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 		  <?php echo $this->pagination->create_links(); ?>
+		  </div> 
+	</div>
+
+	
+</body>
+</html>

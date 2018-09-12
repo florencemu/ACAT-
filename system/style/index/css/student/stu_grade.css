@@ -1,0 +1,112 @@
+    li{
+        	list-style: none;
+        }
+		a{
+			text-decoration: none;
+			color: black;
+		}
+        body{
+    
+            background-image: url(../../images/student/stu_home.jpg);
+            background-size: 100% 620px;
+            background-repeat: no-repeat;
+            font-family: 方正姚体;
+        }
+
+
+       .header li {
+            float: left;
+        }
+
+    /*   .logo{
+        position: absolute;
+        left: 200px;
+        top: 0px;
+        width: 1px;
+        height: 1px;
+    }
+        #logoImg {
+            width: 3px;
+            height: 10px;
+            display: inline;
+        }
+*/
+    .nav{
+    height: 30px;
+    width: 100%;
+}
+
+.grade{
+    position: relative;
+    margin-top: 140px;
+    height: 200px;
+    width: 400px;
+    left:300px;
+    opacity:0.7;
+    border:6px rgb(170,138,87) solid ;
+    border-radius: 30px;
+}
+
+.nav input{
+    float: right;
+    font-family: 方正姚体;
+    font-size: 1em;
+    color:rgb(0,0,0);
+    background-color: rgb(255,255,255); 
+} 
+
+     #userChoose {
+
+            width: 1000px;
+            height: 2px;
+            margin: 3px auto;
+           
+        }
+
+        .user_title {
+            list-style: none;
+            line-height: 20px;
+      
+        }
+
+        .user_title li {
+            float: left;
+            text-decoration:none;
+            display:block; 
+            padding-right: 30px;
+            text-align: center;
+            border-right: 1px solid #ccc;
+            margin-left: 130px;
+        }
+
+     .user_title li a:hover{
+    background-color:#FFFFFF;
+     
+    } 
+  
+
+        #content {
+            width: 1000px;
+            margin: 50px auto;
+           
+        }
+
+        #content h3 {
+            font-weight: normal;
+            margin-left: 20px;
+        }
+
+        .direction {
+            width: 1000px;
+            height: 300px;
+            border-top: 1px solid #ccc;
+            margin: 5px auto;
+        }
+
+      
+        .direction p{
+            text-indent: 2em;
+            margin: 50px 0 0 50px;
+            padding-left: 270px;
+            padding-top: 80px;
+        }

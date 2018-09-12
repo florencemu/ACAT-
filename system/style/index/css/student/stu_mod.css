@@ -1,0 +1,176 @@
+input {
+        margin: 0%;
+        padding: 0%;
+    }
+body{
+    
+            background-image: url(../../images/student/stu_home.jpg);
+            background-size: 100% 1000px;
+            background-repeat: no-repeat;
+            font-family: 方正姚体;
+        }
+
+
+a{
+            text-decoration: none;
+            color: black;
+        }
+    .header li {
+        float: left;
+    }
+
+/*   #logo {
+            width: 1300px;
+            height: 120px;
+        }
+
+        #logoImg {
+            width: 500px;
+        height: 120px;
+            display: inline;
+        }
+*/
+ .nav{
+    height: 30px;
+    width: 100%;
+}
+
+.nav input{
+    float: right;
+    font-family: 方正姚体;
+    font-size: 1em;
+    color:rgb(0,0,0);
+    background-color: rgb(255,255,255); 
+} 
+
+     #userChoose {
+
+            width: 1000px;
+            height: 2px;
+            margin: 3px auto;
+           
+        }
+
+        .user_title {
+            list-style: none;
+            line-height: 20px;
+      
+        }
+
+        .user_title li {
+            float: left;
+            text-decoration:none;
+            display:block; 
+            padding-right: 30px;
+            text-align: center;
+            border-right: 1px solid #ccc;
+            margin-left: 130px;
+        }
+
+     .user_title li a:hover{
+    background-color:#FFFFFF;
+     
+    } 
+
+    #head_title {
+        color: white;
+        display: inline-block;
+        margin-bottom: 10px;
+        line-height: 50px;
+        margin-left: 80px;
+    }
+
+    #userChoose {
+        width: 1000px;
+        height: 50px;
+        margin: 30px auto;
+    }
+    .head {
+            width: 800px;
+            height: 60px;
+            margin: 50px auto;
+            border: 1px #ccc solid;
+            text-align: center;
+        }
+
+        h2 {
+
+            line-height: 60px
+    
+        }
+
+        .content {
+            width: 900px;
+            margin: 30px auto;
+            border: 1px solid #ccc;
+        }
+
+        .sub_content {
+            padding: 10px;
+            width: 800px;
+            margin: 1px auto;
+        }
+
+        .sub_content label {
+            display: inline-block;
+            width: 100px;
+            height: 32px;
+            line-height: 32px;
+            color: #666;
+            text-align: right;
+        }
+
+        .sub_content .userName {
+            width: 200px;
+            height: 25px;
+            line-height: 25px;
+            border: 1px solid #CCC;
+        }
+
+        .choose .default,
+        .sub_content .default {
+            width: 200px;
+            height: 32px;
+            line-height: 32px;
+            color: #999;
+            font-size: 13px;
+        }
+
+        .choose {
+            padding: 10px;
+            width: 800px;
+            margin: 1px auto;
+        }
+
+        .choose label {
+            display: inline-block;
+            width: 100px;
+            height: 32px;
+            line-height: 32px;
+            color: #666;
+            text-align: right;
+        }
+
+        .choose .specil {
+            display: inline-block;
+            width: 50px;
+            height: 32px;
+            line-height: 32px;
+            color: #666;
+            text-align: left
+        }
+        .divBtn {
+            margin-top: 20px;
+            margin-left: 100px;
+            width: 100px;
+            height: 32px;
+            line-height: 32px;
+            background-color: #F93;
+            margin-bottom: 10px;
+            color: #ffffff;
+            font-weight: bold;
+            border: none;
+        }
+        .s_title{
+            margin:5px 20px;
+        }
