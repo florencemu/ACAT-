@@ -48,7 +48,7 @@ class Paper extends CI_Model {
     	return $result;
 	}
 	public function inf_d(){
-    	$res="SELECT sub_id,sub_que,sub_type,sub_diff  FROM `subject` WHERE sub_type='php'OR sub_type='Java' OR sub_type='前端' OR sub_type='Python' ";
+    	$res="SELECT sub_id,sub_que,sub_type,sub_diff  FROM `subject` WHERE sub_type='PHP'OR sub_type='JAVA' OR sub_type='前端' OR sub_type='Python' ";
     	$result = $this->db->query($res)->result_array();
     	return $result;
 	}

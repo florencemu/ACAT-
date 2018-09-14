@@ -20,11 +20,13 @@ body{
 	font-size:12px;
 	top: 120px;
 	left: 100px;
+	
 }
 
 .nav1{
 	height: 30px;
 	width: 100%;
+	
 }
 
 .nav1 input{
@@ -38,4 +40,30 @@ body{
 	position: absolute;
 	top: 400px;
 	left: 800px;
+}
+.style {
+    margin: 0 auto;
+    width: 350px;
+    height: 50px;
+}
+
+#pagelist ul li 
+{
+ float:left;
+ border:2px solid #C1CDC1; 
+ height:20px; 
+ font-weight:bold; 
+ border-radius:10px;
+ line-height:20px; 
+ margin:10px 2px; 
+ list-style:none;
+}
+
+#pagelist ul li a,
+.current 
+{ background:#C1CDC1; 
+	display:block; 
+	padding:0px 6px; 
+	font-weight:bold;
+	border-radius:10px;
 }

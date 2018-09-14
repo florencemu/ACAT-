@@ -35,11 +35,12 @@ class Students extends CI_Model {
 
 /*打印学生信息*/
 	public function sel(){
-		$res="SELECT stu_id,stu_name,stu_sex,stu_major,stu_group,grade FROM `student_info`";
+		/*$res="SELECT student_info.stu_id,student_info.stu_name,student_info.stu_sex,student_info.stu_major,student_info.stu_group,student_paper.grade FROM `student_info`,`student_paper` WHERE student_info.stu_id = student_paper.stu_id";*/
+		$data = $this->db->select('stu_id,stu_name,stu_sex,stu_major,stu_group,grade')->from('student_info')->join('student_paper','stu_id = stu_id ')->get()->result_array();
 		//var_dump($res3);die;
-		$result = $this->db->query($res)->result_array();
+		/*$result = $this->db->query($res)->get()->result_array();*/
 		/*var_dump($result3);die;*/
-    	return $result;
+    	return $data;
 	}
 /*查找学生*/
 	public function seek_out($name){

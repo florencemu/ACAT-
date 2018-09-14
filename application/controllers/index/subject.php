@@ -48,8 +48,8 @@ class Subject extends CI_Controller {
 
 	/*查找试题*/
 	public function sub_sel(){
-		$type = $this->input->post('type');
-		$diff = $this->input->post('diff');
+		$type = $this->input->get('type');
+		$diff = $this->input->get('diff');
 		$this->load->model('subjects','subjects');
 		if(!($type)&&!($diff)) error("请选择你要查询的信息！");
 
@@ -103,7 +103,6 @@ class Subject extends CI_Controller {
 		$this->load->library('session');
         $id=$this->session->userdata('id');
 		$this->load->model('subjects','subjects');
-		$s_id = $this->input->post('id');
 		$que  = $this->input->post('question');
 		$ans = $this->input->post('answer');
 		$diff  = $this->input->post('sub_diff');
@@ -117,9 +116,9 @@ class Subject extends CI_Controller {
 					case '5':$type= 'Python';break;
 					default:error("请选择试题类型！");
 			    }
-		$res=$this->subjects->sub_mod($id,$s_id,$que,$ans,$diff,$type);
+		$res=$this->subjects->sub_mod($id,$que,$ans,$diff,$type);
 		if($res) 
-		success('index/subject','修改成功');
+		success('index/sub_page/page','修改成功');
 		else error("修改失败！");
 	}
 
