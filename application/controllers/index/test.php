@@ -71,8 +71,8 @@ class Test extends CI_Controller {
 	}
 
 		/*查找试卷*/
-	public function test_sel(){
-		$id=$this->input->post('test_id');
+	public function seek_out_type_num(){
+		$type=$this->input->post('type');
 		$this->load->model('paper','paper');
 		$data['test']= $this->paper->test_sel($id);
 		$this->load->view('index/test.html',$data);

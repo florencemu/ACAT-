@@ -18,6 +18,8 @@
 
 
 	<div class="nav">
+		
+
 	 <form method="GET"  action="<?php echo site_url('index/sub_sel_page/page') ?>"> 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	类型:
@@ -44,16 +46,18 @@
 	<input id="btn1" type="submit" value="查找">
 	<input type="button" value="添加新试题" onclick="location.href='<?php echo site_url('index/subject/sub_add_html') ?>'">
 	<br><br>
-	
-	<table id="tab1" border="1" width="1000" cellspacing="0" >
+	<div class ="table">
+	<table id="tab1" border="0" width="1000" height = "400" cellspacing="0" >
 		<thead>
-			<td>题号</td>
-			<td>类型</td>
-			<td>题目</td>
-			<td>答案</td>
-			<td>难度</td>
-			<td>编辑题目</td>
-			<td>删除题目</td>
+		<tr>
+			<th>题号</th>
+			<th>类型</th>
+			<th>题目</th>
+			<th>答案</th>
+			<th>难度</th>
+			<th>编辑题目</th>
+			<th>删除题目</th>
+		</tr>	
 		</thead>
 
 		<tbody>
@@ -70,9 +74,10 @@
         </tr>
         <?php endforeach?>
 		</tbody>
-
-    </table>
+		</table>
+</div>
 	</form>
+	
 <div class = "style">
 		<div class = "list">
 		  <div id="pagelist">

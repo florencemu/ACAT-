@@ -7,7 +7,9 @@ class Subjects extends CI_Model {
 /*显示试题信息*/
 	public function sub_inf(){
     	 $data = $this->db->select('sub_id,sub_type,sub_que,sub_ans,sub_diff')->from('subject')->get()->result_array();
+     
         return $data;
+
 	}
 
 	

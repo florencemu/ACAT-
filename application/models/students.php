@@ -34,35 +34,81 @@ class Students extends CI_Model {
 
 
 /*打印学生信息*/
-	public function sel(){
-		/*$res="SELECT student_info.stu_id,student_info.stu_name,student_info.stu_sex,student_info.stu_major,student_info.stu_group,student_paper.grade FROM `student_info`,`student_paper` WHERE student_info.stu_id = student_paper.stu_id";*/
-		$data = $this->db->select('stu_id,stu_name,stu_sex,stu_major,stu_group,grade')->from('student_info')->join('student_paper','stu_id = stu_id ')->get()->result_array();
-		//var_dump($res3);die;
-		/*$result = $this->db->query($res)->get()->result_array();*/
-		/*var_dump($result3);die;*/
-    	return $data;
+	public function sel($per_page,$offset){
+		$res="SELECT student_info.stu_id,student_info.stu_name,student_info.stu_sex,student_info.stu_major,student_info.stu_group,student_paper.grade FROM `student_info`,`student_paper` WHERE student_info.stu_id = student_paper.stu_id LIMIT $offset,$per_page";
+		$result = $this->db->query($res)->result_array();
+    	return $result;
 	}
+
 /*查找学生*/
-	public function seek_out($name){
-		$res="SELECT stu_id,stu_name,stu_sex,stu_major,stu_group,grade FROM `student_info`WHERE stu_name='$name'";
+
+	public function seek_out_name_num($name){
+		$res="SELECT COUNT(stu_id) FROM `student_info` WHERE stu_name = '$name'";
+		$result = $this->db->query($res)->result_array();
+		/*var_dump($result);die;*/
+    	return $result[0]['COUNT(stu_id)'];
+	}
+	public function seek_out($name,$per_page,$offset){
+		$res="SELECT student_info.stu_id,student_info.stu_name,student_info.stu_sex,student_info.stu_major,student_info.stu_group,student_paper.grade FROM `student_info`,`student_paper` WHERE student_info.stu_name='$name ' AND student_info.stu_id = student_paper.stu_id LIMIT $offset,$per_page";
+		$result = $this->db->query($res)->result_array();
+		/*var_dump($result);*/
+    	return $result;
+	}
+
+
+
+
+
+
+
+
+		public function seek_out_group_num($group){
+		$res="SELECT COUNT(stu_id) FROM `student_info` WHERE stu_group = '$group'";
+		$result = $this->db->query($res)->result_array();
+    	return $result[0]['COUNT(stu_id)'];
+	}
+		public function seek_out_group($group,$per_page,$offset){
+		$res="SELECT student_info.stu_id,student_info.stu_name,student_info.stu_sex,student_info.stu_major,student_info.stu_group,student_paper.grade FROM `student_info`,`student_paper` WHERE student_info.stu_id = student_paper.stu_id AND student_info.stu_group= '$group'LIMIT $offset,$per_page";
 		$result = $this->db->query($res)->result_array();
     	return $result;
 	}
-		public function seek_out_group($group){
-		$res="SELECT stu_id,stu_name,stu_sex,stu_major,stu_group,grade FROM `student_info`WHERE stu_group= '$group'";
+	
+
+
+
+		public function seek_out_sex_num($sex){
+		$res="SELECT COUNT(stu_id) FROM `student_info` WHERE stu_sex = '$sex'";
+		$result = $this->db->query($res)->result_array();
+    	return $result[0]['COUNT(stu_id)'];
+	}
+
+
+		public function seek_out_sex($sex,$perPage,$offset){
+		$res="SELECT student_info.stu_id,student_info.stu_name,student_info.stu_sex,student_info.stu_major,student_info.stu_group,student_paper.grade FROM `student_info`,`student_paper` WHERE  student_info.stu_id = student_paper.stu_id AND student_info.stu_sex = '$sex'LIMIT $offset,$perPage";
 		$result = $this->db->query($res)->result_array();
     	return $result;
 	}
-		public function seek_out_sex($sex){
-		$res="SELECT stu_id,stu_name,stu_sex,stu_major,stu_group,grade FROM `student_info`WHERE stu_sex = '$sex'";
+
+
+
+
+		public function seek_out_num($group,$sex){
+		$res="SELECT COUNT(stu_id) FROM `student_info` WHERE stu_group = '$group' AND stu_sex = '$sex'";
 		$result = $this->db->query($res)->result_array();
-    	return $result;
+		/*var_dump($result);*/
+    	return $result[0]['COUNT(stu_id)'];
 	}
-		public function seek_out_all($group,$sex){
-		$res="SELECT stu_id,stu_name,stu_sex,stu_major,stu_group,grade FROM `student_info`WHERE stu_group = '$group'AND stu_sex ='$sex'";
+		public function seek_out_all($group,$sex,$per_page,$offset){
+		$res="SELECT student_info.stu_id,student_info.stu_name,student_info.stu_sex,student_info.stu_major,student_info.stu_group,student_paper.grade FROM `student_info`,`student_paper` WHERE student_info.stu_group = '$group'AND student_info.stu_sex ='$sex'AND student_info.stu_id = student_paper.stu_id LIMIT $offset,$per_page";
 		$result = $this->db->query($res)->result_array();
+		/*var_dump($result);*/
     	return $result;
     }
+    	
+
+
+
+
     	public function seek_out_id($id){
 		$res="SELECT stu_id,stu_name,stu_major FROM `student_info`WHERE stu_id='$id'";
 		$result = $this->db->query($res)->result_array();

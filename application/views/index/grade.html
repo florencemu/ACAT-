@@ -11,15 +11,15 @@
         <img src="<?php  echo base_url() .'style/index/' ?>images/home/logo.png">
     </div>
      <div class="nav1">
-	     <input type="submit" value="返回上一层" onclick="location.href='<?php echo site_url('index/grade') ?>'">
+	     <input type="submit" value="返回上一层" onclick="location.href='<?php echo site_url('index/gra_page/page') ?>'">
 
 	     <input type="submit" value="返回主页面" onclick="location.href='<?php echo site_url('index/home') ?>'">
 
 	</div> 
 	<div class="nav">
-	<form method="post" action="<?php echo site_url('index/grade/sel') ?>">
+	<form method="get" action="<?php echo site_url('index/gra_sel_page/page') ?>">
 	组别:
-	<select name="type">
+	<select name="group">
 	<option value ="0">-</option>
 	  <option value ="1">PHP</option>
 	  <option value ="2">前端</option>
@@ -34,25 +34,28 @@
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<input id="btn1" type="submit" value="查找">
 	<br><br>
-	<table id="tab1" border="1" width="500" cellspacing="0" >
+	<div class = "table ">
+	<table id="tab1" border="0" width="500" cellspacing="0" >
 	<thead>
-			<td>名次</td>
-			<td>学号</td>
-			<td>姓名</td>
-			<td>专业班级</td>
-			<td>方向</td>
-			<td>基础题得分</td>
-			<td>方向题得分</td>
-			<td>总分</td>
-			<td>批阅者</td>
+	<tr>
+			<th>学号</th>
+			<th>姓名</th>
+			<th>性别</th>
+			<th>专业班级</th>
+			<th>方向</th>
+			<th>基础题得分</th>
+			<th>方向题得分</th>
+			<th>总分</th>
+			<th>批阅者</th>
+			</tr>
 		</thead>
-		
-
+		<tbody>
 		 		<?php  foreach($grades as $item): ?>
 		 	<tr>
-		 		<td></td>
+		 		
 				<td><?php echo $item['stu_id'] ?></td>
 				<td><?php echo $item['stu_name'] ?></td>
+				<td><?php echo $item['stu_sex'] ?></td>
 				<td><?php echo $item['stu_major'] ?></td>
 				<td><?php echo $item['stu_group'] ?></td>
 				<td><?php echo $item['base_grade'] ?></td>
@@ -62,8 +65,24 @@
 			</tr>
 		<?php endforeach;?>
 		</tbody>
+		</table>
+		</div>
 		</form>
-	</table>
+	
+
+
+
+
+		<div class = "style">
+		<div class = "list">
+		  <div id="pagelist">
+				<ul>
+				<?php echo $this->pagination->create_links();?>
+			</ul>
+		  </div>
+		 </div>
+		  
+	</div>
 	</div>
 	
 

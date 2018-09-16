@@ -9,10 +9,11 @@ class Stu_page extends CI_Controller {
   public function page(){
         //载入分页类
         $this->load->library('pagination');
-        $perPage=5;//每页4条
+        $perPage=10;//每页4条
         //配置项设置
-        $config['base_url']=site_url() .'/index/sub_page/page';
+        $config['base_url']=site_url() .'/index/stu_page/page';
         $config['total_rows']=$this->db->count_all_results('student_info');
+        /*var_dump($config['total_rows']);*/
         $config['per_page']=$perPage;
         $config['uri_segment']=4;//偏移量，默认是3，如果在控制器有二级目录，根据偏移量层级而定
         //自定义配置
@@ -38,16 +39,20 @@ class Stu_page extends CI_Controller {
     
         //传入配置项，并生成链接
         $this->pagination->initialize($config);
-        $data['links']=$this->pagination->create_links();
-        /*var_dump($data['links']);*/
+        $res['links']=$this->pagination->create_links();
         //设置偏移量
-        $offset=$this->uri->segment(4);
+        $page = $offset=$this->uri->segment(4);
+        if(empty($page)) 
+        { $page=1; $offset = 0; /*var_dump($offset);*/}   //第一页 
+        else    $offset = ($page-1)*10;//4是显示条数
         /*var_dump($offset);*/
-        $this->db->limit($perPage,$offset);
+        /*$this->db->limit($perPage,$offset);*/
         //加载模型类和视图
+      /*  if(empty($offset)) $offset = 0;*/
+        /* var_dump($offset);   */
         $this->load->model("students","students");
-        $data['stu']=$this->students->sel();
-       /* var_dump($data['sub']);*/
+        $data['stu']=$this->students->sel($perPage,$offset);
+      
         $this->load->view('index/student.html',$data);
     }
 

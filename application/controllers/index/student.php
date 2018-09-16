@@ -103,7 +103,7 @@ class Student extends CI_Controller {
 			}
 		$res=$this->students->stu_mod($id,$s_id,$name,$major,$sex,$group);
 		if($res) 
-		success('index/student','修改成功');
+		success('index/stu_page/page','修改成功');
 		else error("修改失败！");
 	}
 

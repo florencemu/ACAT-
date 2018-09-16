@@ -16,7 +16,7 @@
 
 	</div> 
 	<div class="nav">
-	<form method="POST" action="<?php echo site_url('index/test/test_add_sel') ?>">
+	<form method="get" action="<?php echo site_url('index/test_sel_page/b_sel') ?>">
 		选择难度:
 		<select name="diff">
 			<option value ="0">-</option>
@@ -29,13 +29,17 @@
 				<input id="btn1" type="submit" value="查找">
 	</form>
 		<br><br>
-	<form method="POST" action="<?php echo site_url('index/subject/test_add_b') ?>">
-		<table id="tab1" border="1" width="500" cellspacing="0">
+	<form method="get" action="<?php echo site_url('index/test_sel_page/sel_b') ?>">
+
+	<div class = "table">
+		<table id="tab1" border="0" width="500" cellspacing="0">
 		<thead>
-			<td>试题号</td>
-			<td>题目</td>
-			<td>难度</td>
-			<td>选择</td>
+		<tr>
+			<th>试题号</th>
+			<th>题目</th>
+			<th>难度</th>
+			<th>选择</th>
+			</tr>
 		</thead>
 			<tbody>
 			
@@ -49,9 +53,22 @@
 			<?php endforeach;?>
 		</tbody>
 		</table>
+		</div>
 	</form>
 		<br>
 			<input type="submit" value="确认添加" name="" >
+
+
+<div class = "style">
+		<div class = "list">
+		  <div id="pagelist">
+				<ul>
+				<?php echo $this->pagination->create_links();?>
+			</ul>
+		  </div>
+		 </div>
+		  
+	</div>
 		</div>
 	</div>
 

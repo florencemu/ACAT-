@@ -10,13 +10,13 @@
         <img src="<?php  echo base_url() .'style/index/' ?>images/home/logo.png">
     </div>
     <div class="nav1">
-	     <input type="submit" value="返回上一层" onclick="location.href='<?php echo site_url('index/student') ?>'">
+	     <input type="submit" value="返回上一层" onclick="location.href='<?php echo site_url('index/stu_page/page') ?>'">
 
 	     <input type="submit" value="返回主页面" onclick="location.href='<?php echo site_url('index/home') ?>'">
 
 	</div>
 	<div class="nav">
-	<form method="post" action="<?php echo site_url('index/student/stu_sel') ?>">
+	<form method="get" action="<?php echo site_url('index/stu_sel_page/page') ?>">
 	组别:
 	<select name="group">
 	  <option value ="0">-</option>
@@ -34,25 +34,26 @@
 	</select>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	姓名：<input type="text" name="name" style="width:100px;" >
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<input id="btn1" type="submit" value="查找">
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	
 	<br><br>
-
-	<table id="tab1" border="1" width="500" cellspacing="0" >
+<div class = "table">
+	<table id="tab1" border="0" width="500" cellspacing="0" >
 
 		<thead>
-			<td>学号</td>
-			<td>姓名</td>
-			<td>性别</td>
-			<td>专业班级</td>
-			<td>组别</td>
-			<td>最终成绩</td>
+		<tr>
+			<th>学号</th>
+			<th>姓名</th>
+			<th>性别</th>
+			<th>专业班级</th>
+			<th>组别</th>
+			<th>最终成绩</th>
 			
-			<td>修改信息</td>
-			<td>删除信息</td>
-		
+			<th>修改信息</th>
+			<th>删除信息</th>
+		</tr>
 		</thead>
 
 
@@ -74,11 +75,11 @@
 		<?php endforeach;?>
 
 		</tbody>
+	</table>	
 		</form>
-	
-	</table>
-	</div>
-<div class = "style">
+	</div>	
+
+		<div class = "style">
 		<div class = "list">
 		  <div id="pagelist">
 				<ul>
@@ -88,5 +89,7 @@
 		 </div>
 		  
 	</div>
+	</div>
+
 </body>
 </html>

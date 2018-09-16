@@ -26,8 +26,53 @@ body{
 .nav1{
 	height: 30px;
 	width: 100%;
+
 	
 }
+
+/*.nav2{
+	opacity: 0.8;
+	text-align: center;
+	display: flex; 
+	justify-content: center;
+	flex-direction: column;
+	/*font-family: 方正姚体;*/
+	/*font-size: 1.5em;*/
+	/*color: black;
+	background-color:rgb(175,215,213);
+}*/
+
+
+        .table
+        {
+        	opacity: 0.7;
+        	border-radius:20px;
+            border-collapse: collapse;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .table td, table th
+        {
+            border: 1px solid #cad9ea;
+            color: #666;
+            height: 30px;
+        }
+       .table thead th
+        {
+            background-color: #CCE8EB;
+            width: 100px;
+        }
+        .table tr:nth-child(odd)
+        {
+            background: #fff;
+        }
+        .table tr:nth-child(even)
+        {
+            background: #F5FAFA;
+        }
+
+      
+
 
 .nav1 input{
 	float: right;

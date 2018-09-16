@@ -22,16 +22,19 @@
 		<p>2.请选择方向题10道，其中选择题至多5道，简答题、编程题请合理分配占比</p>
 		<p>3.不可跨域出题，请按照自己的方向选择题目。</p>
 		<p>在确保已知晓以上出题规范后，请点击以下按钮按类目添加试题！</p>
-		<input type="button" value="选择基础题" onclick="location.href='<?php echo site_url('index/test/test_add_b') ?>'"">
-		<input type="button" value="选择方向题" onclick="location.href='<?php echo site_url('index/test/test_add_d') ?>'"">
+		<input type="button" value="选择基础题" onclick="location.href='<?php echo site_url('index/test_page/b_page') ?>'"">
+		<input type="button" value="选择方向题" onclick="location.href='<?php echo site_url('index/test_page/d_page') ?>'"">
 		<p>已添加题目：</p> 
 		<form method="POST" action="<?php echo site_url('index/student/stu_add') ?>">
-		<table id="tab1" border="1" width="500" cellspacing="0">
+		<div class = "table">
+		<table id="tab1" border="0" width="500" cellspacing="0">
 		<thead>
-			<td>试卷编号</td>
-			<td>基础题</td>
-			<td>方向题</td>
-			<td>编辑</td>
+		<tr>
+			<th>试卷编号</th>
+			<th>基础题</th>
+			<th>方向题</th>
+			<th>编辑</th>
+		</tr>
 		</thead>
 			<tbody>
 			
@@ -43,6 +46,7 @@
 			</tr>
 		</tbody>
 	</table>
+	</div>
 		</form>
 		<br>
 			<input type="submit" value="确认出题" name="" >
