@@ -45,8 +45,17 @@ body{
     float: right;
     font-family: 方正姚体;
     font-size: 1em;
-    color:rgb(0,0,0);
-    background-color: rgb(255,255,255); 
+    /*position: absolute;*/
+    appearance:none;
+        /*-web-kit-appearance:none;*/
+        moz-appearance: none;
+        font-family:"方正姚体";
+        font-size:15px;
+        border-radius:10px;
+        border-width: 2px;
+        background-color: rgba(244,244,244,0.2);
+        color: black;
+        padding: 5px;
 } 
 
      #userChoose {
@@ -122,5 +131,22 @@ left:1000px;
 position: fixed;
 bottom: 0;
 }
+
+
+ .footer input{
+    appearance:none;
+        moz-appearance: none;
+        width:100px;
+        height:25px;
+        font-family:"方正姚体";
+        font-size:15px;
+        border-radius:10px;
+        border-width: 2px;
+        background-color: rgba(244,244,244,0.2);
+        color: black;
+        padding: 2px;
+
+
+    }
     
 }

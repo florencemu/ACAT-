@@ -10,13 +10,14 @@
         <img src="<?php  echo base_url() .'style/index/' ?>images/home/logo.png">
     </div>
     <div class="nav1">
-	      <input type="submit" value="返回上一层" onclick="location.href='<?php echo site_url('index/subject') ?>'">
+	      <input type="submit" value="返回上一层" onclick="location.href='<?php echo site_url('index/sub_page/page') ?>'">
+	       <input type="submit" value="返回主页面" onclick="location.href='<?php echo site_url('index/home') ?>'">
 
 	</div>
 		<form method="POST" action="<?php echo site_url('index/subject/sub_add') ?>">
 		<div class="nav">
-注意：若题目类型为编程题请添加注明，例如“【编程题】输出100以内的水仙花数。”<br><br>
-
+		<br>
+&nbsp;&nbsp;注意：若题目类型为编程题请添加注明，例如“【编程题】输出100以内的水仙花数。”<br><br>
 			<label>&nbsp;&nbsp;&nbsp;> 题目:&nbsp;&nbsp;&nbsp;<tr><td><textarea id="t" name="sub_que"cols="49" rows="5"></textarea></td></tr>
 			<br><br>
 			<label>&nbsp;&nbsp;&nbsp;> 答案:&nbsp;&nbsp;&nbsp;<tr><td><textarea name="sub_ans"cols="49" rows="5"></textarea></td></tr>
@@ -41,8 +42,11 @@
 			<br><br>
 		
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<div class = "submit">
 			<input type="submit" value="确认添加" name="" >
+			</div>
 		</form>
+		<br>
 	</div>
 
 </form>

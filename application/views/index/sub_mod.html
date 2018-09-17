@@ -18,14 +18,14 @@
 <form method="POST" action="<?php echo site_url('index/subject/sub_mod') ?>">
 		<div class="nav">
 
-
+<br>
 			<label>&nbsp;&nbsp;&nbsp;> 题目:&nbsp;&nbsp;&nbsp;<tr><td><textarea name="question"cols="49" rows="1"><?php $this->load->library('session');
                                 $inf=$this->session->userdata('que');
-                                echo $inf; ?></textarea></td></tr>
+                                echo $inf; ?></textarea></td></tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<br><br>
 			<label>&nbsp;&nbsp;&nbsp;> 答案:&nbsp;&nbsp;&nbsp;<tr><td><textarea name="answer"cols="49" rows="10"><?php $this->load->library('session');
                                 $inf=$this->session->userdata('ans');
-                                echo $inf; ?></textarea></td></tr>
+                                echo $inf; ?></textarea></td></tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<br><br>
 			<label>&nbsp;&nbsp;&nbsp;> 类型:&nbsp;&nbsp;&nbsp;
 			<select name = "sub_type">
@@ -49,8 +49,11 @@
 			<br><br>
 		
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<div class = "submit">
 			<input type="submit" value="确认修改" name="" >
+			</div>
 		</form>
+	<br>
 	</div>
 	
 </form>

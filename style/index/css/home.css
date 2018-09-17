@@ -92,3 +92,19 @@ body{
 	top:280px;
 	left: 450px;
 }
+
+.submit input {
+	/*position: absolute;
+	/*top: 245px;
+	left: 180px;*/
+	appearance:none;
+		width:50px;
+		height:25px;
+		font-family:"方正姚体";
+		font-size:15px;
+		border-radius:10px;
+		border-width: 2px;
+		background-color: rgba(244,244,244,0.2);
+		color: black;
+		padding: 1.5px;
+}

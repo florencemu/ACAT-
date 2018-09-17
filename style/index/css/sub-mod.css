@@ -18,6 +18,9 @@ body{
 	position: absolute;
 	top: 150px;
 	left: 350px;
+	border:4px rgb(170,138,87) solid ;
+	 border-radius:10px;
+	border-style:dashed;
 }
 .nav1{
 	height: 30px;
@@ -28,11 +31,35 @@ body{
 	float: right;
 	font-family: 方正姚体;
 	font-size: 1em;
-	color:rgb(0,0,0);
-	background-color: rgb(255,255,255); 
+	/*position: absolute;*/
+	appearance:none;
+		/*-web-kit-appearance:none;*/
+		moz-appearance: none;
+		font-family:"方正姚体";
+		font-size:15px;
+		border-radius:10px;
+		border-width: 2px;
+		background-color: rgba(244,244,244,0.2);
+		color: black;
+		padding: 5px;
 } 
 .bt{
 	position: absolute;
 	top: 495px;
 	left: 750px;
 }
+
+.submit input{
+position: absolute;
+	top: 350px;
+	left :200px;
+	appearance:none;
+		moz-appearance: none;
+		width:70px;
+		height:25px;
+		font-family:"方正姚体";
+		font-size:15px;
+		border-radius:10px;
+		border-width: 2px;
+		background-color: rgba(244,244,244,0.2);
+		color: black;

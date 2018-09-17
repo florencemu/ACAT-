@@ -15,6 +15,11 @@ class Regist extends CI_Controller{
  			//$repassword = $this->input->post('password1');
  			$password = md5($this->input->post('password'));
  			$repassword = md5($this->input->post('password1'));
+ 			if(empty($password)) error("请输入密码！");
+ 			if(empty($repassword)) error("请确认密码！");
+ 			if(empty($user_name)) error("请输入用户名！");
+ 			if(empty($user_id)) error("请输入学号！");
+ 	
  			if($password == $repassword)
  			{
  				$this->load->model('index', 'index');

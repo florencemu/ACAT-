@@ -1,6 +1,7 @@
 body{
 	background-image: url(../images/home/home.png);
 	background-size: 100% 800px;
+  /*  font-family:"方正姚体";*/
 	background-attachment:scroll;
 }
 .logo{
@@ -17,20 +18,33 @@ body{
 .nav{
 	position: absolute;
 	top: 150px;
-	font-size:12px;
+	font-size:13px;
 	left: 350px;
+   /* border:4px rgb(170,138,87) solid ;
+    border-radius:10px;
+    border-style:dashed;*/
 }
 .nav1{
 	height: 30px;
 	width: 100%;
+
 }
 
 .nav1 input{
-	float: right;
-	font-family: 方正姚体;
-	font-size: 1em;
-	color:rgb(0,0,0);
-	background-color: rgb(255,255,255); 
+    float: right;
+    font-family: 方正姚体;
+    font-size: 1em;
+    /*position: absolute;*/
+    appearance:none;
+        /*-web-kit-appearance:none;*/
+        moz-appearance: none;
+        font-family:"方正姚体";
+        font-size:15px;
+        border-radius:10px;
+        border-width: 2px;
+        background-color: rgba(244,244,244,0.2);
+        color: black;
+        padding: 5px;
 } 
 .btn1{
 	font-size:0.5em;
@@ -91,4 +105,21 @@ body{
 	padding:0px 6px; 
 	font-weight:bold;
 	border-radius:10px;
+}
+
+.submit input{
+position: absolute;
+    top: 0px;
+    left :450px;
+    appearance:none;
+        moz-appearance: none;
+        width:50px;
+        height:25px;
+        font-family:"方正姚体";
+        font-size:15px;
+        border-radius:10px;
+        border-width: 2px;
+        background-color: rgba(244,244,244,0.2);
+        color: black;
+        padding: 2px;
 }

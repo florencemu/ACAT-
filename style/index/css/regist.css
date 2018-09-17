@@ -42,8 +42,32 @@ body{
 		text-align: center;
 		border-radius: 30px;
 	}
-.bt{
+.bt input{
 	position: absolute;
-	top: 460px;
-	left: 650px;
+	top: 450px;
+	left: 660px;
+	width:50px;
+	height:25px;
+	font-family:"方正姚体";
+	font-size:15px;
+	border-radius: 10px;
+	opacity:0.8;
+	background-color: rgb(244,244,244);
+}
+.submit input {
+	position: absolute;
+	top: 245px;
+	left: 180px;
+	appearance:none;
+		/*-web-kit-appearance:none;*/
+		moz-appearance: none;
+		width:75px;
+		height:30px;
+		font-family:"方正姚体";
+		font-size:15px;
+		border-radius:10px;
+		border-width: 2px;
+		background-color: rgba(244,244,244,0.2);
+		color: black;
+		padding: 5px;
 }

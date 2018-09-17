@@ -78,8 +78,17 @@ body{
 	float: right;
 	font-family: 方正姚体;
 	font-size: 1em;
-	color:rgb(0,0,0);
-	background-color: rgb(255,255,255); 
+	/*position: absolute;*/
+	appearance:none;
+		/*-web-kit-appearance:none;*/
+		moz-appearance: none;
+		font-family:"方正姚体";
+		font-size:15px;
+		border-radius:10px;
+		border-width: 2px;
+		background-color: rgba(244,244,244,0.2);
+		color: black;
+		padding: 5px;
 } 
 .bt{
 	position: absolute;
@@ -111,4 +120,36 @@ body{
 	padding:0px 6px; 
 	font-weight:bold;
 	border-radius:10px;
+}
+.submit input{
+position: absolute;
+	top: 0px;
+	left :550px;
+	appearance:none;
+		moz-appearance: none;
+		width:70px;
+		height:25px;
+		font-family:"方正姚体";
+		font-size:15px;
+		border-radius:10px;
+		border-width: 2px;
+		background-color: rgba(244,244,244,0.2);
+		color: black;
+		padding: 2px;
+}
+.botton input{
+position: absolute;
+	top: 0px;
+	left :650px;
+	appearance:none;
+		moz-appearance: none;
+		width:100px;
+		height:25px;
+		font-family:"方正姚体";
+		font-size:15px;
+		border-radius:10px;
+		border-width: 2px;
+		background-color: rgba(244,244,244,0.2);
+		color: black;
+		padding: 2px;
 }

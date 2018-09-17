@@ -49,6 +49,30 @@ class Paper extends CI_Model {
     	return $result;
 	
 	}
+
+/*查找学生试卷*/
+public function stu_sel($id){
+
+
+ 		$res="SELECT stu_name FROM `student_info`WHERE stu_id = '$id' ";
+    	$result = $this->db->query($res)->result_array();
+    	return $result[0]['stu_name'];
+
+
+ 	}
+
+/*public function stu_sel_paper($id){
+
+
+ 		$res="SELECT paper_id,include_id,paper_sum FROM `paper`,``WHERE paper_type = '$type' ";
+    	$result = $this->db->query($res)->result_array();
+    	return $result;
+
+
+ 	}*/
+
+
+ 	
 /*查找试题*/
 public function b_num(){
     	$res="SELECT COUNT(sub_id) FROM `subject` WHERE sub_type='基础题'";

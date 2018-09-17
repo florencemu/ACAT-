@@ -56,13 +56,25 @@ body{
 		width: 100px;
 		height: 30px;
 	}
-	.submit{
+	.submit input{
 		appearance:none;
-		-web-kit-appearance:none;
-		-moz-appearance: none;
+		/*-web-kit-appearance:none;*/
+		moz-appearance: none;
+		width:75px;
+		height:30px;
+		font-family:"方正姚体";
+		font-size:15px;
 		border-radius:10px;
-		border-width: 0px;
-		background-color: rgba(0,0,0,0.2);
-		color: white;
-		padding: 10px;
+		border-width: 2px;
+		background-color: rgba(244,244,244,0.2);
+		color: black;
+		padding: 5px;
 	}
+.zuce a{
+	position: absolute;
+		top: 280px;
+		left: 260px;
+		font-family:"方正姚体";
+		font-size:15px;
+
+}
