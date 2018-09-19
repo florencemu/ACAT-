@@ -6,7 +6,72 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Paper extends CI_Model {
 
 /*创建试卷*/
-	public function test_add($paper_id,$include_id){
+
+public function sel_admin($admin){
+	$sql = "SELECT admin_group FROM `admin_id` WHERE admin = '$admin'";
+	$result = $this->db->query($sql)->result_array();
+	return $result[0]['admin_group'];
+
+
+}
+/*我的试卷*/
+public function my_test($admin){
+	$sql = "SELECT paper_id,paper_type,include_id,paper_sum FROM `paper` WHERE create_id = '$admin'";
+	$result = $this->db->query($sql)->result_array();
+	return $result;
+
+
+}
+/*查看试卷*/
+public function admin_show($id){
+	$sql = "SELECT include_id FROM `paper` WHERE paper_id = '$id'";
+	$result = $this->db->query($sql)->result_array();
+	return $result;
+
+}
+public function admin_show_test($s_id){
+	$sql = "SELECT sub_que,sub_ans FROM `subject` WHERE sub_id = '$s_id'";
+	$result = $this->db->query($sql)->result_array();
+	return $result;
+}
+
+/*删除试卷*/
+public function del_paper($id){
+	$sql = "DELETE FROM paper  WHERE paper_id = '$id'";
+	$result = $this->db->query($sql);
+	return $result;
+}
+
+
+/*public function create($type,$paper_id,$include_id)
+	$sql = "INSERT INTO `paper` (`paper_id`, `include_id`, `paper_sum`, `paper_type`) VALUES (NULL, '', '0', '$type')";
+	$result = $this ->db->query($sql);
+	$id = $this->db->insert_id();
+
+	var_dump($id);die;
+	/*$sql1 = "INSERT INTO `paper` (`paper_id`, `include_id`, `paper_sum`, `paper_type`) VALUES (NULL, '', '0', '$type')";
+	$sql2 = "INSERT INTO `paper` (`paper_id`, `include_id`, `paper_sum`, `paper_type`) VALUES (NULL, '', '0', '$type')";
+	$sql3 = "INSERT INTO `paper` (`paper_id`, `include_id`, `paper_sum`, `paper_type`) VALUES (NULL, '', '0', '$type')";
+	$result = $this ->db->query($sql);
+	/*var_dump($result);die;*/
+	/*return $result;
+}*/
+
+/*public function show_sub(){
+	$id = $this->db->insert_id();
+	$sql = "SELECT  include_id,FROM `admin_id` WHERE admin = '$admin'";
+	$result = $this->db->query($sql)->result_array();
+	return $result[0]['admin_group'];
+
+
+}*/
+
+
+
+
+
+
+/*	public function test_add($paper_id,$include_id){
 		$sql = "INSERT INTO `paper` (`paper_id`,`include_id`) VALUES ('$paper_id','$include_id')";
 		//var_dump($sql);die;
 		$result = $this->db->query($sql);
@@ -14,7 +79,7 @@ class Paper extends CI_Model {
 
 		
 	}
-
+*/
 /*修改试卷*/
 	public function test_mod(){
 
@@ -44,7 +109,7 @@ class Paper extends CI_Model {
 
 	public function seek_out_type($type,$perPage,$offset){
 
-	$res="SELECT paper_id,include_id,paper_sum FROM `paper`WHERE paper_type = '$type' LIMIT $offset,$perPage";
+	$res="SELECT paper_id,create_id,include_id,paper_sum FROM `paper`WHERE paper_type = '$type' LIMIT $offset,$perPage";
     	$result = $this->db->query($res)->result_array();
     	return $result;
 	
@@ -61,15 +126,24 @@ public function stu_sel($id){
 
  	}
 
-/*public function stu_sel_paper($id){
+public function sel_stu_ans($id){
 
+ 		$res="SELECT paper.paper_id,
+ 					 paper.include_id,
+ 					 student_paper.stu_ans FROM `student_paper`,`paper` WHERE stu_id = '$id' AND paper.paper_id  = student_paper.paper_id ";
+    	$result = $this->db->query($res)->result_array();
+    	/*var_dump($result);*/
+    	return $result;
 
- 		$res="SELECT paper_id,include_id,paper_sum FROM `paper`,``WHERE paper_type = '$type' ";
+ 	}
+
+public function sel_stu_que($s_id){
+
+ 		$res="SELECT sub_que,sub_ans FROM `subject` WHERE sub_id = '$s_id' ";
     	$result = $this->db->query($res)->result_array();
     	return $result;
 
-
- 	}*/
+ 	}
 
 
  	
@@ -163,7 +237,7 @@ public function type_num($type){
 
 /*显示试卷信息*/	
 	 public function test_inf($perPage,$offset){
-    	$res="SELECT paper_id,include_id,paper_sum  FROM `paper` LIMIT $offset,$perPage";
+    	$res="SELECT paper_id,create_id,include_id,paper_sum  FROM `paper` LIMIT $offset,$perPage";
     	$result = $this->db->query($res)->result_array();
     	return $result;
 	}

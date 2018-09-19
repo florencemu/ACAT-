@@ -33,6 +33,13 @@
 			
 			<br><br>
 		<div class ="content">
+ <?php  foreach($test as $paper): ?>
+         <h3> · &nbsp;<?php echo $que=str_replace("\n","<br>",$paper[0]['sub_que']); ?></h3>
+       <input type="submit" value="学生答案" >
+       <input type="submit" value="参考答案" >
+       <?php echo ">====================================================================================<"; ?> 
+		<?php endforeach;?>
+
 		
 		</div>
 

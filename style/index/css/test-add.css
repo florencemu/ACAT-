@@ -2,6 +2,7 @@ body{
 	background-image: url(../images/home/home.png);
 	background-size: 100% 800px;
 	background-repeat: no-repeat;
+	
 }
 .logo{
 		position: absolute;
@@ -20,8 +21,10 @@ body{
 	top: 150px;
 	font-size:12px;
 	left: 300px;
+	background-color: #FFFFFF;
+	opacity:0.7;
 	border:4px rgb(170,138,87) solid ;
-	 border-radius:10px;
+	border-radius:10px;
 	border-style:dashed;
 }
 .nav1{
@@ -54,7 +57,7 @@ body{
 .table
         {
         	
-        	opacity: 0.7;
+        	opacity: 1;
         	border-radius:20px;
             border-collapse: collapse;
             margin: 0 auto;
@@ -81,8 +84,8 @@ body{
         }
 .submit input{
 position: absolute;
-	top: 340px;
-	left :280px;
+	top: 370px;
+	left :260px;
 	appearance:none;
 		moz-appearance: none;
 		width:70px;
@@ -97,7 +100,7 @@ position: absolute;
 }
 .botton1 input{
 position: absolute;
-	top: 188px;
+	top: 230px;
 	left :200px;
 	appearance:none;
 		moz-appearance: none;
@@ -113,7 +116,7 @@ position: absolute;
 }
 .botton2 input{
 position: absolute;
-	top: 188px;
+	top: 230px;
 	left :300px;
 	appearance:none;
 		moz-appearance: none;
@@ -127,3 +130,4 @@ position: absolute;
 		color: black;
 		padding: 2px;
 }
+

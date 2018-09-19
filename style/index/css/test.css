@@ -1,7 +1,7 @@
 body{
 	background-image: url(../images/home/home.png);
 	background-size: 100% 800px;
-	background-repeat: no-repeat;
+	background-repeat: repeat;
 }
 .logo{
 		position: absolute;
@@ -83,18 +83,18 @@ body{
 .submit input{
 position: absolute;
 	top: 0px;
-	left :300px;
+	left :130px;
 	appearance:none;
 		moz-appearance: none;
 		width:70px;
-		height:25px;
+		height:22px;
 		font-family:"方正姚体";
 		font-size:15px;
 		border-radius:10px;
 		border-width: 2px;
 		background-color: rgba(244,244,244,0.2);
 		color: black;
-		padding: 2px;
+		padding: 1px;
 }
 .botton input{
 position: absolute;
@@ -112,6 +112,23 @@ position: absolute;
 		color: black;
 		padding: 2px;
 }
+.botton2 input{
+position: absolute;
+	top: 0px;
+	left :280px;
+	appearance:none;
+		moz-appearance: none;
+		width:100px;
+		height:25px;
+		font-family:"方正姚体";
+		font-size:15px;
+		border-radius:10px;
+		border-width: 2px;
+		background-color: rgba(244,244,244,0.2);
+		color: black;
+		padding: 2px;
+}
+
 
 
 

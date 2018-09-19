@@ -72,7 +72,7 @@
 
 				<td><a href="<?php echo site_url('index/student/mod_inf').'?'.'id='.$item['stu_id']; ?>" style="color: #8B636C" >修改</a></td>
 			
-				<td><a href="<?php echo site_url('index/student/stu_del').'?'.'id='.$item['stu_id']; ?>" style="color: #8B636C" >删除</a></td>
+				<td><a href="<?php echo site_url('index/student/stu_del').'?'.'id='.$item['stu_id']; ?>" style="color: #8B636C" onClick="return confirm('确定删除?');">删除</a></td>
 			
 			</tr>
 		<?php endforeach;?>

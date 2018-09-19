@@ -49,7 +49,7 @@
 			<th>方向题得分</th>
 			<th>总分</th>
 			<th>批阅者</th>
-			<th></th>
+			<th>试卷详情</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -65,7 +65,7 @@
 				<td><?php echo $item['dir_grade'] ?></td>
 				<td><?php echo $item['grade'] ?></td>
 				<td><?php echo $item['correct_ad'] ?></td>
-				<td><a href="<?php echo site_url('index/show_test').'?'.'id='.$item['stu_id']; ?>" style="color: #8B636C" >查看试卷</a></td>
+				<td><a href="<?php echo site_url('index/show_test').'?'.'id='.$item['stu_id']; ?>" style="color: #8B636C" >查看</a></td>
 			</tr>
 		<?php endforeach;?>
 		</tbody>

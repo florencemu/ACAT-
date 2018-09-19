@@ -25,14 +25,9 @@ class Check extends CI_Controller {
 		$res1=$this->check_paper->get_ans($id);
 		$s_ans=explode(',', $res1,-1);
 		$length1=sizeof($s_ans);
-		for($j=0,$k=0;$j<$length1&&$k<$length;$j++,$k++)
-		{
-			$res3[$k][]=$res2[$k];
-			$res3[][$j]=$s_ans[$j];
-		}
-		$data['test']=$res3;
+		$data['test']=$res2;
 		
-		$this->load->view('index/check.html');
+		$this->load->view('index/check.html',$data);
 	}
 
 }

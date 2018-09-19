@@ -44,9 +44,9 @@ body{
 .content{
 	position: absolute;
 	top: 40px;
-	height: 1500px;
 	width: 700px;
 	opacity:0.7;
+	background-color: #FFFFFF;
 	border:3px rgb(100,25,29) solid ;
 	border-radius: 10px;
 	border-style:dashed;

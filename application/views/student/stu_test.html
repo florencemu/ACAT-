@@ -3,6 +3,7 @@
 <head>
 	<title>学生答题 -@ACAT</title>
 	<meta charset="utf-8">
+    <script type="text/javascript" src="/CI/js/jquery-1.3.2.min.js"></script>
 	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" type="text/css" href="<?php  echo base_url() .'style/index/' ?>css/student/stu_test.css">
@@ -47,7 +48,11 @@
         <br><br>
        <?php  foreach($test as $paper): ?>
           · <?php echo $paper[0]['sub_que']?>
-          <br><br>你的答案: <textarea name="answer"></textarea><br><br><br><br><br>
+          <br><br>你的答案: <textarea id='answer' style="height: 150px;width: 500px;resize: none;"></textarea><br><br><br><br>
+
+
+
+
           <?php endforeach;?> 
 
          

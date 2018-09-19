@@ -33,27 +33,29 @@
 	<div class="botton">
 	<input type="button" value="创建新试卷" onclick="location.href='<?php echo site_url('index/test/test_add_html') ?>'"">
 	</div>
+	<div class="botton2">
+	<input type="button" value="我的试卷" onclick="location.href='<?php echo site_url('index/test/my_test') ?>'"">
+	</div>
 	<br>
 <div class = "table">
 	<table id="tab1" border="0" width="500" cellspacing="0">
 		<thead>
 		<tr>
-			<th>试卷号</th>
+			<th>出题人</th>
 			<th>所含题号</th>
 			<th>作答人数</th>
-	
-			<th>操作</th>
-			<th>操作</th>
+			<th>试卷详情</th>
 			</tr>
 		</thead>
 			<tbody>
 			<?php foreach($test as $item): ?>
 			<tr>
-				<td><?php echo $item['paper_id'] ?></td>
+				<td><?php echo $item['create_id'] ?></td>
 				<td><?php echo $item['include_id'] ?></td>
 				<td><?php echo $item['paper_sum'] ?></td>
-				<td><a href="<?php echo site_url('index/test/test_mod') ?>" style="color: #8B636C ">修改</a></td>
-				<td><a href="<?php echo site_url('index/test/test_del') ?>" style="color: #8B636C ">删除</a></td>
+			<td><a href="<?php echo site_url('index/test/show_paper').'?'.'id='.$item['paper_id']; ?>" style="color: #8B636C" >查看</a></td>
+
+				
 			</tr>
 		<?php endforeach;?>
 		</tbody>

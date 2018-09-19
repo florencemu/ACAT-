@@ -18,6 +18,8 @@ body{
 	position: absolute;
 	top: 150px;
 	left: 350px;
+	background-color: #FFFFFF;
+	opacity:0.7;
 	border:4px rgb(170,138,87) solid ;
 	 border-radius:10px;
 	border-style:dashed;
@@ -55,7 +57,7 @@ position: absolute;
 	left :200px;
 	appearance:none;
 		moz-appearance: none;
-		width:70px;
+		width:76px;
 		height:25px;
 		font-family:"方正姚体";
 		font-size:15px;

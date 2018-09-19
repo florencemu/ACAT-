@@ -59,7 +59,7 @@
 				<td><?php echo $que=str_replace("\n","<br>",$item['sub_que']); ?></td>
 				<td><?php echo $item['sub_type']  ?></td>
 				<td><?php echo $item['sub_diff'] ?></td>
-				<td><input type="checkbox" onclick="test(this);"/></td>  
+				<td><a href="<?php echo site_url('index/test/test_add_d').'?'.'id='.$item['sub_id']; ?>" style="color: #8B636C" onClick="return confirm('确定添加?');" >添加</a></td> 
 			</tr>
 			<?php endforeach;?>
 		</tbody>
@@ -67,9 +67,7 @@
 		</div>
 	</form>
 		<br>
-		<div class = "submit2">
-			<input type="submit" value="确认添加" name="" >
-		</div>
+	
 
 <div class = "style">
 		<div class = "list">

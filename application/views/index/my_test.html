@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>我的试卷 -@ACAT</title>
+	<link rel="stylesheet" type="text/css" href="<?php  echo base_url() .'style/index' ?>/css/test.css">
+</head>
+<body>
+		<div class="logo">
+        <img src="<?php  echo base_url() .'style/index/' ?>images/home/logo.png">
+    </div>
+      <div class="nav1">
+	     <input type="submit" value="返回上一层" onclick="location.href='<?php echo site_url('index/test_page/page') ?>'">
+
+	     <input type="submit" value="返回主页面" onclick="location.href='<?php echo site_url('index/home') ?>'">
+
+	</div> 
+	<div class="nav">
+		<form method="get" action="<?php echo site_url('index/test_sel_page/page') ?>">
+		<h3><?php $this->load->library('session');
+ 		$admin=$this->session->userdata('user'); echo $admin; ?>同学你好，下面是由你编辑上传的试卷：</h3>
+ 	
+<div class = "table">
+	<table id="tab1" border="0" width="500" cellspacing="0">
+		<thead>
+		<tr>
+			<th>试卷类型</th>
+			<th>所含题号</th>
+			<th>作答人数</th>
+			<th>试卷详情</th>
+			<th>操作</th>
+			</tr>
+		</thead>
+			<tbody>
+			<?php foreach($test as $item): ?>
+			<tr>
+				<td><?php echo $item['paper_type'] ?></td>
+				<td><?php echo $item['include_id'] ?></td>
+				<td><?php echo $item['paper_sum'] ?></td>
+			<td><a href="<?php echo site_url('index/test/show_paper').'?'.'id='.$item['paper_id']; ?>" style="color: #8B636C" >查看</a></td>
+			<td><a href="<?php echo site_url('index/test/del_paper').'?'.'id='.$item['paper_id']; ?>" style="color: #8B636C" onClick="return confirm('确定删除?');" >删除</a></td>
+				
+			</tr>
+		<?php endforeach;?>
+		</tbody>
+	</table>
+	</div>
+		</form>
+
+
+
+
+	</div>
+	
+</body>
+</html>

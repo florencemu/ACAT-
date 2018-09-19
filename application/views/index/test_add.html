@@ -10,7 +10,7 @@
         <img src="<?php  echo base_url() .'style/index/' ?>images/home/logo.png">
     </div>
     <div class="nav1">
-	     <input type="submit" value="返回上一层" onclick="location.href='<?php echo site_url('index/test') ?>'">
+	     <input type="submit" value="返回上一层" onclick="location.href='<?php echo site_url('index/test_page/page') ?>'">
 
 	     <input type="submit" value="返回主页面" onclick="location.href='<?php echo site_url('index/home') ?>'">
 
@@ -22,6 +22,7 @@
 		<p>&nbsp;&nbsp;1.请选择基础题5道，其中选择题2道，简答题2道，编程题1道&nbsp;&nbsp;</p>
 		<p>&nbsp;&nbsp;2.请选择方向题10道，其中选择题至多5道，简答题、编程题请合理分配占比&nbsp;&nbsp;</p>
 		<p>&nbsp;&nbsp;3.不可跨域出题，请按照自己的方向选择题目。&nbsp;&nbsp;</p>
+		<h4>&nbsp;&nbsp;<font color="red">4.一旦提交上传，试卷将不可修改，请谨慎提交！</font>&nbsp;&nbsp;</h4>
 		<p>&nbsp;&nbsp;在确保已知晓以上出题规范后，请点击以下按钮按类目添加试题！&nbsp;&nbsp;</p>
 		&nbsp;&nbsp;
 		<div class= "botton1">
@@ -32,24 +33,30 @@
 		</div>
 		<br>
 		<p>&nbsp;&nbsp;已添加题目：</p> 
-		<form method="POST" action="<?php echo site_url('index/student/stu_add') ?>">
+		<form method="POST" action="<?php echo site_url('index/test/test_add') ?>">
 		<div class = "table">
 		<table id="tab1" border="0" width="500" cellspacing="0">
 		<thead>
 		<tr>
-			<th>试卷编号</th>
+			<th>试卷类型</th>
 			<th>基础题</th>
 			<th>方向题</th>
-			<th>编辑</th>
+			
+			
 		</tr>
 		</thead>
 			<tbody>
 			
 			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td><a href="<?php echo site_url('index/student/stu_mod') ?> " style="color: #8B636C ">重新编辑</a></td>
+				<td><?php $this->load->library('session');
+ 		                  $type=$this->session->userdata('type'); echo $type; ?></td>
+				<td><?php $b_id=$this->session->userdata('b_id'); if($b_id) echo $b_id; else echo"未添加";?>
+				</td>
+				<td><?php $d_id=$this->session->userdata('d_id'); if($d_id)echo $d_id; else echo"未添加";?>
+				</td>
+			
+				
+				
 			</tr>
 		</tbody>
 	</table>
@@ -57,7 +64,7 @@
 		</form>
 		<br>
 		<div class = "submit">
-			<input type="submit" value="确认出题" name="" >
+			<input type="submit" value="上传试卷" name="" >
 			<br><br>
 		</div>
 		</div>
