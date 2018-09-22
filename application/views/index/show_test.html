@@ -17,18 +17,42 @@
 	</div>
 <div class="nav">
 		
-			<label>以下是<?php $this->load->library('session');
+			<p>以下是<?php $this->load->library('session');
                                 $inf=$this->session->userdata('name');
-                                echo $inf; ?>同学的试卷详情：</label>
+                                echo $inf; ?>同学的试卷详情：</p>
+            <p>	基础题得分【<?php $this->load->library('session');
+                                $b=$this->session->userdata('b_grade');
+                                echo $b; ?>】分，
+                方向题得分【<?php $this->load->library('session');
+                                $d=$this->session->userdata('d_grade');
+                                echo $d; ?>】分。</p>
+
 			
 			<br><br>
 		<div class ="content">
-		 <?php  foreach($test as $paper): ?>
-         <h3> · &nbsp;<?php echo $que=str_replace("\n","<br>",$paper[0]['sub_que']); ?></h3>
-       <input type="submit" value="学生答案" >
-       <input type="submit" value="参考答案" >
-        <?php echo ">====================================================================================<"; ?> 
-		<?php endforeach;?> 
+		 <?php  $test=$this->session->userdata('show_que'); ?>
+ 		<?php foreach($test as $paper):?>
+ 			<?php foreach( $ans as $v):?>
+		 	<h4> · &nbsp;<?php echo $que=str_replace("\n","<br>",$paper); ?></h4>
+		 	&nbsp;<table id="tab1" border="1" width="500" cellspacing="0" >
+				<thead>
+				<tr>
+		 	        <th>考生答案</th>
+					<th>标准答案</th>
+				
+				</tr>
+				<tr>
+					<td><font color="red"><?php echo $ans=str_replace("\n","<br>",$v['s_ans']); ?></font></td>
+					<td><?php echo $s_ans=str_replace("\n","<br>",$v['ans']); ?></td>
+					
+				</tr>
+		       </thead>
+			</table>	
+
+        
+       <p><font color="	#8B4C39">>====================================================================================<</font></p>
+       		<?php endforeach;?>
+		<?php endforeach;?>
 		</div>
 
 			<br><br><br><br><br><br><br><br><br>

@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>批阅试卷 -@ACAT</title>
 	<link rel="stylesheet" type="text/css" href="<?php  echo base_url() .'style/index' ?>/css/correct.css">
+	<script type="text/javascript" src="../../../js/jquery.js"></script>
 </head>
 <body>
 	<div class="logo">
@@ -16,44 +17,75 @@
 
 	</div>
 <div class="nav">
-		<form method="POST" action="<?php echo site_url('index/category/cate_mod') ?>">
-			<label>姓名：<?php $this->load->library('session');
-                                $inf=$this->session->userdata('name');
-                                echo $inf; ?></label>&nbsp;&nbsp;
-			<label>学号：<?php $this->load->library('session');
-                                $inf=$this->session->userdata('id');
-                                echo $inf; ?></label>&nbsp;&nbsp;
-			<label>专业：<?php $this->load->library('session');
-                                $inf=$this->session->userdata('major');
-                                echo $inf; ?></label>&nbsp;&nbsp;
-			<label>方向：<?php $this->load->library('session');
-                                $inf=$this->session->userdata('group');
-                                echo $inf; ?></label>&nbsp;&nbsp;
-		
-			
-			<br><br>
+		<form method="POST" action="<?php echo site_url('index/check/check_ok') ?>">
+		<h4>【评分标准】
+		<br>基础题为前10道，基础选择题5分/道，基础编程题15分/道，代码正确并写出注释者得全分。
+		<br>方向题为后5道，方向题一律6分/道。</h4>
+		<br><br>
 		<div class ="content">
- <?php  foreach($test as $paper): ?>
-         <h3> · &nbsp;<?php echo $que=str_replace("\n","<br>",$paper[0]['sub_que']); ?></h3>
-       <input type="submit" value="学生答案" >
-       <input type="submit" value="参考答案" >
-       <?php echo ">====================================================================================<"; ?> 
-		<?php endforeach;?>
+		<h4><font color="red">【考生信息】</font>姓名：<?php $this->load->library('session');
+                                $inf=$this->session->userdata('name');
+                                echo $inf; ?>&nbsp;&nbsp;
+			学号：<?php $this->load->library('session');
+                                $inf=$this->session->userdata('id');
+                                echo $inf; ?>&nbsp;&nbsp;
+			专业：<?php $this->load->library('session');
+                                $inf=$this->session->userdata('major');
+                                echo $inf; ?>&nbsp;&nbsp;
+			方向：<?php $this->load->library('session');
+                                $inf=$this->session->userdata('group');
+                                echo $inf; ?></h4>&nbsp;&nbsp;
+   <font color="	#8B4C39">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</font> 
 
-		
+ 		<?php  $test=$this->session->userdata('que'); ?>
+ 		<?php foreach($test as $paper):?>
+ 	<?php foreach( $ans as $v):?>
+		 	<h4> · &nbsp;<?php echo $que=str_replace("\n","<br>",$paper); ?></h4>
+		 	&nbsp;<table id="tab1" border="1" width="500" cellspacing="0" >
+				<thead>
+				<tr>
+		 	        <th>考生答案</th>
+					<th>标准答案</th>
+					<th>本题得分</th>
+				</tr>
+				<tr>
+					<td><font color="red"><?php echo $ans=str_replace("\n","<br>",$v['s_ans']); ?></font></td>
+					<td><?php echo $s_ans=str_replace("\n","<br>",$v['ans']); ?></td>
+					<td><input type="text" name="mark" style="width:50px;" ></td>
+				</tr>
+		       </thead>
+			</table>	
+
+        
+       <p><font color="	#8B4C39">>====================================================================================<</font></p>
+       <?php endforeach;?>
+		<?php endforeach;?>
+	
 		</div>
 
 			<br><br><br><br><br><br><br><br><br>
 
 			<div class="footer">
 		
-			<input type="button" value="重新批阅" name="" >
+			<input type="button" value="更换试卷" onclick="location.href='<?php echo site_url('index/check') ?>'" >
 			<br><br>
-			<input type="submit" value="批阅下一卷" name="" >
+			<input type="submit" value="完成批阅"  >
 			</div>
 		</form>
 	</div>
 	<br><br><br><br><br><br><br><br><br>
 	<br><br>
+ 
+	<script >
+var days = eval("(" + date + ")");
+}
+
+	  
+                  /* $.get("<?php echo site_url('index/check/show_ans')?>", *///设置url
+               		
+</script>
+
+
+    
 </body>
 </html>

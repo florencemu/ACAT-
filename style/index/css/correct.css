@@ -16,7 +16,7 @@ body{
 	}
 .nav{
 	position: absolute;
-	top: 150px;
+	top: 100px;
 	left: 250px;
 	font-family: 方正姚体;
 }
@@ -43,13 +43,19 @@ body{
 } 
 .content{
 	position: absolute;
-	top: 40px;
+	top: 90px;
 	width: 700px;
 	opacity:0.7;
 	background-color: #FFFFFF;
 	border:3px rgb(100,25,29) solid ;
 	border-radius: 10px;
 	border-style:dashed;
+}
+
+.content table{
+	left: 100px;
+
+
 }
 
 

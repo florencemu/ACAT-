@@ -125,6 +125,15 @@ public function stu_sel($id){
 
 
  	}
+public function grade_sel($id){
+
+ 		$res="SELECT base_grade,dir_grade FROM `student_paper`WHERE stu_id = '$id' ";
+    	$result = $this->db->query($res)->result_array();
+    	return $result;
+
+
+ 	}
+
 
 public function sel_stu_ans($id){
 
