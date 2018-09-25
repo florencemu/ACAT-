@@ -1,8 +1,9 @@
 <?php
 
- ini_set("display_errors", 0);
+ini_set("display_errors", 0);
 error_reporting(E_ALL ^ E_NOTICE);
 error_reporting(E_ALL ^ E_WARNING);
+header("Content-type:text/html;charset=UTF-8");
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -31,6 +32,7 @@ class Check extends CI_Controller {
 			
 		}
 		$res1=$this->check_paper->get_ans($id);
+		/*var_dump($que);*/
 		$s_ans=explode(',', $res1,-1);
 		$this->session->set_userdata('que',$que);
 		$a=array(ans=>$ans);
@@ -46,30 +48,25 @@ class Check extends CI_Controller {
 		/*var_dump($data);*/
 		$this->load->view('index/check.html',$data);
 	}
-/*加载答案*/
-	/*public function show_ans(){
-		$this->load->library('session');
-		$this->load->model('check_paper','check_paper');
-		$id=$this->session->userdata('id');
-		$res=$this->check_paper->get_paper($id);
-		$s_id=explode('.', $res,-1);
-		$length=sizeof($s_id);
-		for($i=0;$i<$length;$i++)
-		{
-			$res1=$this->check_paper->get_title($s_id[$i]);
-			
-			$ans[$i] = $res1[0]['sub_ans'];
-		}
-		$res1=$this->check_paper->get_ans($id);
-		$s_ans=explode(',', $res1,-1);
-		$ans = New ArrayObject($ans);
-		$s_ans = New ArrayObject($s_ans);
-		$sub_ans = json_encode($ans,JSON_UNESCAPED_UNICODE);
-		$stu_ans = json_encode($s_ans,JSON_UNESCAPED_UNICODE);
-		echo $sub_ans;
-		echo $stu_ans;
+/*提交成绩*/
+	public function check_ok(){
+		$result ='{"APPCount": [{"0":""},{"1":""},{"2":"sxcsc"},{"3":""},{"4":""}]}';
+		$a=json_decode($result,TRUE);
+		var_dump($a);
+		
+
+		//$result=$this->input->post();
+		//var_dump($result);
+		//$result='{"APPCount":[{"a":"ssss"},{"b":""},{"c":""},{"d":""},{"e":""}]}';
+		//$a=json_decode($result,TRUE);
+		//var_dump($a);
+		//print_r($a);
+		
+		
+	
+
             		
-    }*/
+    }
 		
 		
 

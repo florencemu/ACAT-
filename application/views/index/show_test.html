@@ -31,9 +31,10 @@
 			<br><br>
 		<div class ="content">
 		 <?php  $test=$this->session->userdata('show_que'); ?>
- 		<?php foreach($test as $paper):?>
+ 		
  			<?php foreach( $ans as $v):?>
-		 	<h4> · &nbsp;<?php echo $que=str_replace("\n","<br>",$paper); ?></h4>
+		 <h4><?php echo ' · '.$que=str_replace("\n","<br>",$test[++$i-1]);?></h4>
+		 <div class ="1" style="text-align:center">
 		 	&nbsp;<table id="tab1" border="1" width="500" cellspacing="0" >
 				<thead>
 				<tr>
@@ -48,10 +49,10 @@
 				</tr>
 		       </thead>
 			</table>	
-
+		</div>
         
        <p><font color="	#8B4C39">>====================================================================================<</font></p>
-       		<?php endforeach;?>
+       		
 		<?php endforeach;?>
 		</div>
 

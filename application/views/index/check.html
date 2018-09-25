@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>批阅试卷 -@ACAT</title>
 	<link rel="stylesheet" type="text/css" href="<?php  echo base_url() .'style/index' ?>/css/correct.css">
-	<script type="text/javascript" src="../../../js/jquery.js"></script>
+	<script type="text/javascript" src="../../js/jquery.js"></script>
 </head>
 <body>
 	<div class="logo">
@@ -17,12 +17,12 @@
 
 	</div>
 <div class="nav">
-		<form method="POST" action="<?php echo site_url('index/check/check_ok') ?>">
+		<div>
 		<h4>【评分标准】
 		<br>基础题为前10道，基础选择题5分/道，基础编程题15分/道，代码正确并写出注释者得全分。
 		<br>方向题为后5道，方向题一律6分/道。</h4>
 		<br><br>
-		<div class ="content">
+		<div class ="content" >
 		<h4><font color="red">【考生信息】</font>姓名：<?php $this->load->library('session');
                                 $inf=$this->session->userdata('name');
                                 echo $inf; ?>&nbsp;&nbsp;
@@ -38,10 +38,13 @@
    <font color="	#8B4C39">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</font> 
 
  		<?php  $test=$this->session->userdata('que'); ?>
- 		<?php foreach($test as $paper):?>
- 	<?php foreach( $ans as $v):?>
-		 	<h4> · &nbsp;<?php echo $que=str_replace("\n","<br>",$paper); ?></h4>
-		 	&nbsp;<table id="tab1" border="1" width="500" cellspacing="0" >
+ 		
+ 		
+			<?php foreach( $ans as $v ):?>
+
+						<h4><?php echo '· '.$que=str_replace("\n","<br>",$test[++$i-1]);?></h4>
+		 	<div class ="1" style="text-align:center">	
+		 	&nbsp;<table id="tab1" border="1" width="500" cellspacing="0" margin:auto >
 				<thead>
 				<tr>
 		 	        <th>考生答案</th>
@@ -51,15 +54,16 @@
 				<tr>
 					<td><font color="red"><?php echo $ans=str_replace("\n","<br>",$v['s_ans']); ?></font></td>
 					<td><?php echo $s_ans=str_replace("\n","<br>",$v['ans']); ?></td>
-					<td><input type="text" name="mark" style="width:50px;" ></td>
+					<td><input type="text" name="mark"  style="width:50px;  " ></td>
 				</tr>
 		       </thead>
-			</table>	
+			</table>
+			</div>	
 
         
        <p><font color="	#8B4C39">>====================================================================================<</font></p>
-       <?php endforeach;?>
 		<?php endforeach;?>
+		
 	
 		</div>
 
@@ -69,20 +73,73 @@
 		
 			<input type="button" value="更换试卷" onclick="location.href='<?php echo site_url('index/check') ?>'" >
 			<br><br>
-			<input type="submit" value="完成批阅"  >
+			<button id="btn">完成阅卷</button>
 			</div>
-		</form>
+		</div>
 	</div>
 	<br><br><br><br><br><br><br><br><br>
 	<br><br>
  
-	<script >
-var days = eval("(" + date + ")");
-}
+<script >
+     $(function(){
+        var array=[];
+        var a=$("input[name=mark]");
+        
+    
+        // for(var i=0;i<a.length;i++){
+        //     var obj={};
+        //     var key=i;
+        //     obj[key]=a[i].value;
+        //     array.push(obj);
+        
+        // }
+        // console.log(array);
+        // var mark = JSON.stringify(array);
+        // /*var mark = array;*/
+        // console.log(mark);
+    
 
-	  
-                  /* $.get("<?php echo site_url('index/check/show_ans')?>", *///设置url
-               		
+ 	 // $("#btn").click(function() {
+   //              $.ajax({
+   //              type: "post",
+   //              url:"<?php echo site_url('index/check/check_ok') ?>",    
+   //              data:{"0":""}, 
+   //              dataType:"json",
+          
+   //              error: function(request) {
+   //                  alert("Connection error");
+   //              },
+   //              success: function(data) {
+   //                  $("#container").html(data);
+   //              }
+   //          })
+        
+   //      })
+   //      
+   			$("#btn").click(function(){
+   				for(var i=0;i<a.length;i++){
+		            var obj={};
+		            var key=i;
+		            obj[key]=a[i].value;
+		            array.push(obj);
+        
+        		}
+        		var mark = JSON.stringify(array);
+        		 console.log(mark);
+		//$.post("<?php echo site_url('index/check/check_ok') ?>",mark,
+			$.post("<?php echo site_url('index/check_ok') ?>",JSON.stringify({"mark":array},JSON),
+
+		function(data,status){
+			console.log(data);
+			console.log(status);
+		});
+	});
+
+  })
+ 
+
+   
+      		
 </script>
 
 
