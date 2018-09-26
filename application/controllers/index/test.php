@@ -56,7 +56,10 @@ class Test extends CI_Controller {
 		$this->load->library('session');
  		$admin=$this->session->userdata('user');
  		$this->load->model('paper','paper');
-		$res = $this->paper->sel_admin($admin);
+		$a = $this->paper->sel_admin($admin);
+		$res = $a[0]['admin_group'];
+		$level = $a[0]['admin_level'];
+		if(intval($level)<3) error("抱歉，您尚未获得创建试卷的权限！");
 		$type =$this->session->set_userdata('type',$res);
 		/*var_dump($type);*/
 		$this->load->view('index/test_add.html');

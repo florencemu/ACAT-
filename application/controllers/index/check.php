@@ -25,7 +25,7 @@ class Check extends CI_Controller {
 
 		$length=sizeof($s_id);
 		for($i=0;$i<$length;$i++)
-		{
+		{ 
 			$res1=$this->check_paper->get_title($s_id[$i]);
 			$que[$i]=$res1[0]['sub_que'];
 			$ans[$i]=$res1[0]['sub_ans']; 
@@ -50,28 +50,45 @@ class Check extends CI_Controller {
 	}
 /*提交成绩*/
 	public function check_ok(){
-		$result ='{"APPCount": [{"0":""},{"1":""},{"2":"sxcsc"},{"3":""},{"4":""}]}';
+		$this->load->library('session');
+		$id=$this->session->userdata('id');
+		$c_id=$this->session->userdata('user');
+		$result=file_get_contents("php://input");
 		$a=json_decode($result,TRUE);
-		var_dump($a);
-		
+		$length=count($a);
+		for($i=0,$j=0;$i<$length;$i++,$j++)
+		{
+			 $b[$j] = $a[$i][$i];
+				if(is_numeric($b[$j])==FALSE&&empty($b[$j])==TRUE){ echo "typeFalse";exit;}
+		}
+		for($k=0;$k<10;$k++)
+		{	if(intval($b[$k])>=15)
+				{ echo "gradeFalse";exit;}
+			$b_sum+=$b[$k];
+		}
+		for($h=10;$h<15;$h++)
+		{	
+			
+			if(intval($b[$h])>=6)
+				{ echo "gradeFalse";exit;}
+			$d_sum+=$b[$h];
+		}
+		$sum=$b_sum+$d_sum;
+		$this->load->model('check_paper','check_paper');
+		$res=$this->check_paper->grade_sum($id,$b_sum,$d_sum,$sum,$c_id);
+		if($res) echo "Success";
+			else echo "Error";
 
-		//$result=$this->input->post();
-		//var_dump($result);
-		//$result='{"APPCount":[{"a":"ssss"},{"b":""},{"c":""},{"d":""},{"e":""}]}';
-		//$a=json_decode($result,TRUE);
-		//var_dump($a);
-		//print_r($a);
-		
 		
 	
 
             		
     }
 		
-		
 
-	}
 
+
+}
 
 
 

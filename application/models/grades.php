@@ -16,7 +16,7 @@ public function grade_inf($perPage,$offset){
     	student_paper.dir_grade,
     	student_paper.grade,
     	student_info.stu_major,
-        student_paper.correct_ad FROM `student_info`,`student_paper` WHERE student_info.stu_id = student_paper.stu_id  ORDER BY student_paper.grade desc LIMIT $offset,$perPage";
+        student_paper.correct_id FROM `student_info`,`student_paper` WHERE student_info.stu_id = student_paper.stu_id  ORDER BY student_paper.grade desc LIMIT $offset,$perPage";
     	$result = $this->db->query($res)->result_array();
     	return $result;
 	}

@@ -52,6 +52,15 @@
  		                  $type=$this->session->userdata('type'); echo $type; ?></td>
 				<td id="num"><?php $b_id=$this->session->userdata('b_id'); if($b_id) echo $b_id; else echo"未添加";?>
 				</td>
+				<script type="text/javascript">
+    var num = document.getElementById('num').innerHTML;
+    console.log(num);
+    localStorage.site=num;
+   
+    
+
+
+</script>
 				<td><?php $d_id=$this->session->userdata('d_id'); if($d_id)echo $d_id; else echo"未添加";?>
 				</td>
 			
@@ -77,12 +86,3 @@
 </form>
 </body>
 </html>
-<script type="text/javascript">
-    var num = document.getElementById('num').innerHTML;
-    localStorage.setItem("sitename",num);
-    console.log(localStorage.getItem("sitename"));
-    num.innerHTML=localStorage.getItem("sitename")+num.innerHTML;
-    localStorage.sitename=num.innerHTML;
-
-
-</script>

@@ -73,7 +73,7 @@
 		
 			<input type="button" value="更换试卷" onclick="location.href='<?php echo site_url('index/check') ?>'" >
 			<br><br>
-			<button id="btn">完成阅卷</button>
+			<button id="btn" onClick="return confirm('确定提交?');">完成阅卷</button>
 			</div>
 		</div>
 	</div>
@@ -86,36 +86,6 @@
         var a=$("input[name=mark]");
         
     
-        // for(var i=0;i<a.length;i++){
-        //     var obj={};
-        //     var key=i;
-        //     obj[key]=a[i].value;
-        //     array.push(obj);
-        
-        // }
-        // console.log(array);
-        // var mark = JSON.stringify(array);
-        // /*var mark = array;*/
-        // console.log(mark);
-    
-
- 	 // $("#btn").click(function() {
-   //              $.ajax({
-   //              type: "post",
-   //              url:"<?php echo site_url('index/check/check_ok') ?>",    
-   //              data:{"0":""}, 
-   //              dataType:"json",
-          
-   //              error: function(request) {
-   //                  alert("Connection error");
-   //              },
-   //              success: function(data) {
-   //                  $("#container").html(data);
-   //              }
-   //          })
-        
-   //      })
-   //      
    			$("#btn").click(function(){
    				for(var i=0;i<a.length;i++){
 		            var obj={};
@@ -125,13 +95,23 @@
         
         		}
         		var mark = JSON.stringify(array);
+        		console.log(array);
         		 console.log(mark);
 		//$.post("<?php echo site_url('index/check/check_ok') ?>",mark,
-			$.post("<?php echo site_url('index/check_ok') ?>",JSON.stringify({"mark":array},JSON),
+			$.post("<?php echo site_url('index/check/check_ok') ?>",mark,
 
 		function(data,status){
-			console.log(data);
-			console.log(status);
+			//console.log(data);
+			if(data=="Success") 
+				{alert("分数已成功提交，辛苦啦!");
+  					document.location.href="<?php echo site_url('index/check') ?>";}
+  			else if(data=="typeFalse") 
+				alert("请检查是否漏题或输入非法字符！");
+			else if(data=="gradeFalse") 
+				alert("请检查所给分数是否在评分标准内！");
+			else if(data=="Error") 
+				alert("分数提交失败！");
+			//console.log(status);
 		});
 	});
 

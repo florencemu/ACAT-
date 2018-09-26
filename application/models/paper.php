@@ -8,9 +8,9 @@ class Paper extends CI_Model {
 /*创建试卷*/
 
 public function sel_admin($admin){
-	$sql = "SELECT admin_group FROM `admin_id` WHERE admin = '$admin'";
+	$sql = "SELECT admin_group,admin_level FROM `admin_id` WHERE admin = '$admin'";
 	$result = $this->db->query($sql)->result_array();
-	return $result[0]['admin_group'];
+	return $result;
 
 
 }

@@ -12,7 +12,7 @@ class Login extends CI_Controller {
 	public function index()	{
 		//载入验证码辅助函数
 		$this->load->helper('captcha');
-		$speed ='hmjkwkloveeachotherforeverandhappniesseverydayandnight11290908';
+		$speed ='qwertyuopaskjdhfgzxcvbnm23456789';
 		$word = '';
 		for($i = 0 ;$i<4;$i++){
 			$word .=$speed[mt_rand(0,strlen($speed) -1 )];
