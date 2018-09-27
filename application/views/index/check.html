@@ -22,7 +22,7 @@
 		<br>基础题为前10道，基础选择题5分/道，基础编程题15分/道，代码正确并写出注释者得全分。
 		<br>方向题为后5道，方向题一律6分/道。</h4>
 		<br><br>
-		<div class ="content" >
+		<div class ="content">
 		<h4><font color="red">【考生信息】</font>姓名：<?php $this->load->library('session');
                                 $inf=$this->session->userdata('name');
                                 echo $inf; ?>&nbsp;&nbsp;
@@ -38,11 +38,12 @@
    <font color="	#8B4C39">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</font> 
 
  		<?php  $test=$this->session->userdata('que'); ?>
- 		
+ 		<?php  $id=$this->session->userdata('s_id'); ?>
  		
 			<?php foreach( $ans as $v ):?>
 
 						<h4><?php echo '· '.$que=str_replace("\n","<br>",$test[++$i-1]);?></h4>
+						<img src="<?php  echo base_url()?>sub_image/<?php echo $id[++$j-1]?>.jpg "onerror="this.src='<?php  echo base_url()?>sub_image/logo.png'" >
 		 	<div class ="1" style="text-align:center">	
 		 	&nbsp;<table id="tab1" border="1" width="500" cellspacing="0" margin:auto >
 				<thead>

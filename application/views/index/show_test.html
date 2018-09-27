@@ -31,9 +31,11 @@
 			<br><br>
 		<div class ="content">
 		 <?php  $test=$this->session->userdata('show_que'); ?>
+		 <?php  $id=$this->session->userdata('s_id'); ?>
  		
  			<?php foreach( $ans as $v):?>
 		 <h4><?php echo ' · '.$que=str_replace("\n","<br>",$test[++$i-1]);?></h4>
+		 <img src="<?php  echo base_url()?>sub_image/<?php echo $id[++$j-1]?>.jpg "onerror="this.src='<?php  echo base_url()?>sub_image/logo.png'" >
 		 <div class ="1" style="text-align:center">
 		 	&nbsp;<table id="tab1" border="1" width="500" cellspacing="0" >
 				<thead>

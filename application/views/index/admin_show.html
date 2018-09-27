@@ -19,6 +19,8 @@
 		<div class ="content">
 		 <?php  foreach($test as $paper): ?>
          <h3> · &nbsp;<?php echo $que=str_replace("\n","<br>",$paper[0]['sub_que']); ?></h3>
+         <img src="<?php  echo base_url()?>sub_image/<?php echo $paper[0]['sub_id'] ?>.jpg "onerror="this.src='<?php  echo base_url()?>sub_image/logo.png'" >
+         <br>
         &nbsp;&nbsp;参考答案：<?php echo $que=str_replace("\n","<br>",$paper[0]['sub_ans']); ?> <br>>
         <?php echo "===================================================================================="; ?> <
       <br>

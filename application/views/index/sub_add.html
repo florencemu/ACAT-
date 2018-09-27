@@ -6,6 +6,36 @@
 	<link rel="stylesheet" type="text/css" href="<?php  echo base_url() .'style/index' ?>/css/sub-add.css">
 </head>
 <body>
+  <script type="text/javascript" src="../../../ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="../../../ueditor/ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var editor = UE.getEditor('question', {
+toolbars: [
+    ['fullscreen', 'source', 'undo', 'redo', 'bold', 'italic',
+'underline','fontborder', 'backcolor','insertcode', 'fontsize', 'fontfamily',
+'justifyleft', 'justifyright','justifycenter', 'simpleupload', 
+'insertimage','justifyjustify',
+'strikethrough','superscript', 'subscript', 'removeformat',
+'formatmatch','autotypeset', 'blockquote', 'pasteplain', '|',
+'forecolor', 'backcolor','insertorderedlist', 'insertunorderedlist',
+'selectall', 'cleardoc', 'link', 'unlink','charts', 'emotion', 'help']
+]
+});
+        var editor2 = UE.getEditor("answer",{
+toolbars: [
+    ['fullscreen', 'source', 'undo', 'redo', 'bold', 'italic',
+'underline','fontborder', 'backcolor','insertcode', 'fontsize', 'fontfamily',
+'justifyleft', 'justifyright','justifycenter', 'simpleupload', 
+'insertimage','justifyjustify',
+'strikethrough','superscript', 'subscript', 'removeformat',
+'formatmatch','autotypeset', 'blockquote', 'pasteplain', '|',
+'forecolor', 'backcolor','insertorderedlist', 'insertunorderedlist',
+'selectall', 'cleardoc', 'link', 'unlink','charts', 'emotion', 'help']
+]
+});//container为表单的id
+    </script>
 <div class="logo">
         <img src="<?php  echo base_url() .'style/index/' ?>images/home/logo.png">
     </div>
@@ -15,14 +45,8 @@
 
 	</div>
 		<form method="POST" action="<?php echo site_url('index/subject/sub_add') ?>">
-		<div class="nav">
-		<br>
-&nbsp;&nbsp;注意：若题目类型为编程题请添加注明，例如“【编程题】输出100以内的水仙花数。”<br><br>
-			<label>&nbsp;&nbsp;&nbsp;> 题目:&nbsp;&nbsp;&nbsp;<tr><td><textarea id="t" name="sub_que"cols="49" rows="5"></textarea></td></tr>
-			<br><br>
-			<label>&nbsp;&nbsp;&nbsp;> 答案:&nbsp;&nbsp;&nbsp;<tr><td><textarea name="sub_ans"cols="49" rows="5"></textarea></td></tr>
-			<br><br>
-			<label>&nbsp;&nbsp;&nbsp;> 类型:&nbsp;&nbsp;&nbsp;
+		<br><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<label>&nbsp;&nbsp;&nbsp;试题类型:&nbsp;&nbsp;&nbsp;
 			<select name = "sub_type">
 			<option value ="1">基础题</option>
 	  		<option value ="2">Php</option>
@@ -30,8 +54,8 @@
 	  		<option value="4">Java</option>
 	  		<option value="5">Python</option>
 			</select>
-			<br><br>
-			<label>&nbsp;&nbsp;&nbsp;> 难度:&nbsp;&nbsp;&nbsp;
+		
+			<label>&nbsp;&nbsp;&nbsp;试题难度:&nbsp;&nbsp;&nbsp;
 			<select name = "sub_diff">
 			<option value ="1">1</option>
 	  		<option value ="2">2</option>
@@ -40,16 +64,22 @@
 	  		<option value="5">5</option>
 			</select>
 			<br><br>
-		
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<div class = "submit">
 			<input type="submit" value="确认添加" name="" >
 			</div>
-		</form>
+		<div class="nav">
 		<br>
-	</div>
-
-</form>
+  	<script id="question" name="content" type="text/plain" style="width:800px">
+  	请在这里输入试题题目，格式：【选择题/简答题/编程题】……………………………………………………………………。
+	</script>
+			<br><br>
+	<script id="answer" name="content" type="text/plain" style="width:800px">
+  	请在这里输入试题答案。
+	</script>
+	<br>
+		</div>
+		<br><br>
+		</form>
 
 </body>
 </html>

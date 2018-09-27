@@ -290,7 +290,7 @@ class CI_Pagination {
 	 * @var	array
 	 */
 	protected $_link_types = array();
-
+ 
 	/**
 	 * Reuse query string flag
 	 *

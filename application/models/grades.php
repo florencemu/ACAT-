@@ -40,7 +40,7 @@ public function seek_out_name($name,$perPage,$offset){
         student_paper.base_grade,
         student_paper.dir_grade,
         student_paper.grade,
-        student_paper.correct_ad,
+        student_paper.correct_id,
         student_info.stu_major FROM `student_info`,`student_paper` WHERE student_info.stu_name = '$name'AND student_info.stu_id = student_paper.stu_id LIMIT $offset,$perPage ";
         $result = $this->db->query($res)->result_array();
         return $result;
@@ -70,7 +70,7 @@ public function seek_out_major($major,$perPage,$offset){
         student_paper.base_grade,
         student_paper.dir_grade,
         student_paper.grade,
-        student_paper.correct_ad,
+        student_paper.correct_id,
         student_info.stu_major FROM `student_info`,`student_paper` WHERE student_info.stu_major = '$major'AND student_info.stu_id = student_paper.stu_id LIMIT $offset,$perPage";
         $result = $this->db->query($res)->result_array();
         return $result;
@@ -98,7 +98,7 @@ public function seek_out_group($group,$perPage,$offset){
         student_paper.base_grade,
         student_paper.dir_grade,
         student_paper.grade,
-        student_paper.correct_ad,
+        student_paper.correct_id,
         student_info.stu_major FROM `student_info`,`student_paper` WHERE student_info.stu_group = '$group'AND student_info.stu_id = student_paper.stu_id LIMIT $offset,$perPage";
         $result = $this->db->query($res)->result_array();
         return $result;
@@ -124,7 +124,7 @@ public function seek_out_all($group,$major,$perPage,$offset){
         student_paper.base_grade,
         student_paper.dir_grade,
         student_paper.grade,
-        student_paper.correct_ad,
+        student_paper.correct_id,
         student_info.stu_major FROM `student_info`,`student_paper` WHERE student_info.stu_group = '$group' AND student_info.stu_major = '$major'AND student_info.stu_id = student_paper.stu_id LIMIT $offset,$perPage";
         $result = $this->db->query($res)->result_array();
         return $result;

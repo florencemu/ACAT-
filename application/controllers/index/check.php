@@ -22,6 +22,7 @@ class Check extends CI_Controller {
 		$id=$this->session->userdata('id');
 		$res=$this->check_paper->get_paper($id);
 		$s_id=explode('.', $res,-1);
+		$this->session->set_userdata('s_id',$s_id);
 
 		$length=sizeof($s_id);
 		for($i=0;$i<$length;$i++)

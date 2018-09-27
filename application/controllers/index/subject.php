@@ -15,12 +15,13 @@ class Subject extends CI_Controller {
 	/*添加试题页*/
 	public function sub_add_html(){
 		$this->load->view('index/sub_add.html');
+		//$this->load->view('index/1.html');
 	}
 
 	public function sub_add(){
 
-		$sub_que = $this->input->post('sub_que');
-		$sub_ans = $this->input->post('sub_ans');
+		$sub_que = $this->input->post('question');
+		$sub_ans = $this->input->post('answer');
 		if(empty($sub_que&&$sub_ans)){
 				error('题目和答案不可为空！');
 		}

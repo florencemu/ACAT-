@@ -30,7 +30,7 @@ public function admin_show($id){
 
 }
 public function admin_show_test($s_id){
-	$sql = "SELECT sub_que,sub_ans FROM `subject` WHERE sub_id = '$s_id'";
+	$sql = "SELECT sub_id,sub_que,sub_ans FROM `subject` WHERE sub_id = '$s_id'";
 	$result = $this->db->query($sql)->result_array();
 	return $result;
 }

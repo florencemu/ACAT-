@@ -19,6 +19,7 @@ class Show_test extends CI_Controller {
 		$this->session->set_userdata('d_grade',$grade[0]['dir_grade']);
 		$res = $this->paper->sel_stu_ans($id);
 		$s_id=explode('.', $res[0]['include_id'],-1);
+		$this->session->set_userdata('s_id',$s_id);
 
 		$length=sizeof($s_id);
 		for($i=0;$i<$length;$i++)

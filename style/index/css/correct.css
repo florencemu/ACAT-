@@ -83,3 +83,19 @@ bottom: 0;
 
 
 }
+.footer button{
+	appearance:none;
+	
+		moz-appearance: none;
+		width:90px;
+		height:30px;
+		font-family:"方正姚体";
+		font-size:15px;
+		border-radius:10px;
+		border-width: 2px;
+		background-color: rgba(244,244,244,0.2);
+		color: black;
+		padding: 5px;
+
+
+}

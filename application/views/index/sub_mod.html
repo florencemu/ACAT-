@@ -6,6 +6,36 @@
 	<link rel="stylesheet" type="text/css" href="<?php  echo base_url() .'style/index' ?>/css/sub-mod.css">
 </head>
 <body>
+ <script type="text/javascript" src="../../../ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="../../../ueditor/ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var editor = UE.getEditor('question',{
+toolbars: [
+    ['fullscreen', 'source', 'undo', 'redo', 'bold', 'italic',
+'underline','fontborder', 'backcolor','insertcode', 'fontsize', 'fontfamily',
+'justifyleft', 'justifyright','justifycenter', 'simpleupload', 
+'insertimage','justifyjustify',
+'strikethrough','superscript', 'subscript', 'removeformat',
+'formatmatch','autotypeset', 'blockquote', 'pasteplain', '|',
+'forecolor', 'backcolor','insertorderedlist', 'insertunorderedlist',
+'selectall', 'cleardoc', 'link', 'unlink','charts', 'emotion', 'help']
+]
+});
+        var editor2 = UE.getEditor("answer",{
+toolbars: [
+    ['fullscreen', 'source', 'undo', 'redo', 'bold', 'italic',
+'underline','fontborder', 'backcolor','insertcode', 'fontsize', 'fontfamily',
+'justifyleft', 'justifyright','justifycenter', 'simpleupload', 
+'insertimage','justifyjustify',
+'strikethrough','superscript', 'subscript', 'removeformat',
+'formatmatch','autotypeset', 'blockquote', 'pasteplain', '|',
+'forecolor', 'backcolor','insertorderedlist', 'insertunorderedlist',
+'selectall', 'cleardoc', 'link', 'unlink','charts', 'emotion', 'help']
+]
+});//container为表单的id
+    </script>
 <div class="logo">
         <img src="<?php  echo base_url() .'style/index/' ?>images/home/logo.png">
     </div>
@@ -16,30 +46,18 @@
 
 	</div> 
 <form method="POST" action="<?php echo site_url('index/subject/sub_mod') ?>">
-		<div class="nav">
-
-<br>
-			<label>&nbsp;&nbsp;&nbsp;> 题目:&nbsp;&nbsp;&nbsp;<tr><td><textarea name="question"cols="49" rows="1"><?php $this->load->library('session');
-                                $inf=$this->session->userdata('que');
-                                echo $inf; ?></textarea></td></tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<br><br>
-			<label>&nbsp;&nbsp;&nbsp;> 答案:&nbsp;&nbsp;&nbsp;<tr><td><textarea name="answer"cols="49" rows="10"><?php $this->load->library('session');
-                                $inf=$this->session->userdata('ans');
-                                echo $inf; ?></textarea></td></tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<br><br>
-			<label>&nbsp;&nbsp;&nbsp;> 类型:&nbsp;&nbsp;&nbsp;
+<br><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<label>&nbsp;&nbsp;&nbsp;试题类型:&nbsp;&nbsp;&nbsp;
 			<select name = "sub_type">
-			<option value ="0">-</option>
 			<option value ="1">基础题</option>
 	  		<option value ="2">Php</option>
 	  		<option value ="3">前端</option>
 	  		<option value="4">Java</option>
 	  		<option value="5">Python</option>
 			</select>
-			<br><br>
-			<label>&nbsp;&nbsp;&nbsp;> 难度:&nbsp;&nbsp;&nbsp;
+		
+			<label>&nbsp;&nbsp;&nbsp;试题难度:&nbsp;&nbsp;&nbsp;
 			<select name = "sub_diff">
-			<option value ="0">-</option>
 			<option value ="1">1</option>
 	  		<option value ="2">2</option>
 	  		<option value ="3">3</option>
@@ -47,14 +65,24 @@
 	  		<option value="5">5</option>
 			</select>
 			<br><br>
-		
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<div class = "submit">
 			<input type="submit" value="确认修改" name="" >
 			</div>
-		</form>
+		<div class="nav">
+	<script id="question" name="content" type="text/plain" style="width:800px"> 
+  	<?php $this->load->library('session');
+                                $inf=$this->session->userdata('que');
+                                echo $que=str_replace("\n","<br>",$inf); ?>
+	</script>
+	<br><br>
+	<script id="answer" name="content" type="text/plain" style="width:800px">
+  	<?php $this->load->library('session');
+                                $inf=$this->session->userdata('ans');
+                                echo $ans=str_replace("\n","<br>",$inf); ?>
+	</script>
 	<br>
 	</div>
+	</form>
 	
 </form>
 </body>
