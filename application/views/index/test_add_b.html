@@ -9,7 +9,7 @@
 
 
 
- 
+
 	<link rel="stylesheet" type="text/css" href="<?php  echo base_url() .'style/index' ?>/css/test_d.css">
 
 </head>
@@ -24,9 +24,9 @@
 
 	</div> 
 	<div class="nav">
-	<form method="get" action="<?php echo site_url('index/test_sel_page/b_sel') ?>">
+	
 		选择难度:
-		<select name="diff">
+		<select name="diff"  id = "select">
 			<option value ="0">-</option>
 			<option value ="1">1</option>
 	  		<option value ="2">2</option>
@@ -37,55 +37,148 @@
 		<div class="submit1">
 				<input id="btn1" type="submit" value="查找">
 		</div>
-	</form>
+	
 		<br><br>
-	<form method="get" action="<?php echo site_url('index/test_sel_page/sel_b') ?>">
+	
 
 	<div class = "table">
-		<table id="tab1" border="0" width="500" cellspacing="0">
+		<table id="tab1" border="0" width="800" cellspacing="0">
 		<thead>
 		<tr>
 			<th>试题号</th>
 			<th>题目</th>
+			<th>答案</th>
 			<th>难度</th>
 			<th>选择</th>
 			</tr>
 		</thead>
 			<tbody>
-			
+	
 			<?php  foreach($sub as $item): ?>
 			<tr>
-				<td><?php echo $item['sub_id']  ?></td>
+				<td  ><p class="id"><?php echo $item['sub_id']  ?></p></td>
 				<td><?php echo $que=str_replace("\n","<br>",$item['sub_que']); ?></td>
+				<td><?php echo $que=str_replace("\n","<br>",$item['sub_ans']); ?></td>
 				<td><?php echo $item['sub_diff'] ?></td>
-				<td><a href="<?php echo site_url('index/test/test_add_b').'?'.'id='.$item['sub_id']; ?>" style="color: #8B636C" onClick="return confirm('确定添加?');">添加</a></td>    
+				<td><!-- <a href="<?php echo site_url('index/test_page/b_page'); ?>" style="color: #8B636C"  class="add">添加</a> -->
+				   <button class="add" style="color: #8B636C" >添加</button>
+				</td> 
 			</tr>
 			<?php endforeach;?>
+				<!-- onClick="return confirm('确定添加?');" -->
+				<script type="text/javascript">
+				      var id = document.querySelectorAll(".id");
+				      var add = document.querySelectorAll(".add");
+				      console.log(id);
+			           for(var i=0;i<add.length;i++){
+			           	  console.log(id[i].value);
+			              (function(j){
+			                   add[j].onclick=function(){
+			                   	  if(this.innerHTML=="已添加")  return;
+			                   	  loadXMLDoc(id[j].innerHTML,this);
+
+			                   }
+			              })(i)
+			           }
+					function loadXMLDoc(value,obj)
+
+						{
+							var xmlhttp;
+							if (window.XMLHttpRequest)
+							{
+								xmlhttp=new XMLHttpRequest();
+							}
+							else
+							{
+								xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+							}
+							xmlhttp.onreadystatechange=function()
+							{
+								if (xmlhttp.readyState==4 && xmlhttp.status==200)
+								{
+									if(xmlhttp.reponseText=="-1"){
+										alert("添加失败");
+									}
+									else{
+										alert("添加成功");
+										obj.innerHTML="已添加";
+									}
+								}
+							}
+							xmlhttp.open("POST","<?php echo site_url('index/test/add_b') ?>",true);
+							xmlhttp.send(JSON.stringify({num:value}));
+						}
+
+							
+							document.getElementById('btn1').addEventListener('click',submit);
+							function submit(){
+								 //    var select = document.getElementById('select');
+									// var index = select.selectedIndex;
+									// var value = select.options[index].value;
+								    var a;
+									if (window.XMLHttpRequest)
+									{
+										a=new XMLHttpRequest();
+									}
+									else
+									{
+										a=new ActiveXObject("Microsoft.XMLHTTP");
+									}
+									a.onreadystatechange=function()
+									{
+										if (a.readyState==4 && a.status==200)
+										{
+											
+											
+											console.log(JSON.stringify(a.reponseText));
+											
+										}
+									}
+									a.open("POST","<?php echo site_url('index/test/sel_b')?>",true);
+								    a.send(JSON.stringify({num:2}));
+
+									}
+									
+								
+				</script>   
+			</tr>
+			
 		</tbody>
 		</table>
 		</div>
-	</form>
+	
 		<br>
-	
 
-
-<div class = "style">
-		<div class = "list">
-		  <div id="pagelist">
-				<ul>
-				<?php echo $this->pagination->create_links();?>
-			</ul>
-		  </div>
-		 </div>
-		  
-	</div>
-		</div>
-	</div>
-
-	
-
-</form>
 
 
 </body>
 </html>
+
+<!-- // var xhr = new XMLHttpRequest();
+									// var select = document.getElementById('select');
+									// var index = select.selectedIndex;
+									// var value = select.options[index].value;
+								
+							
+								// alert(value);
+								
+					
+								// xhr.onload = function(){
+								// 	if(xhr.status == 200){
+									
+								// 		// console.log(xhr.reponseText);
+								// 		var json = xhr.reponseText;
+								// 	  //var str = '';    
+								
+								// 	 // console.log(JSON.parse(xhr.reponseText));
+
+								// 		var data = json.sub;
+								// 		var output = "";
+								// 		console.log(json);
+								// 		var th = document.getElementsByTagName('th');
+								// 		// for(var i in data){
+										// 	th[0].innerHTML = data[i].sub_id;
+										// 	th[1].innerHTML = data[i].sub_que;
+										// 	th[2].innerHTML = data[i].sub_ans;
+										// 	th[3].innerHTML = data[i].sub_diff;
+										// } -->

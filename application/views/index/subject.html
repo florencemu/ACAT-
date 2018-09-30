@@ -70,8 +70,6 @@
             <td><?php echo $v['sub_id'] ?></td>
 				<td><?php echo $v['sub_type'] ?></td>
 				<td><?php echo $que=str_replace("\n","<br>",$v['sub_que']); ?>
-				<br>
-					<img src="<?php  echo base_url()?>sub_image/<?php echo $v['sub_id'] ?>.jpg "onerror="this.src='<?php  echo base_url()?>sub_image/logo.png'" ></td>
 				<td><?php echo $que=str_replace("\n","<br>",$v['sub_ans']); ?></td>
 				<td><?php echo $v['sub_diff'] ?></td>
 				<td><a href="<?php echo site_url('index/subject/mod_que').'?'.'id='.$v['sub_id']; ?>" style="color: #8B636C" >编辑</a></td>

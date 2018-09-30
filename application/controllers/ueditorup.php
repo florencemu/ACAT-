@@ -1,5 +1,4 @@
 <?php
-//ueditorup.php
 class UeditorUp extends MY_Controller
 {
     function __construct()

@@ -16,9 +16,12 @@ class Subjects extends CI_Model {
 /*添加试题*/
 	public function sub_add($sub_type,$sub_diff,$sub_que,$sub_ans){
 		$sql = "INSERT INTO `subject` ( `sub_type`,`sub_diff`, `sub_que`, `sub_ans`) VALUES ('$sub_type', '$sub_diff','$sub_que','$sub_ans')";
-		$result = $this->db->query($sql);
+		$result1 = $this->db->query($sql);
+		$res= "SELECT LAST_INSERT_ID()";
+		$result = $this->db->query($res)->result_array();
     	return $result;
 	}
+
 
 /*删除试题*/
 	public function sub_del($id){

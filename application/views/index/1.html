@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>选择方向题 -@ACAT</title>
+	<title>选择基础题 -@ACAT</title>
 	<script type="text/javascript" src="/CI_test/js/jquery.js"></script>
 
 	
@@ -24,7 +22,7 @@
 
 	</div> 
 	<div class="nav">
-	<form method="get" action="<?php echo site_url('index/test/sel_d') ?>">
+	
 		选择难度:
 		<select name="diff">
 			<option value ="0">-</option>
@@ -37,7 +35,7 @@
 		<div class="submit1">
 				<input id="btn1" type="submit" value="查找">
 		</div>
-	</form>
+	
 		<br><br>
 	
 
@@ -48,7 +46,6 @@
 			<th>试题号</th>
 			<th>题目</th>
 			<th>答案</th>
-			<th>方向</th>
 			<th>难度</th>
 			<th>选择</th>
 			</tr>
@@ -60,7 +57,6 @@
 				<td  ><p class="id"><?php echo $item['sub_id']  ?></p></td>
 				<td><?php echo $que=str_replace("\n","<br>",$item['sub_que']); ?></td>
 				<td><?php echo $que=str_replace("\n","<br>",$item['sub_ans']); ?></td>
-				<td><?php echo $item['sub_type'] ?></td>
 				<td><?php echo $item['sub_diff'] ?></td>
 				<td><!-- <a href="<?php echo site_url('index/test_page/b_page'); ?>" style="color: #8B636C"  class="add">添加</a> -->
 				   <button class="add" style="color: #8B636C" >添加</button>
@@ -110,6 +106,35 @@
 							xmlhttp.open("POST","<?php echo site_url('index/test_page/b_page_ok') ?>",true);
 							xmlhttp.send(JSON.stringify({num:value}));
 						}
+							
+							document.getElementById('btn1').addEventListener('click',submit);
+							function submit(){
+								var xhr = new XMLHttpRequest();
+								var value = document.getElementsByTagName('select')[0].onchange = function(){
+									return this.options[this.selectedIndex].value;
+								}
+								xhr.open("GET","<?php echo site_url('index/test/sel_b')?>?value="+value,true);
+								xhr.onload = function(){
+									if(xhr.status == 200){
+										var json = JSON.parse(xhr.reponseText);
+										var data = json.sub;
+										var output = "";
+										var len =4;
+										var th = document.getElementsByTagName('th');
+										for(var i in data){
+											th[0].innerHTML = `${data[i].sub_id}`;
+											th[1].innerHTML = `${data[i].sub_que}`;
+											th[2].innerHTML = `${data[i].sub_ans}`;
+											th[3].innerHTML = `${data[i].sub_diff}`;
+										}
+
+									}
+								}
+								
+								
+
+							}
+
 				</script>   
 			</tr>
 			

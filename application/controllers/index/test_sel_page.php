@@ -172,9 +172,9 @@ class Test_sel_page extends CI_Controller {
         $this->load->model("paper","paper");
 
         if(empty($offset)) $offset = 0;
-        if(!($type)&&!($diff)) error("请选择你要查询的信息！");
+        if(!($diff)) error("请选择你要查询的信息！");
 
-        else if (!($diff)&&$type) 
+       /* else if (!($diff)&&$type) 
             {   
                  $config['base_url'].="type=".$type;
                 switch ($type) {
@@ -189,17 +189,19 @@ class Test_sel_page extends CI_Controller {
             $num = $this ->paper ->type_num($type);
             $config['total_rows']=(int)$num;
             $data['sub'] = $this ->paper ->d_sel($type,$perPage,$offset);
-                }
-        else if (!($type)&&($diff) ){
+                }*/
+        else {
             $config['base_url'].="diff=".$diff;        
              if(empty($page)) $page=1;   //第一页 
              else   $offset = ($page-1)*4;//4是显示条数
-            $num = $this ->paper ->diff_num_d($diff);
+             $this->load->library('session');
+            $type = $this->session->userdata('type');
+            $num = $this ->paper ->diff_num_d($type,$diff);
             $config['total_rows']=(int)$num;
-            $data['sub'] = $this ->paper ->diff_sel_d($diff,$perPage,$offset);
+            $data['sub'] = $this ->paper ->diff_sel_d($type,$diff,$perPage,$offset);
                 }
 
-        else if ($diff&&$type) 
+       /* else if ($diff&&$type) 
             {
                 $config['base_url'].="type=".$type."&"."diff=".$diff;
                 switch ($type) {
@@ -213,8 +215,8 @@ class Test_sel_page extends CI_Controller {
              else   $offset = ($page-1)*4;//4是显示条数
             $num = $this ->paper ->num_d($diff,$type);
             $config['total_rows']=(int)$num;
-            $data['sub'] = $this ->paper ->all_sel($type,$diff,$perPage,$offset);
-            }
+            $data['sub'] = $this ->paper ->all_sel($type,$diff,$perPage,$offset);*/
+            
           
 
 

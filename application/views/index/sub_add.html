@@ -20,7 +20,7 @@ toolbars: [
 'strikethrough','superscript', 'subscript', 'removeformat',
 'formatmatch','autotypeset', 'blockquote', 'pasteplain', '|',
 'forecolor', 'backcolor','insertorderedlist', 'insertunorderedlist',
-'selectall', 'cleardoc', 'link', 'unlink','charts', 'emotion', 'help']
+'selectall', 'cleardoc', 'inserttable', 'emotion', 'help']
 ]
 });
         var editor2 = UE.getEditor("answer",{
@@ -32,7 +32,7 @@ toolbars: [
 'strikethrough','superscript', 'subscript', 'removeformat',
 'formatmatch','autotypeset', 'blockquote', 'pasteplain', '|',
 'forecolor', 'backcolor','insertorderedlist', 'insertunorderedlist',
-'selectall', 'cleardoc', 'link', 'unlink','charts', 'emotion', 'help']
+'selectall', 'cleardoc', 'inserttable', 'emotion', 'help']
 ]
 });//container为表单的id
     </script>
@@ -69,12 +69,13 @@ toolbars: [
 			</div>
 		<div class="nav">
 		<br>
-  	<script id="question" name="content" type="text/plain" style="width:800px">
-  	请在这里输入试题题目，格式：【选择题/简答题/编程题】……………………………………………………………………。
+
+  	<script id="question" name="question" type="text/plain" style="width:800px">
+  	 [ 选择/简答/编程 ] 这里填题目 
 	</script>
 			<br><br>
-	<script id="answer" name="content" type="text/plain" style="width:800px">
-  	请在这里输入试题答案。
+	<script id="answer" name="answer" type="text/plain" style="width:800px">
+  	这里填答案
 	</script>
 	<br>
 		</div>

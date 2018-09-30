@@ -48,6 +48,31 @@ class Test extends CI_Controller {
 		else error("删除失败");
 	}
 
+/*基础题显示*/
+	public function base_add(){
+		$this->load->model("paper","paper");
+       /* $this->load->library('session');*/
+        $data['sub'] = $this ->paper ->inf_b();
+       /* var_dump($data);die;*/
+        $b=json_encode($data,JSON_UNESCAPED_UNICODE);
+		$this->load->view('index/test_add_b.html',$data);    
+	}
+
+/*方向题显示*/
+	public function dir_add(){
+		$this->load->model("paper","paper");
+        $this->load->library('session');
+        $type = $this->session->userdata('type');
+        $data['sub'] = $this ->paper ->inf_d($type);
+        /*var_dump($data);die;*/
+        $b=json_encode($data,JSON_UNESCAPED_UNICODE);
+		$this->load->view('index/test_add_d.html',$data);    
+
+	}
+
+
+
+
 		/*添加试题页*/
 
 
@@ -61,11 +86,13 @@ class Test extends CI_Controller {
 		$level = $a[0]['admin_level'];
 		if(intval($level)<3) error("抱歉，您尚未获得创建试卷的权限！");
 		$type =$this->session->set_userdata('type',$res);
-		/*var_dump($type);*/
-		$this->load->view('index/test_add.html');
+      //  $num=$this->session->userdata('num');
+		$this->load->view('index/test_add.html'/*,$num*/);
 
 	}
-	public function test_add_b(){
+
+
+	/*public function test_add_b(){
 		$this->load->library('session');
  		$admin=$this->session->userdata('user');
  		$this->load->model('paper','paper');
@@ -73,13 +100,13 @@ class Test extends CI_Controller {
 		$type =$this->session->set_userdata('type',$res);
 		/*for($i=0;)
 		$data['id'] = */
-		$id = $this->input->get('id').'.';
+	/*	$id = $this->input->get('id').'.';
 		$b_id  =$this->session->set_userdata('b_id',$id);
 		if($id) success('index/test_page/b_page','添加成功');
 
-	}
+	}*/
 
-	public function test_add_d(){
+	/*public function test_add_d(){
 		$this->load->library('session');
  		$admin=$this->session->userdata('user');
  		$this->load->model('paper','paper');
@@ -88,56 +115,75 @@ class Test extends CI_Controller {
 		$data['d_id'] = $this->input->get('id');
 		/*$this->load->model('paper','paper');
 		$data['sub'] = $this->paper->inf_b();*/
-		if($data)/* success('index/test_page/d_page','添加成功');*/
-		$this->load->view('index/test_add.html',$data);
+	/*	if($data)/* success('index/test_page/d_page','添加成功');*/
+	/*	$this->load->view('index/test_add.html',$data);
 
-	}
-
-
+	}*/
 
 
 
 
 
-		/*查找题目*/
-	public function test_add_sel(){
-		$type = $this->input->post('type');
-		$diff = $this->input->post('diff');
+	/*查找基础题*/
+	public function sel_b(){
+		$result= file_get_contents("php://input");
+		$diff=json_decode($result,TRUE);
+		
+		//echo $diff['num'];
 		$this->load->model('paper','paper');
-		if(!($type)&&!($diff)) error("请选择你要查询的信息！");
-
-		else if (!($diff)&&$type) 
-			{ 	
-				switch ($type) {
-					case '1': $type= 'PHP';break;
-					case '2': $type= '前端';break;
-					case '3': $type= 'JAVA';break;
-					case '4':$type= 'Python';break;
-			    	}
-					$data['sub'] = $this ->paper ->d_sel($type);
-					$this->load->view('index/test_add_d.html',$data);
-
-			}
-		else if (!($type)&&($diff) ){
+		if(!($diff)) error("请选择你要查询的试题难度！");
+		else {
 					
-					$data['sub'] = $this ->paper->b_sel($diff);
-					$this->load->view('index/test_add_b.html',$data);
-				}
-		else if ($diff&&$type) 
-			{
-				switch ($type) {
-				
-					case '1': $type= 'PHP';break;
-					case '2': $type= '前端';break;
-					case '3': $type= 'JAVA';break;
-					case '4':$type= 'Python';break;
-			    }
-				$data['sub'] = $this ->paper->all_sel($type,$diff);
+					$data['sub'] =$this->paper->b_sel($diff['num']);
+					$b=json_encode($data,JSON_UNESCAPED_UNICODE);
 
-				$this->load->view('index/test_add_d.html',$data);
-			}
+					echo $b;
+					/*$this->load->view('index/test_add_b.html',$data);*/
+				}
+		/*$result=$this->input->get('diff');*/
+		//echo $b;
 
 	}
+
+
+/*查找方向题*/
+	public function sel_d(){
+		$this->load->library('session');
+        $type = $this->session->userdata('type');
+		$result= file_get_contents("php://input");
+		$a=json_decode($result,TRUE);
+		$diff=
+		$this->load->model('paper','paper');
+		if(!($diff)) error("请选择你要查询的试题难度！");
+		else{
+					
+					$data['sub'] = $this ->paper->d_sel($type,$diff);
+					$b=json_encode($data,JSON_UNESCAPED_UNICODE);
+					$this->load->view('index/test_add_d.html',$data);
+				}
+	}
+
+/*添加基础题*/
+	public function add_b(){
+		$result= file_get_contents("php://input");
+		$a=json_decode($result,TRUE);
+		$b=$a['num'];
+		echo $b;
+		
+
+	}
+
+/*添加基础题*/
+	public function add_d(){
+		$result= file_get_contents("php://input");
+		$a=json_decode($result,TRUE);
+		echo $a;
+		
+
+	}
+
+
+
 
 		/*查找试卷*/
 	public function seek_out_type_num(){

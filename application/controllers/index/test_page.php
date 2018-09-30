@@ -103,10 +103,21 @@ class Test_page extends CI_Controller {
         $this->pagination->initialize($config);
         
         //加载模型类和视图
-     
-      
         $this->load->view('index/test_add_b.html',$data);
     }
+
+ 
+public function b_page_ok(){
+    $result=file_get_contents("php://input");
+    if($a=json_decode($result,TRUE))
+    {   echo $a['num'];
+        $this->load->library('session');
+        $this->session->set_userdata('num',$a['num']);;
+    }
+    else echo "-1";
+
+}
+
 
 
 
@@ -150,8 +161,10 @@ class Test_page extends CI_Controller {
             $num = $this ->paper->d_num();
             $config['total_rows']=(int)$num;
                       /*var_dump( $config['total_rows']);*/
-
-            $data['sub'] = $this ->paper ->inf_d($perPage,$offset);
+            $this->load->library('session');
+            $type = $this->session->userdata('type');
+           
+            $data['sub'] = $this ->paper ->inf_d($type,$perPage,$offset);
     
         //传入配置项，并生成链接
         $this->pagination->initialize($config);

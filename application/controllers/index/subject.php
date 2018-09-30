@@ -22,6 +22,9 @@ class Subject extends CI_Controller {
 
 		$sub_que = $this->input->post('question');
 		$sub_ans = $this->input->post('answer');
+		/*	var_dump($sub_que);
+		var_dump($sub_ans);*/
+
 		if(empty($sub_que&&$sub_ans)){
 				error('题目和答案不可为空！');
 		}
@@ -40,11 +43,21 @@ class Subject extends CI_Controller {
  	
  		$this->load->model('subjects', 'subjects');
 		$result = $this->subjects->sub_add($sub_type,$sub_diff,$sub_que,$sub_ans);
+		//var_dump($result);
 		if($result){
-			success('index/subject','添加试题成功');
+			//$id=$result[0]['LAST_INSERT_ID()'];
+			//$json_string = file_get_contents("http://localhost/CI_test/ueditor/php/config.json");
+			//var_dump($json_string);// 从文件中读取数据到PHP变量
+		    //$data=explode(',',$json_string);
+		    //$data[13]='"imagePathFormat":"/sub_image/$id"';    
+		    //$json_strings = implode(",",$data);
+		  /*  var_dump($json_strings);*/
+		    //file_put_contents("http://localhost/CI_test/ueditor/php/config.json",$json_strings);//写入*/
+			success('index/sub_page/page','添加试题成功');
 		}else{
 			error('您的输入有误，请重新输入！');
 		}
+		
 	}
 
 	/*查找试题*/
@@ -79,6 +92,8 @@ class Subject extends CI_Controller {
 			    }
 				$data['sub'] = $this ->subjects->seek_out_all($type,$diff);
 			}
+
+	
 		$this->load->view('index/subject.html',$data);
 	}
 
@@ -118,8 +133,18 @@ class Subject extends CI_Controller {
 					default:error("请选择试题类型！");
 			    }
 		$res=$this->subjects->sub_mod($id,$que,$ans,$diff,$type);
-		if($res) 
-		success('index/sub_page/page','修改成功');
+		if($res) {
+			//$json_string = file_get_contents("http://localhost/CI_test/ueditor/php/config.json");
+			//var_dump($json_string);// 从文件中读取数据到PHP变量
+		    //$data=explode(',',$json_string);
+		   // $data[13]='"imagePathFormat":"/sub_image/$id"';    
+		   // $json_strings = implode(",",$data);
+		  /*  var_dump($json_strings);*/
+		   // $d=file_put_contents("http://localhost/CI_test/ueditor/php/config.json",$json_strings);
+		   // var_dump($d);//写入*/
+			success('index/sub_page/page','修改成功');
+
+		}
 		else error("修改失败！");
 	}
 
@@ -129,7 +154,7 @@ class Subject extends CI_Controller {
 		$this->load->model('subjects','subjects');
 		$res= $this->subjects->sub_del($id);
 		if($res)
-		success('index/subject','删除成功');
+		success('index/sub_page/page','删除成功');
 		else error("删除失败！");
 	}
 }
