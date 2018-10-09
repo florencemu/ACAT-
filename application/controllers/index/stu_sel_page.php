@@ -64,10 +64,10 @@ class Stu_sel_page extends CI_Controller {
             
             $config['base_url'].="group=".$group."&sex=".$sex;
                    switch ($group) {
-                    case '1': $group= 'PHP';break;
-                    case '2': $group= '前端';break;
-                    case '3': $group= 'JAVA';break;
-                    case '4':$group= 'Python';break;
+                    case '1': $group= '前端';break;
+                    case '2': $group= '后台';break;
+                    case '3': $group= '服务端';break;
+                    case '4':$group= '机器学习';break;
                     }
             /*var_dump($page);*/
             if(empty($page)) $page=1;   //第一页 
@@ -102,10 +102,10 @@ class Stu_sel_page extends CI_Controller {
         else if($sex&&$group){
              $config['base_url'].="group=".$group."&sex=".$sex;
              switch ($group) {
-                     case '1': $group= 'PHP';break;
-                    case '2': $group= '前端';break;
-                    case '3': $group= 'JAVA';break;
-                    case '4':$group= 'Python';break;
+                     case '1': $group= '前端';break;
+                    case '2': $group= '后台';break;
+                    case '3': $group= '服务端';break;
+                    case '4':$group= '机器学习';break;
                     }
              switch ($sex) {
                     case '1': $sex= '男';break;

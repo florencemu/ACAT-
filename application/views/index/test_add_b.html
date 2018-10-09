@@ -52,7 +52,7 @@
 			<th>选择</th>
 			</tr>
 		</thead>
-			<tbody>
+			<tbody id="tbody">
 	
 			<?php  foreach($sub as $item): ?>
 			<tr>
@@ -66,19 +66,35 @@
 			</tr>
 			<?php endforeach;?>
 				<!-- onClick="return confirm('确定添加?');" -->
-				<script type="text/javascript">
-				      var id = document.querySelectorAll(".id");
-				      var add = document.querySelectorAll(".add");
-				      console.log(id);
-			           for(var i=0;i<add.length;i++){
-			           	  console.log(id[i].value);
-			              (function(j){
-			                   add[j].onclick=function(){
+				
+			</tr>
+			
+		</tbody>
+		</table>
+		</div>
+	
+		<br>
+
+
+
+</body>
+</html>
+<script type="text/javascript">
+
+     var select = document.getElementById('select');
+     let tbody = document.getElementById("tbody");
+      var id = document.querySelectorAll(".id");
+      var add = document.querySelectorAll(".add");
+			 for(var j=0;j<add.length;j++){
+			           	  console.log(id[j].value);
+			              (function(k){
+			                   add[k].onclick=function(){
 			                   	  if(this.innerHTML=="已添加")  return;
-			                   	  loadXMLDoc(id[j].innerHTML,this);
+			                   	  loadXMLDoc(id[k].innerHTML,this);
+			                   	  alert(id[k].innerHTML);
 
 			                   }
-			              })(i)
+			              })(j)
 			           }
 					function loadXMLDoc(value,obj)
 
@@ -107,78 +123,83 @@
 							}
 							xmlhttp.open("POST","<?php echo site_url('index/test/add_b') ?>",true);
 							xmlhttp.send(JSON.stringify({num:value}));
-						}
+				}
+  $("#btn1").click(function(){
+  	    tbody.innerHTML="";
+		$.post("<?php echo site_url('index/test/sel_b')?>",JSON.stringify({num:select.value}),
+		function(data,status){
+			let subject = JSON.parse(data).sub;
+			console.log(subject);
+			for (let i = 0; i <subject.length; i++) {
+				var tr = document.createElement("tr");
+				var td1 = document.createElement("td");td1.innerHTML=subject[i].sub_id;	
+				var td2 = document.createElement("td");td2.innerHTML=subject[i].sub_que;
+				var td3 = document.createElement("td");td3.innerHTML=subject[i].sub_ans;
+				var td4 = document.createElement("td");td4.innerHTML=subject[i].sub_diff;
+				var td5 = document.createElement("td"); 
+				var button = document.createElement("button"); 
+				button.className="add";
+				button.innerHTML="添加";
+				button.index=subject[i].sub_id;
+				td5.appendChild(button);
+				tr.appendChild(td1);
+				tr.appendChild(td2);
+				tr.appendChild(td3);
+				tr.appendChild(td4);
+				tr.appendChild(td5);
+				tbody.appendChild(tr);
+			}
+			postId()
+		});
+	});
 
-							
-							document.getElementById('btn1').addEventListener('click',submit);
-							function submit(){
-								 //    var select = document.getElementById('select');
-									// var index = select.selectedIndex;
-									// var value = select.options[index].value;
-								    var a;
-									if (window.XMLHttpRequest)
-									{
-										a=new XMLHttpRequest();
+   function postId(){
+   		var add = document.querySelectorAll(".add");
+			 for(var j=0;j<add.length;j++){
+			              (function(k){
+			                   add[k].onclick=function(){
+			                   	  if(this.innerHTML=="已添加")  return;
+			                   	   alert(this.index);
+			                   	  load(this.index,this);
+
+			                   }
+			              })(j)
+			           }
+
+   }
+
+
+
+                          function load(index,obj)
+
+						{
+							var xmlhttp;
+							if (window.XMLHttpRequest)
+							{
+								xmlhttp=new XMLHttpRequest();
+							}
+							else
+							{
+								xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+							}
+							xmlhttp.onreadystatechange=function()
+							{
+								if (xmlhttp.readyState==4 && xmlhttp.status==200)
+								{
+									alert(1);
+									if(xmlhttp.reponseText=="-1"){
+										alert("添加失败");
 									}
-									else
-									{
-										a=new ActiveXObject("Microsoft.XMLHTTP");
+									else{
+										alert("添加成功");
+										obj.innerHTML="已添加";
 									}
-									a.onreadystatechange=function()
-									{
-										if (a.readyState==4 && a.status==200)
-										{
-											
-											
-											console.log(JSON.stringify(a.reponseText));
-											
-										}
-									}
-									a.open("POST","<?php echo site_url('index/test/sel_b')?>",true);
-								    a.send(JSON.stringify({num:2}));
-
-									}
-									
-								
-				</script>   
-			</tr>
-			
-		</tbody>
-		</table>
-		</div>
-	
-		<br>
+								}
+							}
+							xmlhttp.open("POST","<?php echo site_url('index/test/add_b') ?>",true);
+							xmlhttp.send(JSON.stringify({num:indexs}));
+				}
 
 
-
-</body>
-</html>
-
-<!-- // var xhr = new XMLHttpRequest();
-									// var select = document.getElementById('select');
-									// var index = select.selectedIndex;
-									// var value = select.options[index].value;
-								
-							
-								// alert(value);
-								
-					
-								// xhr.onload = function(){
-								// 	if(xhr.status == 200){
-									
-								// 		// console.log(xhr.reponseText);
-								// 		var json = xhr.reponseText;
-								// 	  //var str = '';    
-								
-								// 	 // console.log(JSON.parse(xhr.reponseText));
-
-								// 		var data = json.sub;
-								// 		var output = "";
-								// 		console.log(json);
-								// 		var th = document.getElementsByTagName('th');
-								// 		// for(var i in data){
-										// 	th[0].innerHTML = data[i].sub_id;
-										// 	th[1].innerHTML = data[i].sub_que;
-										// 	th[2].innerHTML = data[i].sub_ans;
-										// 	th[3].innerHTML = data[i].sub_diff;
-										// } -->
+  
+</script>

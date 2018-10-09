@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>查看成绩 -@ACAT</title>
+	<link rel="stylesheet" type="text/css" href="<?php  echo base_url() .'style/index/' ?>css/student/home.css">
+</head>
+<body>
+
+	<div>
+		<div class="main">
+			    <div class="nav">
+			        <img src="<?php  echo base_url() .'style/index/' ?>images/student/acat1.png"><em>ACAT</em><span><em>计算机应用协会</em></span>
+			        <!-- <i class="fas fa-sign-out-alt"></i> -->
+			        <button type="submit" onclick="location.href='<?php echo site_url('index') ?>'">注销 </button>
+			    </div>
+			    <div id="userChoose_left" style="height: 665px">
+			        <ul class="user_title">
+			            <li>
+			                <a href="<?php  echo  site_url() .'/index/student_test/inf'  ?>">开始答题</a>
+			            </li> 
+			            <li>
+			                <a href="<?php  echo  site_url() .'/index/home/stu_home'  ?>">返回主页</a>
+			            </li>
+			            <li>
+			               <a href="<?php  echo  site_url() .'/index/student_info'  ?>">个人信息</a>
+			            </li>
+			            <li>
+			                <a href="#">关于我们</a>
+			            </li> 
+			        </ul>
+			        <div class="image">
+			        	<!-- <p>快注意！！</p> -->
+			        	<img src="<?php  echo base_url() .'style/index/' ?>images/student/xxx.png" class="point">
+			        	<img src="<?php  echo base_url() .'style/index/' ?>images/student/a2.jpg" class="img_a2">
+			        	<img src="<?php  echo base_url() .'style/index/' ?>images/student/xxx1.png" class="point1">
+			        </div>
+		    </div>
+
+		    <div id="content">
+		      <div class="grade" style="background-image: url(../../../../style/index/images/grade.jpg); background-size: 100% 100%; background-repeat: no-repeat;height: 600px;margin-top: 40px; border-radius: 15%;">
+		            <div class="word">
+		           <h3> 学号为<?php $this->load->library('session');
+		                                $inf=$this->session->userdata('user');
+		                                echo $inf; ?>同学，你好！
+		                                你的最终成绩为<font color="red"><?php $this->load->library('session');
+		                                $inf=$this->session->userdata('grade');
+		                                echo $inf; ?>分</font>，
+		                                其中基础题得分<font color="red"><?php $this->load->library('session');
+		                                $inf=$this->session->userdata('b_grade');
+		                                echo $inf; ?>分</font>，
+		                               方向题得分<font color="red"><?php $this->load->library('session');
+		                                $inf=$this->session->userdata('d_grade');
+		                                echo $inf; ?>分</font>,<br> 
+		                                <font color="red">前10题为基础题</font>，除编程题外15分/道，其他题5分/道；<font color="red">后5题为方向题</font>，6分/道。<br>
+		                           感谢参与本次测试，试卷详情如下，请利用搜索引擎仔细查错，认真思考，并耐心等待面试通知。
+		                           <br>
+
+		                   </h3>      
+		                  <?php foreach($res as $paper): ?>
+		                  	  <br>
+                     ===============================================================================
+                     <br>
+                    <h3>· <?php echo $que=str_replace("\n","<br>",$paper['que']);?></h3>
+                        <br>
+                    你的答案：<?php echo $ans=str_replace("\n","<br>",$paper['s_ans']);?>
+                    
+                   
+                     <?php endforeach ?>
+		        </div>
+		     
+		    </div>
+
+		</div>
+	</div>
+</body>
+</html>

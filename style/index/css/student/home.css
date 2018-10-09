@@ -1,0 +1,235 @@
+*{
+	/*margin:0 auto;*/
+	padding: 0 ; 
+	margin: 0;
+}
+a{
+	 text-decoration: none;
+	 color: black;
+}
+ul{
+	list-style: none;
+}
+body{
+	
+	background-image: url(../../images/student/acat_back.png);
+	background-size: 100% 100%;
+	background-repeat: repeat;
+}
+
+.main{
+	width: 97%;
+	margin: 0 auto;
+}
+/*头部*/
+.logo{
+		position: absolute;
+		left: 565px;
+		top: 10px;
+		width: 100px;
+		height: 30px;
+	}
+	.nav img{
+		width: 60.8px;
+		height: 60.8px;
+		/*float: left;*/
+		color: #fff;
+		vertical-align: -12px;
+	}
+i{
+	height: 40px;
+	width: 40px;
+	position: absolute;
+	right: 60px;
+	color: #fff;
+}
+.nav{
+	font-family: 方正姚体;
+	font-size: 20px;
+	background:#282828;
+	height: 60.8px;
+	width: 100%;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	color: #fff;
+	border-radius: 1%;
+}
+.nav button{
+	width: 80px;
+	height: 60.8px;
+	text-align: center;
+	float: right;
+	font-family: "宋体";
+	font-size: 1em;
+	cursor: pointer;
+	outline: none; 
+	color: #fff;
+	background-color: #282828;
+	border: 1px solid #282828;
+	border-radius: 15%;
+} 
+.nav button:hover{
+	background-color: #111;
+}
+.nav span{
+	font-size: 12px;
+
+}
+/*中部左*/
+#userChoose_left{
+	width: 14%;
+	float: left;
+	/*border: 1px solid black;*/
+	height: 850px;
+	background-color: #fff;
+	border-radius: 15px;
+	margin-top: 15px;
+	position: relative;
+}
+#userChoose_left .user_title li{
+	/*margin: 10px 0;*/
+	height: 60px;
+	border-bottom: 1px solid black;
+	line-height: 60px;
+	text-align: center;
+	cursor: pointer;
+	/*background-color: #ffffcc;*/
+}
+
+#userChoose_left .user_title li:hover{
+	background-color: #966;
+	opacity: 0.8;
+	color: #fff;
+}
+#userChoose_left .user_title li a:hover{
+	color: #fff;
+}
+
+#userChoose_left .image .point{
+	/*margin-left: 50px;*/
+	width: 150px;
+}
+#userChoose_left .image .point1{
+	width: 150px;
+}
+#userChoose_left .image .img_a2{
+	width: 150px;
+	height: 150px;
+	display: block;
+}
+#userChoose_left .image{
+	position:absolute;
+	top:400px;
+	left: 20px;
+}
+/*中部右*/
+#content{
+	/*border: 1px solid blue;*/
+	width: 85%;
+	float: right;
+	/*background-color: #fff;*/
+}
+.direction{
+	height:200px;
+	/*border: 1px solid black;*/
+	position: relative;
+	margin: 15px 0;
+	background-image:url(../../images/student/d_logo.jpg);
+	background-size: 100% 100%;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	border-radius: 15px;
+	background-color: #fff;
+}
+
+.direction p span{
+	font-size: 30px;
+}
+.direction p{
+	position: absolute;
+	top:40px;
+	left: 200px;
+
+}
+.direction img{
+	height: 150px;
+	width: 180px;
+	float: left;
+	position: absolute;
+	top:20px; 
+}
+.word{
+position:absolute;
+	top:110px;
+	left: 280px;
+	
+
+}
+/*.content{
+	position: relative;
+	margin-top: 80px;
+	height: 400px;
+	width: 700px;
+	opacity:0.7;
+	border:6px rgb(170,138,87) solid ;
+	border-radius: 30px;
+}
+.content div{
+	height: 100px;
+	width: 100px; 
+	border-radius: 30px;
+	text-align: center;
+	display: flex; 
+	justify-content: center;
+	flex-direction: column;
+	font-family: 方正姚体;
+	font-size: 1.5em;
+	color: black;
+	background-color:rgb(175,215,213);
+}
+
+
+.top-left{
+	position: absolute;
+	top:20px;
+	left: 150px;	
+}
+.top-right{
+	position: absolute;
+	top: 20px;
+	left: 450px;
+}
+.middle-left{
+	position: absolute;
+	top:150px;
+	left: 150px;
+}
+.middle-right{
+	position: absolute;
+	top:150px;
+	left: 450px;
+}
+.bottom-left{
+	position: absolute;
+	top:280px;
+	left: 150px;
+}
+.bottom-right{
+	position: absolute;
+	top:280px;
+	left: 450px;
+}
+
+.submit input {
+	/*position: absolute;
+	/*top: 245px;
+	left: 180px;
+	/*appearance:none;
+		width:50px;
+		height:25px;
+		font-family:"方正姚体";
+		font-size:15px;
+		border-radius:10px;
+		border-width: 2px;
+		background-color: rgba(244,244,244,0.2);
+		color: black;
+		padding: 1.5px;
+}*/

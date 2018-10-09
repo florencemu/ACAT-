@@ -14,7 +14,7 @@ class Student_info extends CI_Controller {
 		$session_inf['id']=$this->session->userdata('user');
 		$this->load->model('p_student', 'p_student');
 		$data['name']= $this->p_student->inf_sel($inf);
-		$this->load->view('student/stu_mod.html',$data);
+		$this->load->view('student/mod.html',$data);
 	}
 
 
@@ -34,9 +34,9 @@ class Student_info extends CI_Controller {
 
 			switch ($group) {
 				case '1': $group= '前端';break;
-				case '2': $group= 'PHP';break;
-				case '3': $group= 'Python';break;
-				case '4':$group= 'JAVA';break;
+				case '2': $group= '后台';break;
+				case '3': $group= '服务端';break;
+				case '4':$group= '机器学习';break;
 				default: error("请选择方向！");
 			}
 		/*var_dump($id,$name,$major,$sex,$group);die;*/

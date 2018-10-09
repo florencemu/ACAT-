@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>学生主页 -@ACAT</title>
+	<link rel="stylesheet" type="text/css" href="<?php  echo base_url() .'style/index/' ?>css/student/home.css">
+</head>
+<body>
+   <div class = "main1">
+   		<!-- <div class="top"></div> -->
+   		<div class="main">
+		    <div class="nav">
+		        <img src="<?php  echo base_url() .'style/index/' ?>images/student/acat1.png"><em>ACAT</em><span><em>计算机应用协会</em></span>
+		        <!-- <i class="fas fa-sign-out-alt"></i> -->
+		        <button type="submit" onclick="location.href='<?php echo site_url('index') ?>'">注销</button>
+		    </div>
+			<div id="userChoose_left">
+		        <ul class="user_title">
+		            <li>
+		                <a href="<?php  echo  site_url() .'/index/student_test/inf'  ?>">开始答题</a>
+		            </li> 
+		            <li>
+		                <a href="<?php  echo  site_url() .'/index/student_grade'  ?>">查看成绩</a>
+		            </li>
+		            <li>
+		                <a href="<?php  echo  site_url() .'/index/student_info'  ?>">个人信息</a>
+		            </li>
+		            <li>
+		                <a href="#">关于我们</a>
+		            </li> 
+		        </ul>
+		        <div class="image">
+		        	<!-- <p>快注意！！</p> -->
+		        	<img src="<?php  echo base_url() .'style/index/' ?>images/student/xxx.png" class="point">
+		        	<img src="<?php  echo base_url() .'style/index/' ?>images/student/a2.jpg" class="img_a2">
+		        	<img src="<?php  echo base_url() .'style/index/' ?>images/student/xxx1.png" class="point1">
+		        </div>
+		    </div>
+			<div id="content">
+			    <ul class="nav_right">
+			        <li class="direction">
+			             <img src="<?php  echo base_url() .'style/index/' ?>images/student/logo.png">
+			            <p><span><em>前端</em></span>&nbsp;即网站前台部分，运行在PC端，移动端等浏览器上展现给用户浏览的网页。 随着互联网技术的发展，HTML5，CSS3，前端框架的应用， 跨平台响应式网页设计能够适应各种屏幕分辨率，完美的动效设计， 给用户带来极高的用户体验。
+			            </p>
+			        </li>
+			        <li class="direction">
+			            <img src="<?php  echo base_url() .'style/index/' ?>images/student/logo.png">
+			            <p><span><em>PHP</em></span>&nbsp;（外文名:PHP: Hypertext Preprocessor，中文名：“超文本预处理器”）是一种通用开源脚本语言。语法吸收了C语言、Java和Perl的特点，利于学习，使用广泛，主要适用于Web开发领域。PHP 独特的语法混合了C、Java、Perl以及PHP自创的语法。它可以比CGI或者Perl更快速地执行动态网页。用PHP做出的动态页面与其他的编程语言相比，PHP是将程序嵌入到HTML（标准通用标记语言下的一个应用）文档中去执行，执行效率比完全生成HTML标记的CGI要高许多；PHP还可以执行编译后代码，编译可以达到加密和优化代码运行，使代码运行更快。</p>
+			        </li>
+			        <li class="direction">
+			            <img src="<?php  echo base_url() .'style/index/' ?>images/student/logo.png">
+			            <p><span><em>Python</em></span>&nbsp;具有丰富和强大的库。它常被昵称为胶水语言，能够把用其他语言制作的各种模块（尤其是C/C++）很轻松地联结在一起。常见的一种应用情形是，使用Python快速生成程序的原型（有时甚至是程序的最终界面），然后对其中有特别要求的部分，用更合适的语言改写，比如3D游戏中的图形渲染模块，性能要求特别高，就可以用C/C++重写，而后封装为Python可以调用的扩展类库。需要注意的是在您使用扩展类库时可能需要考虑平台问题，某些可能不提供跨平台的实现。</p>
+			        </li>
+			        <li class="direction">
+			            <img src="<?php  echo base_url() .'style/index/' ?>images/student/logo.png">
+			            <p><span><em>Java</em></span>&nbsp;是一门面向对象编程语言，不仅吸收了C++语言的各种优点，还摒弃了C++里难以理解的多继承、指针等概念，因此Java语言具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程。</p>
+			        </li>
+			    </ul>
+			</div>
+		</div>
+		<!-- <div class="bottom"></div> -->
+	</div>
+</body>
+</html>

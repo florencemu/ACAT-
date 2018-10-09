@@ -5,19 +5,20 @@ body{
 }
 .logo{
 		position: absolute;
-		left: 565px;
+		left: 660px;
 		top: 10px;
 		width: 100px;
 		height: 30px;
 	}
 	.logo img{
-		width: 100px;
-		height: 100px;
+		width: 150px;
+		height: 150px;
 	}
 .nav{
 	position: absolute;
-	top: 100px;
-	left: 250px;
+	top: 150px;
+	left: 350px;
+	font-size: 20px;
 	font-family: 方正姚体;
 }
 .nav1{
@@ -28,13 +29,13 @@ body{
 .nav1 input{
 	float: right;
 	font-family: 方正姚体;
-	font-size: 1em;
+	font-size: 1.3em;
 	/*position: absolute;*/
 	appearance:none;
 		/*-web-kit-appearance:none;*/
 		moz-appearance: none;
 		font-family:"方正姚体";
-		font-size:15px;
+		font-size:20px;
 		border-radius:10px;
 		border-width: 2px;
 		background-color: rgba(244,244,244,0.2);
@@ -43,8 +44,8 @@ body{
 } 
 .content{
 	position: absolute;
-	top: 90px;
-	width: 700px;
+	top: 110px;
+	width: 800px;
 	opacity:0.7;
 	background-color: #FFFFFF;
 	border:3px rgb(100,25,29) solid ;
@@ -63,18 +64,18 @@ body{
 
 width: 100%;
 height: 80px;
-left:1000px;
+left:1200px;
 position: fixed;
-bottom: 0;
+bottom: 1;
 }
 .footer input{
 	appearance:none;
 	
 		moz-appearance: none;
-		width:90px;
+		width:100px;
 		height:30px;
 		font-family:"方正姚体";
-		font-size:15px;
+		font-size:18px;
 		border-radius:10px;
 		border-width: 2px;
 		background-color: rgba(244,244,244,0.2);
@@ -87,10 +88,10 @@ bottom: 0;
 	appearance:none;
 	
 		moz-appearance: none;
-		width:90px;
+		width:100px;
 		height:30px;
 		font-family:"方正姚体";
-		font-size:15px;
+		font-size:18px;
 		border-radius:10px;
 		border-width: 2px;
 		background-color: rgba(244,244,244,0.2);

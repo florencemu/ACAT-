@@ -50,10 +50,10 @@ class Test_sel_page extends CI_Controller {
          $config['base_url'].="type=".$type;
                    switch ($type) {
                     case '0': error("请选择你要检索的试卷类型！");break;
-                    case '1': $type= 'PHP';break;
-                    case '2': $type= '前端';break;
-                    case '3': $type= 'JAVA';break;
-                    case '4':$type= 'Python';break;
+                    case '1': $type= '前端';break;
+                    case '2': $type= '后台';break;
+                    case '3': $type= '服务端';break;
+                    case '4':$type= '机器学习';break;
                     }
             if(empty($page)) $page=1;   //第一页 
              else   $offset = ($page-1)*10;//4是显示条数

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>wushazi</title>
+</head>
+<body>
+	
+	<div style="width: 100px;height: 100px;background-color: red;position: absolute;left: 0;top: 0;"></div>
+	<script type="text/javascript">
+		
+		//封装为一个函数，用addEventListener,drag
+		// var disX,disY;
+		// var div = document.getElementsByTagName('div')[0];
+
+		// div.onmousedown = function(e) {
+		// 	disX = e.pageX - parseInt(div.style.left);
+		// 	disY = e.pageY - parseInt(div.style.top);
+		// 	div.onmousemove = function(e) {//在元素内部移动时频繁触发
+		// 		var event = e || window.event;
+		// 		// console.log(e.pageX + " " + e.pageY);
+		// 		div.style.left = e.pageX - disX + "px";
+		// 		div.style.top = e.pageY - disY + "px";
+		// 	}
+		// 	document.onmouseup = function() {
+		// 		div.onmousemove = false;
+
+		// 	}
+		// }
+
+		//
+		var disX,disY;
+		var div = document.getElementsByTagName('div')[0];
+
+		var firstTime = 0,
+			lastTime = 0,
+			key = false;
+
+			div.onmousedown = function(e) {
+				firstTime = new Date().getTime();
+				disX = e.pageX - parseInt(div.style.left);
+				disY = e.pageY - parseInt(div.style.top);
+				div.onmousemove = function(e) {//在元素内部移动时频繁触发
+						var event = e || window.event;
+						div.style.left = e.pageX - disX + "px";//未进行移动便没有拖拽
+						div.style.top = e.pageY - disY + "px";
+				}
+			}
+
+			
+			 
+			document.onmouseup = function() {
+				lastTime = new Date().getTime();
+				if(lastTime - firstTime < 300){
+					key = true;
+					div.onmousemove = null;
+				}else{
+
+					div.onmousemove = null;
+				}
+			}
+			//down和up触发click	
+			document.onclick = function() {
+				if(key){
+					console.log('click');
+					key = false;
+				}
+			}
+			
+
+	</script>
+</body>
+</html>  

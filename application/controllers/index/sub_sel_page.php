@@ -52,10 +52,10 @@ class Sub_sel_page extends CI_Controller {
             $config['base_url'].="type=".$type."&diff=".$diff;
                     switch ($type) {
                     case '1': $type= '基础题';break;
-                    case '2': $type= 'PHP';break;
-                    case '3': $type= '前端';break;
-                    case '4': $type= 'JAVA';break;
-                    case '5':$type= 'Python';break;
+                    case '2': $type= '前端';break;
+                    case '3': $type= '后台';break;
+                    case '4': $type= '服务端';break;
+                    case '5':$type= '机器学习';break;
                     }
             $this->db->where('sub_type',$type) ->from('subject');
             $config['total_rows']=$this->db->count_all_results();
@@ -85,10 +85,10 @@ class Sub_sel_page extends CI_Controller {
              $config['base_url'].="type=".$type."&diff=".$diff;
              switch ($type) {
                     case '1': $type= '基础题';break;
-                    case '2': $type= 'PHP';break;
-                    case '3': $type= '前端';break;
-                    case '4': $type= 'JAVA';break;
-                    case '5':$type= 'Python';break;
+                    case '2': $type= '前端';break;
+                    case '3': $type= '后台';break;
+                    case '4': $type= '服务端';break;
+                    case '5':$type= '机器学习';break;
                     }
              $this->db->where('sub_diff',$diff) ->where('sub_type',$type)->from('subject');
             $config['total_rows']=$this->db->count_all_results();

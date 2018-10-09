@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>个人资料 -@ACAT</title>
+	<link rel="stylesheet" type="text/css" href="<?php  echo base_url() .'style/index/' ?>css/student/home.css">
+	<link rel="stylesheet" type="text/css" href="<?php  echo base_url() .'style/index/' ?>css/student/mod.css">
+	<!-- <link rel="stylesheet" type="text/css" href="test.css"> -->
+</head>
+<body>
+
+	<div>
+		<div class="main">
+			    <div class="nav">
+			        <img src="<?php  echo base_url() .'style/index/' ?>images/student/acat1.png"><em>ACAT</em><span><em>计算机应用协会</em></span>
+			        <!-- <i class="fas fa-sign-out-alt"></i> -->
+			         <button type="submit" onclick="location.href='<?php echo site_url('index') ?>'">注销 </button>
+			    </div>
+			    <div id="userChoose_left">
+			        <ul class="user_title">
+			            <li>
+			                <a href="<?php  echo  site_url() .'/index/student_test/inf'  ?>">开始答题</a>
+			            </li> 
+			            <li>
+			               <a href="<?php  echo  site_url() .'/index/student_grade'  ?>">查看成绩</a>
+			            </li>
+			            <li>
+			                <a href="<?php  echo  site_url() .'/index/home/stu_home'  ?>">返回主页</a>
+			            </li>
+			            <li>
+			                <a href="#">关于我们</a>
+			            </li> 
+			        </ul>
+			        <div class="image">
+			        	<!-- <p>快注意！！</p> -->
+			        	<img src="<?php  echo base_url() .'style/index/' ?>images/student/xxx.png" class="point">
+			        	<img src="<?php  echo base_url() .'style/index/' ?>images/student/a2.jpg" class="img_a2">
+			        	<img src="<?php  echo base_url() .'style/index/' ?>images/student/xxx1.png" class="point1">
+			        </div>
+		    	</div>
+				<div class="content_right">
+				<div class="content1">
+					<h2 class="s_title">基本信息</h2>
+					<div class="insert1">
+                       <form method="POST" action="<?php echo site_url('index/student_info/mod_inf') ?>">
+                            <div class="sub_content">
+            
+                                <label for="username">姓名：</label>
+                                <input type="text"  name="username" value="<?php echo $name; ?>" class="input1" required>
+                                <br>
+                            </div>
+<br>
+                            <div class="sub_content">
+                                <label for="userid">学号：</label>
+                                <input type="text" name="userid"  value="<?php $this->load->library('session');
+                                $inf=$this->session->userdata('user');
+                                echo $inf; ?>" class="input1" required >
+                            </div>
+<br>
+                            <div class="sub_content">
+                                <label for="usermajor">专业班级：</label>
+                                <input type="text"  name="usermajor" value="<?php $this->load->library('session');
+                                $m=$this->session->userdata('inf_m');
+                                echo $m; ?>" class="input1" required >
+                            </div>
+<br>
+
+                            <div  class="choose" id="specil">
+                                <label for="usersex">性别：</label>
+                                <input type="radio"  id="man" class="userName" value="1" name="sex">
+                                <label for="man"  class="specil" selected>男</label>
+                                <input type="radio"  id="lady" class="userName" value="0" name="sex">
+                                <label for="lady"  class="specil">女</label>
+                            </div>
+                            <br>
+                            <div class="choose" id="specil">
+                                <label for="usergroup">方向：</label>
+                                <input type="radio" id="web前端" class="userName" value="1" name="group">
+                                <label for="web前端" class="specil">前端组</label>
+                                <input type="radio" id="PHP" class="userName" value="2" name="group">
+                                <label for="PHP" class="specil">后台组</label>
+                                <input type="radio" id="python"class="userName" value="3" name="group">
+                                <label for="python" class="specil">服务端组</label>&nbsp;
+                                <input type="radio" id="JAVA" class="userName" value="4" name="group">
+                                <label for="JAVA" class="specil">机器学习组</label>
+                            </div>
+                            <div>
+                                <button type="submit" class="divBtn" id="btn">确认修改</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="content2">
+                    <h2 class="s_title">修改密码</h2>
+                    <div class="insert2">    
+                         <form method="POST" action="<?php echo site_url('index/student_info/mod_pwd') ?>">
+                              
+                                <div class="sub_content">
+                                    <label for="Pasword">旧密码：</label>
+                                    <input type="password" id="userPasword" name="password" class="userName input2" required>
+                                </div>
+                                <br>
+                                <div class="sub_content">
+                                    <label for="Npasword">新密码：</label>
+                                    <input type="password" id="Pasword" name="newpassword" class="userName input2"   required>
+                                </div>
+                                <br>
+                                <div class="sub_content">
+                                        <label for="Rpasword">确认密码：</label>
+                                        <input type="password" id="Rpasswd" name="repassword" class="userName input2"   required>
+                                    </div>
+                                    <br>
+                                <div>
+                                    <button type="submit" class="divBtn" id="btn">确认修改</button> 
+                                </div>
+                         </form>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</div>
+
+</body>
+</html>

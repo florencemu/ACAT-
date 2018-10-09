@@ -13,24 +13,32 @@ body{
 	h2{
 		font-family:"方正姚体";
 		text-align:center;
+		font-size:35;
 	}
+	label{
+		font-size:20;
+	}
+
 	input{
 		text-align: center;
+		font-size:18;
 	}
+	
 	.logo{
 		position: absolute;
-		left: 300px;
+		
+		left: 500px;
 		top: -30px;
-		width: 100px;
+		width: 150px;
 		height: 30px;
 	}
 	.logo img{
-		width: 550px;
-		height: 300px;
+		width: 600px;
+		height: 350px;
 	}
 	.logo{
 		position: absolute;
-		left: 300px;
+		left: 450px;
 		top: -30px;
 		width: 100px;
 		height: 30px;
@@ -38,11 +46,11 @@ body{
 	.nav{
 		padding: 10px;
 		position: absolute;
-		left: 380px;
-		top: 200px;
+		left: 475px;
+		top: 230px;
 		border: 1px solid grey;
-		width: 380px;
-		height:300px;
+		width: 480px;
+		height:400px;
 		background-color: rgba(255,251,240,0.5);
 		font-family:"方正姚体";
 		font-weight: 800;
@@ -51,30 +59,30 @@ body{
 	}
 	.captcha{
 		position: absolute;
-		top: 200px;
-		left: 168px;
+		top: 245px;
+		left: 230px;
 		width: 100px;
-		height: 30px;
+		height: 50px;
 	}
 	.submit input{
 		appearance:none;
 		/*-web-kit-appearance:none;*/
 		moz-appearance: none;
-		width:75px;
-		height:30px;
+		width:85px;
+		height:45px;
 		font-family:"方正姚体";
-		font-size:15px;
+		font-size:20px;
 		border-radius:10px;
 		border-width: 2px;
 		background-color: rgba(244,244,244,0.2);
 		color: black;
-		padding: 5px;
+		padding: 10px;
 	}
 .zuce a{
 	position: absolute;
-		top: 280px;
-		left: 260px;
+		top: 345px;
+		left: 310px;
 		font-family:"方正姚体";
-		font-size:15px;
+		font-size:20px;
 
 }

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>计时器</title>
+	<style type="text/css">
+		.input1{
+			border: 0px solid rgba(0,0,0,0.8);
+			text-align: right;
+			font-size: 20px;
+			font-weight: bold;
+			outline: none;
+		}
+		.input2{
+			border: 0px solid rgba(0,0,0,0.8);
+			text-align: left;
+			font-size: 20px;
+			font-weight: bold;
+			outline: none;
+		}
+	</style>
+</head>
+<body>
+	
+ <input type="text" value="00" class="input1">:<input type="text" value="00"class = "input2">
+	<script type="text/javascript">
+		
+		 var min = document.getElementsByTagName('input')[0];
+		 var sed = document.getElementsByTagName('input')[1];
+		 var minutes = 0,seconds = 0;
+		 var timer = setInterval(function() {
+		 	seconds++;
+		 	if(seconds == 60){
+		 		seconds = 0;
+		 		minutes++;
+		 	}
+		 	
+			if(seconds < 10){
+				sed.value = '0' + seconds;
+			}else{
+				sed.value = seconds;
+			}
+			if(minutes < 10){
+				min.value = '0' + minutes;
+			}else{
+				min.value = minutes;
+			}
+		 	if(minutes == 60){
+		 		clearInterval(timer);
+		 	}
+		 },1000);
+
+
+	</script>
+
+
+</body>
+</html>

@@ -37,12 +37,50 @@ class P_student extends CI_Model {
 
 	}
 
+
+/*标记作答*/
+public function ans_flag($id,$p_id)
+{
+
+$res="INSERT INTO `student_paper` (`paper_id`, `stu_id`, `stu_ans`, `base_grade`, `dir_grade`, `grade`, `correct_id`) VALUES ('$p_id', '$id', NULL, NULL, NULL, NULL, NULL)";
+$result = $this->db->query($res);
+return $result;
+}
+
+
+/*是否作答*/
+public function check_ans($id){
+	$res="SELECT * FROM `student_paper` WHERE stu_id='$id'";
+		$result = $this->db->query($res)->result_array();
+	//	var_dump($result);
+    	return $result;
+}
+
 /*查看成绩*/
 	public function grade_sel($inf){
 		$res="SELECT base_grade,dir_grade,grade FROM `student_paper` WHERE stu_id='$inf'";
 		$result = $this->db->query($res)->result_array();
+		
     	return $result;
 	}
+/*查看试卷*/
+public function paper_ans($inf){
+
+ 		$res="SELECT paper.paper_id,
+ 					 paper.include_id,
+ 					 student_paper.stu_ans FROM `student_paper`,`paper` WHERE stu_id = '$inf' AND paper.paper_id  = student_paper.paper_id ";
+    	$result = $this->db->query($res)->result_array();
+    	return $result;
+
+ 	}
+
+public function paper_que($s_id){
+
+ 		$res="SELECT sub_que,sub_ans FROM `subject` WHERE sub_id = '$s_id' ";
+    	$result = $this->db->query($res)->result_array();
+    	return $result;
+
+ 	}
 
 /*修改信息*/
 	public function inf_mod($id,$name,$major,$sex,$group){

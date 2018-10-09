@@ -1,73 +1,164 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<title>学生答题 -@ACAT</title>
-	<meta charset="utf-8">
-    <script type="text/javascript" src="/CI/js/jquery-1.3.2.min.js"></script>
-	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" type="text/css" href="<?php  echo base_url() .'style/index/' ?>css/student/stu_test.css">
-
+    <meta charset="utf-8">
+    <title>正在答题 -@ACAT </title>
+    <link rel="stylesheet" type="text/css" href="<?php  echo base_url() .'style/index/' ?>css/student/home.css">
+    <link rel="stylesheet" type="text/css" href="<?php  echo base_url() .'style/index/' ?>css/student/test.css">
 </head>
 <body>
- <div class="nav">
-        <input type="submit" value="注销" onclick="location.href='<?php echo site_url('index') ?>'"">    
-    </div>
 
-
-
-    <div id="userChoose">
-        <ul class="user_title">
-            <li>
-                <a href="<?php  echo  site_url() .'/index/home/stu_home'  ?>">返回主页</a>
-            </li>
-            <li>
-                <a href="<?php  echo  site_url() .'/index/student_grade'  ?>">查看成绩</a>
-            </li>
-            <li>
-                <a href="<?php  echo  site_url() .'/index/student_info'  ?>">个人信息</a>
-            </li>
-            <li>
-                <a href="">关于我们</a>
-            </li>
-        </ul>
-    </div>
-	
-<form method="POST" action="<?php echo site_url('index/student_test/stu_ans') ?>">
-	 <div id="content">
-
-	  <div class="direction1">    
-         
-		<p>学号为<?php $this->load->library('session');$inf=$this->session->userdata('user');echo $inf ?> 的同学，你好！
-        以下为你抽到的试题，请仔细审题，认真作答！</p>
-
+    <div>
+        <div class="main">
+                <div class="nav">
+                    <img src="<?php  echo base_url() .'style/index/' ?>images/student/acat1.png"><em>ACAT</em><span><em>计算机应用协会</em></span>
+                    <!-- <i class="fas fa-sign-out-alt"></i> -->
+                     <button type="submit" onclick="location.href='<?php echo site_url('index') ?>'">注销</button>
+                </div>
+              
+           <form method="POST" action="">
+        
+                <p>
+                <font color="red">【警告】</font>答题期间请<font color="red">不要刷新或关闭页面！</font>如因误操作退出请联系管理员。
+                </p>
+                <h4>你的作答时间还剩</h4>
+          <div class="time">
+                <input type="text" value="60" class="input3">:<input type="text" value="00" class = "input4">
+         </div>
+                 <input type="submit" value="确认交卷" class="input1">
+           
+                 <div class="subject">
+                <h3>    学号为<?php $this->load->library('session');$inf=$this->session->userdata('user');echo $inf; ?> 的同学，你好！
+                以下为你抽到的试题，请仔细审题，注意时间，认真作答！</h3>
+                    <?php foreach($test as $paper): ?>
+                    <h3>· <?php echo $ans=str_replace("\n","<br>",$paper[0]['sub_que']);?></h3>
+                        <br>
+                     <textarea id='answer' style="height: 200px;width: 800px;resize: none;font-size: 20px;"></textarea>
+                     <br>
+                     ====================================================================================
+                     <br>
+                     <?php endforeach ?>
+                      
         </div>
-
-
-        <div class="direction">  
-        <br><br>
-       <?php  foreach($test as $paper): ?>
-          · <?php echo $paper[0]['sub_que']?>
-          <br><br>你的答案: <textarea id='answer' style="height: 150px;width: 500px;resize: none;"></textarea><br><br><br><br>
-
-
-
-
-          <?php endforeach;?> 
-
-         
+        
+                    
+               
+            </form>
 
         </div>
     </div>
-	<div class="footer">
+    <script type="text/javascript">
+        
+         var min = document.getElementsByTagName('input')[0];
+         var sed = document.getElementsByTagName('input')[1];
+         var minutes = 60,seconds = 0;
+         var timer = setInterval(function() {
+         
+           
+            
+            if(seconds < 10){
+                sed.value = '0' + seconds;
+            }else{
+                sed.value = seconds;
+            }
+            if(minutes < 10){
+                min.value = '0' + minutes;
+            }else{
+                min.value = minutes;
+            }
+            if(minutes == 0 &&seconds == 0){
+                clearInterval(timer);
+               // minutes--;
+                //seconds=60;
+                //clearInterval(timer);
+            }
+             if(seconds == 0){
+                seconds=60;
+                minutes--;
+
+              
+            }
+            seconds--;
+         },1000);
+
+
+        document.onkeydown = function(e) {
+        e = window.event || e;
+        var k = e.keyCode;
+        //屏蔽ctrl+R，F5键，ctrl+F5键  F3键！验证
+        if ((e.ctrlKey == true && k == 82) || (k == 116)
+                || (e.ctrlKey == true && k == 116)||k==114) {
+            e.keyCode = 0;
+            alert("当前页面不能刷新！");
+            e.returnValue = false;
+            e.cancelBubble = true;
+            return false;
  
-      <input type="submit" value="确认交卷">
-     
-    </div>
-</form>
+        }
+      
+        //屏蔽 Ctrl+n   验证可以实现效果
+        if (e.ctrlKey && k == 78){
+            e.keyCode = 0;
+            e.returnValue = false;
+            e.cancelBubble = true;
+            return false;
+            }
+        //屏蔽F11   验证可以实现效果
+        if (k == 122) {
+            e.keyCode = 0;
+            e.returnValue = false;
+            e.cancelBubble = true;
+            return false;
+        }
+        //屏蔽 shift+F10  验证可以实现效果      
+        if ((e.shiftKey && k == 121)||(e.ctrlKey && k == 121)){
+            e.keyCode = 0;
+            e.returnValue = false;
+            e.cancelBubble = true;
+            return false;
+            }
+ 
+        //屏蔽Alt+F4  
+        if ((e.altKey) && (k== 115)) {
+            window.showModelessDialog("about:blank", "",
+                    "dialogWidth:1px;dialogheight:1px");
+            e.keyCode = 0;
+            e.returnValue = false;
+            e.cancelBubble = true;
+            return false;
+        }
+        //屏蔽 Alt+ 方向键 ← ;屏蔽 Alt+ 方向键 → ！验证
+        if ((e.altKey)
+                && ((k == 37) || (k == 39))) {
+            alert("不准你使用ALT+方向键前进或后退网页！");
+            e.keyCode = 0;
+            e.returnValue = false;
+            e.cancelBubble = true;
+            return false;
+        }
+ 
+    };
+    
+    //屏蔽右键菜单，！验证
+    document.oncontextmenu = function(event) {
+        if (window.event) {
+            event = window.event;
+        }
+        try {
+            var the = event.srcElement;
+            if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")) {
+                return false;
+            }
+            return true;
+        } catch (e) {
+            return false;
+        }
+    };
 
 
 
+
+    </script>
 
 </body>
 </html>

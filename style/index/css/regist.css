@@ -10,32 +10,48 @@ body{
 		font-family:"黑体";
 		text-align:center;
 	}*/
-	h2{
+	 h2{
 		font-family:"方正姚体";
 		text-align:center;
+		font-size:35;
 	}
+	
+	label{
+		font-size:20;
+	}
+
 	input{
 		text-align: center;
+		font-size:18;
+	}
+	
+	.logo{
+		position: absolute;
+		
+		left: 500px;
+		top: -30px;
+		width: 150px;
+		height: 30px;
+	}
+	.logo img{
+		width: 600px;
+		height: 350px;
 	}
 	.logo{
 		position: absolute;
-		left: 300px;
+		left: 450px;
 		top: -30px;
 		width: 100px;
 		height: 30px;
 	}
-	.logo img{
-		width: 550px;
-		height: 300px;
-	}
 	.nav{
 		padding: 10px;
 		position: absolute;
-		left: 380px;
-		top: 200px;
+		left: 475px;
+		top: 230px;
 		border: 1px solid grey;
-		width: 380px;
-		height:300px;
+		width: 480px;
+		height:400px;
 		background-color: rgba(255,251,240,0.5);
 		font-family:"方正姚体";
 		font-weight: 800;
@@ -49,25 +65,22 @@ body{
 	width:50px;
 	height:25px;
 	font-family:"方正姚体";
-	font-size:15px;
+	
 	border-radius: 10px;
 	opacity:0.8;
 	background-color: rgb(244,244,244);
 }
-.submit input {
-	position: absolute;
-	top: 245px;
-	left: 180px;
-	appearance:none;
+.submit input{
+		appearance:none;
 		/*-web-kit-appearance:none;*/
 		moz-appearance: none;
-		width:75px;
-		height:30px;
+		width:85px;
+		height:45px;
 		font-family:"方正姚体";
-		font-size:15px;
+		font-size:20px;
 		border-radius:10px;
 		border-width: 2px;
 		background-color: rgba(244,244,244,0.2);
 		color: black;
-		padding: 5px;
-}
+		padding: 10px;
+	}

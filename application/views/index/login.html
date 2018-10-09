@@ -17,18 +17,17 @@
             <label>用户名/学号：</label>
             <input type="text" name="user_id" placeholder="请输入用户名（学生填学号）">
             <br><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<labal>密码：</labal>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>密码：</label>&nbsp;&nbsp;&nbsp;
             <input type="password" name="password" placeholder="请输入密码">
             <br><br>
-             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<label>验证码：</label>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<label>验证码：</label>&nbsp;&nbsp;
             <input type="text" name="captcha" placeholder="请输入验证码">
             <br><br>
- <a href="<?php  echo base_url() .'index/login'  ?>">点击刷新</a>
           <div class="captcha"><?php echo $captcha ?></div>
              <br><br>
-            <labal>身份：</labal>
-            <input type="radio" name="people" value="2" />学生
-            <input type="radio" name="people" value="1" />考官 
+            <label>身份：</label>
+            <input type="radio" name="people" value="2" /><label>学生</label>
+            <input type="radio" name="people" value="1" /><label>考官</label> 
             <br><br>
             <div class = "submit">
             &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit"  value="登录">

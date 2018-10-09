@@ -77,10 +77,10 @@ class Gra_sel_page extends CI_Controller {
         else if(!($name)&&!($major)){
             $config['base_url'].="group=".$group;
                    switch ($group) {
-                    case '1': $group= 'PHP';break;
-                    case '2': $group= '前端';break;
-                    case '3': $group= 'JAVA';break;
-                    case '4': $group= 'Python';break;
+                    case '1': $group= '前端';break;
+                    case '2': $group= '后台';break;
+                    case '3': $group= '服务端';break;
+                    case '4': $group= '机器学习';break;
                     default : error("请选择组别！");
                     }
             if(!$page) $page=1;   //第一页 
@@ -96,10 +96,10 @@ class Gra_sel_page extends CI_Controller {
         else if($major&&$group){
              $config['base_url'].="major=".$major."&group=".$group;
              switch ($group) {
-                     case '1': $group= 'PHP';break;
-                    case '2': $group= '前端';break;
-                    case '3': $group= 'JAVA';break;
-                    case '4':$group= 'Python';break;
+                     case '1': $group= '前端';break;
+                    case '2': $group= '后台';break;
+                    case '3': $group= '服务端';break;
+                    case '4':$group= '机器学习';break;
                     }
              if(!$page) $page=1;   //第一页 
                 $offset = ($page-1)*10;//4是显示条数

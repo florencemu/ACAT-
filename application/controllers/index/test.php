@@ -73,24 +73,6 @@ class Test extends CI_Controller {
 
 
 
-		/*添加试题页*/
-
-
-	public function test_add_html(){
-		
-		$this->load->library('session');
- 		$admin=$this->session->userdata('user');
- 		$this->load->model('paper','paper');
-		$a = $this->paper->sel_admin($admin);
-		$res = $a[0]['admin_group'];
-		$level = $a[0]['admin_level'];
-		if(intval($level)<3) error("抱歉，您尚未获得创建试卷的权限！");
-		$type =$this->session->set_userdata('type',$res);
-      //  $num=$this->session->userdata('num');
-		$this->load->view('index/test_add.html'/*,$num*/);
-
-	}
-
 
 	/*public function test_add_b(){
 		$this->load->library('session');
@@ -150,16 +132,18 @@ class Test extends CI_Controller {
 	public function sel_d(){
 		$this->load->library('session');
         $type = $this->session->userdata('type');
+        //$result = $this->input->post();
 		$result= file_get_contents("php://input");
 		$a=json_decode($result,TRUE);
-		$diff=
+		$diff=$a['num'];
 		$this->load->model('paper','paper');
 		if(!($diff)) error("请选择你要查询的试题难度！");
 		else{
 					
 					$data['sub'] = $this ->paper->d_sel($type,$diff);
 					$b=json_encode($data,JSON_UNESCAPED_UNICODE);
-					$this->load->view('index/test_add_d.html',$data);
+					/*$this->load->view('index/test_add_d.html',$data);*/
+					echo $b;
 				}
 	}
 
@@ -167,8 +151,8 @@ class Test extends CI_Controller {
 	public function add_b(){
 		$result= file_get_contents("php://input");
 		$a=json_decode($result,TRUE);
-		$b=$a['num'];
-		echo $b;
+		$data['b_sub']=$a['num'];
+		$this->load->view('index/test_add.html',$data);
 		
 
 	}
@@ -177,11 +161,29 @@ class Test extends CI_Controller {
 	public function add_d(){
 		$result= file_get_contents("php://input");
 		$a=json_decode($result,TRUE);
-		echo $a;
+		$b=$a['num'];
+		echo $b;
 		
 
 	}
 
+
+/*添加试题页*/
+
+	public function test_add_html(){
+		
+		$this->load->library('session');
+ 		$admin=$this->session->userdata('user');
+ 		$this->load->model('paper','paper');
+		$a = $this->paper->sel_admin($admin);
+		$res = $a[0]['admin_group'];
+		$level = $a[0]['admin_level'];
+		if(intval($level)<3) error("抱歉，您尚未获得创建试卷的权限！");
+		$type =$this->session->set_userdata('type',$res);
+      //  $num=$this->session->userdata('num');
+		$this->load->view('index/test_add.html'/*,$num*/);
+
+	}
 
 
 
