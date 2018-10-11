@@ -21,23 +21,29 @@
                 <p>
                 <font color="red">【警告】</font>答题期间请<font color="red">不要刷新或关闭页面！</font>如因误操作退出请联系管理员。
                 </p>
-                <h4>你的作答时间还剩</h4>
+                <h4>剩余作答时间</h4>
           <div class="time">
                 <input type="text" value="60" class="input3">:<input type="text" value="00" class = "input4">
          </div>
                  <input type="submit" value="确认交卷" class="input1">
            
                  <div class="subject">
-                <h3>    学号为<?php $this->load->library('session');$inf=$this->session->userdata('user');echo $inf; ?> 的同学，你好！
+                  ====================================================================================
+                     <br>
+                <h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   学号为<?php $this->load->library('session');$inf=$this->session->userdata('user');echo $inf; ?> 的同学，你好！
                 以下为你抽到的试题，请仔细审题，注意时间，认真作答！</h3>
                     <?php foreach($test as $paper): ?>
-                    <h3>· <?php echo $ans=str_replace("\n","<br>",$paper[0]['sub_que']);?></h3>
+                     ====================================================================================
+                     <br>
+                    <b>· <?php echo $ans=str_replace("\n","<br>",$paper[0]['sub_que']);?></b>
                         <br>
-                     <textarea id='answer' style="height: 200px;width: 800px;resize: none;font-size: 20px;"></textarea>
+                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                     <textarea style="width:998px; height: 200px " ></textarea>
+                     
+                     <?php endforeach ?>
                      <br>
                      ====================================================================================
                      <br>
-                     <?php endforeach ?>
                       
         </div>
         
@@ -82,79 +88,7 @@
          },1000);
 
 
-        document.onkeydown = function(e) {
-        e = window.event || e;
-        var k = e.keyCode;
-        //屏蔽ctrl+R，F5键，ctrl+F5键  F3键！验证
-        if ((e.ctrlKey == true && k == 82) || (k == 116)
-                || (e.ctrlKey == true && k == 116)||k==114) {
-            e.keyCode = 0;
-            alert("当前页面不能刷新！");
-            e.returnValue = false;
-            e.cancelBubble = true;
-            return false;
- 
-        }
-      
-        //屏蔽 Ctrl+n   验证可以实现效果
-        if (e.ctrlKey && k == 78){
-            e.keyCode = 0;
-            e.returnValue = false;
-            e.cancelBubble = true;
-            return false;
-            }
-        //屏蔽F11   验证可以实现效果
-        if (k == 122) {
-            e.keyCode = 0;
-            e.returnValue = false;
-            e.cancelBubble = true;
-            return false;
-        }
-        //屏蔽 shift+F10  验证可以实现效果      
-        if ((e.shiftKey && k == 121)||(e.ctrlKey && k == 121)){
-            e.keyCode = 0;
-            e.returnValue = false;
-            e.cancelBubble = true;
-            return false;
-            }
- 
-        //屏蔽Alt+F4  
-        if ((e.altKey) && (k== 115)) {
-            window.showModelessDialog("about:blank", "",
-                    "dialogWidth:1px;dialogheight:1px");
-            e.keyCode = 0;
-            e.returnValue = false;
-            e.cancelBubble = true;
-            return false;
-        }
-        //屏蔽 Alt+ 方向键 ← ;屏蔽 Alt+ 方向键 → ！验证
-        if ((e.altKey)
-                && ((k == 37) || (k == 39))) {
-            alert("不准你使用ALT+方向键前进或后退网页！");
-            e.keyCode = 0;
-            e.returnValue = false;
-            e.cancelBubble = true;
-            return false;
-        }
- 
-    };
-    
-    //屏蔽右键菜单，！验证
-    document.oncontextmenu = function(event) {
-        if (window.event) {
-            event = window.event;
-        }
-        try {
-            var the = event.srcElement;
-            if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")) {
-                return false;
-            }
-            return true;
-        } catch (e) {
-            return false;
-        }
-    };
-
+        
 
 
 

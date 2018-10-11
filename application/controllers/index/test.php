@@ -6,7 +6,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Test extends CI_Controller {
 	/*试卷主页*/
 	public function index(){
-		
 		$this->load->model('paper','paper');
 		$data['test'] = $this->paper->test_inf();
 		$this->load->view('index/test.html',$data);
@@ -71,41 +70,6 @@ class Test extends CI_Controller {
 	}
 
 
-
-
-
-	/*public function test_add_b(){
-		$this->load->library('session');
- 		$admin=$this->session->userdata('user');
- 		$this->load->model('paper','paper');
-		$res = $this->paper->sel_admin($admin);
-		$type =$this->session->set_userdata('type',$res);
-		/*for($i=0;)
-		$data['id'] = */
-	/*	$id = $this->input->get('id').'.';
-		$b_id  =$this->session->set_userdata('b_id',$id);
-		if($id) success('index/test_page/b_page','添加成功');
-
-	}*/
-
-	/*public function test_add_d(){
-		$this->load->library('session');
- 		$admin=$this->session->userdata('user');
- 		$this->load->model('paper','paper');
-		$res = $this->paper->sel_admin($admin);
-		$type =$this->session->set_userdata('type',$res);
-		$data['d_id'] = $this->input->get('id');
-		/*$this->load->model('paper','paper');
-		$data['sub'] = $this->paper->inf_b();*/
-	/*	if($data)/* success('index/test_page/d_page','添加成功');*/
-	/*	$this->load->view('index/test_add.html',$data);
-
-	}*/
-
-
-
-
-
 	/*查找基础题*/
 	public function sel_b(){
 		$result= file_get_contents("php://input");
@@ -120,11 +84,7 @@ class Test extends CI_Controller {
 					$b=json_encode($data,JSON_UNESCAPED_UNICODE);
 
 					echo $b;
-					/*$this->load->view('index/test_add_b.html',$data);*/
-				}
-		/*$result=$this->input->get('diff');*/
-		//echo $b;
-
+			}
 	}
 
 
@@ -147,23 +107,51 @@ class Test extends CI_Controller {
 				}
 	}
 
-/*添加基础题*/
+/*选择试题*/
+public function add_sub(){
+	if($result= file_get_contents("php://input")){
+	$a=json_decode($result,TRUE);
+	echo $a['num'];}
+	else echo"-1";
+}
+
+
+
+
+/*取消选择*/
+/*public function change_add(){
+	if($result= file_get_contents("php://input")){
+	$a=json_decode($result,TRUE);
+	echo "0";}
+	else echo"-1";
+}*/
+
+/*确认基础题*/
+
 	public function add_b(){
 		$result= file_get_contents("php://input");
 		$a=json_decode($result,TRUE);
-		$data['b_sub']=$a['num'];
-		$this->load->view('index/test_add.html',$data);
-		
+		$a=$a['questions'];
+		$data=implode(',', $a);
+		$b_sub=$data.',';
+		$this->load->library('session');
+        $type = $this->session->set_userdata('b_sub',$b_sub);
+		echo $b_sub;
 
 	}
+	
 
-/*添加基础题*/
+/*确认方向题*/
 	public function add_d(){
-		$result= file_get_contents("php://input");
+	$result= file_get_contents("php://input");
 		$a=json_decode($result,TRUE);
-		$b=$a['num'];
-		echo $b;
-		
+		$a=$a['questions'];
+		$data=implode(',', $a);
+		$d_sub=$data.',';
+		$this->load->library('session');
+        $type = $this->session->set_userdata('d_sub',$d_sub);
+		echo $d_sub;
+
 
 	}
 
@@ -174,20 +162,40 @@ class Test extends CI_Controller {
 		
 		$this->load->library('session');
  		$admin=$this->session->userdata('user');
+
  		$this->load->model('paper','paper');
 		$a = $this->paper->sel_admin($admin);
 		$res = $a[0]['admin_group'];
 		$level = $a[0]['admin_level'];
 		if(intval($level)<3) error("抱歉，您尚未获得创建试卷的权限！");
 		$type =$this->session->set_userdata('type',$res);
-      //  $num=$this->session->userdata('num');
-		$this->load->view('index/test_add.html'/*,$num*/);
+		$this->load->view('index/test_add.html');
 
 	}
 
-
-
-		/*查找试卷*/
+/*上传试卷*/
+	public function test_add(){
+		$this->load->library('session');
+		$result= file_get_contents("php://input");
+		$a=json_decode($result,TRUE);
+		$b_sub=explode(',', $a['question1'],-1);
+		$d_sub=explode(',', $a['question2'],-1);
+		$bb_sub=implode(',', $b_sub);
+		$dd_sub=implode(',', $d_sub);
+		$sub=$bb_sub.",".$dd_sub.",";
+		//var_dump(strlen($sub));
+		if((strlen($sub)!=37))
+		{echo "-1";exit;}
+		else echo $sub;
+		$id=$this->session->userdata('user');
+		$type=$this->session->userdata('type');
+		$this->load->model('paper','paper');
+		$result=$this->paper->paper_add($id,$type,$sub);
+		var_dump($result);die;
+		
+		
+	}
+/*查找试卷*/
 	public function seek_out_type_num(){
 		$type=$this->input->post('type');
 		$this->load->model('paper','paper');
@@ -195,15 +203,6 @@ class Test extends CI_Controller {
 		$this->load->view('index/test.html',$data);
 	}
 
-		/*修改试卷*/
-	public function test_mod(){
-		$this->load->view('index/test_corr.html');
-	}
-
-		/*删除试卷*/
-	public function test_del(){
-		$this->load->view('index/test_del.html');
-	}
 
 
 

@@ -131,5 +131,22 @@ public function seek_out_all($group,$major,$perPage,$offset){
     
     }
 
+/*过滤异常试卷*/
+
+/*public function choose_f_Paper(){
+
+$res= "SELECT student_info.stu_id,student_info.stu_name,student_info.stu_sex,student_info.stu_major, student_info.stu_group,student_paper.base_grade,student_paper.dir_grade,student_paper.grade,student_paper.correct_id FROM `student_paper`,`student_info` WHERE student_paper.stu_id = student_info.stu_id AND student_paper.stu_ans is NULL ";
+$result = $this->db->query($res)->result_array();
+return $result;*/
+
+
+/*删除异常试卷*/
+public function del_f_Paper($id){
+$res= "DELETE  FROM `student_paper` WHERE stu_id = '$id'";
+$result = $this->db->query($res);
+return $result;
+
+
+}
 
 }

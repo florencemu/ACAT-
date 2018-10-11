@@ -7,6 +7,7 @@ class Paper extends CI_Model {
 
 /*创建试卷*/
 
+/*判断是否拥有权限*/
 public function sel_admin($admin){
 	$sql = "SELECT admin_group,admin_level FROM `admin_id` WHERE admin = '$admin'";
 	$result = $this->db->query($sql)->result_array();
@@ -14,6 +15,14 @@ public function sel_admin($admin){
 
 
 }
+/*上传试卷*/
+public function paper_add($id,$type,$sub){
+	$sql = "INSERT INTO `paper` (`paper_id`, `include_id`, `paper_sum`, `paper_type`, `create_id`) VALUES (NULL, '$sub', '0', '$type', '$id');";
+	$result = $this->db->query($sql);
+	return $result;
+
+}
+
 /*我的试卷*/
 public function my_test($admin){
 	$sql = "SELECT paper_id,paper_type,include_id,paper_sum FROM `paper` WHERE create_id = '$admin'";
@@ -43,43 +52,7 @@ public function del_paper($id){
 }
 
 
-/*public function create($type,$paper_id,$include_id)
-	$sql = "INSERT INTO `paper` (`paper_id`, `include_id`, `paper_sum`, `paper_type`) VALUES (NULL, '', '0', '$type')";
-	$result = $this ->db->query($sql);
-	$id = $this->db->insert_id();
 
-	var_dump($id);die;
-	/*$sql1 = "INSERT INTO `paper` (`paper_id`, `include_id`, `paper_sum`, `paper_type`) VALUES (NULL, '', '0', '$type')";
-	$sql2 = "INSERT INTO `paper` (`paper_id`, `include_id`, `paper_sum`, `paper_type`) VALUES (NULL, '', '0', '$type')";
-	$sql3 = "INSERT INTO `paper` (`paper_id`, `include_id`, `paper_sum`, `paper_type`) VALUES (NULL, '', '0', '$type')";
-	$result = $this ->db->query($sql);
-	/*var_dump($result);die;*/
-	/*return $result;
-}*/
-
-/*public function show_sub(){
-	$id = $this->db->insert_id();
-	$sql = "SELECT  include_id,FROM `admin_id` WHERE admin = '$admin'";
-	$result = $this->db->query($sql)->result_array();
-	return $result[0]['admin_group'];
-
-
-}*/
-
-
-
-
-
-
-/*	public function test_add($paper_id,$include_id){
-		$sql = "INSERT INTO `paper` (`paper_id`,`include_id`) VALUES ('$paper_id','$include_id')";
-		//var_dump($sql);die;
-		$result = $this->db->query($sql);
-    	return $result;
-
-		
-	}
-*/
 /*修改试卷*/
 	public function test_mod(){
 
@@ -157,12 +130,7 @@ public function sel_stu_que($s_id){
 
  	
 /*查找试题*/
-/*public function b_num(){
-    	$res="SELECT COUNT(sub_id) FROM `subject` WHERE sub_type='基础题'";
-    	$result = $this->db->query($res)->result_array();
-    	return $result[0]['COUNT(sub_id)'];
-	}
-*/
+
  	public function inf_b(){
     	$res="SELECT sub_id,sub_que,sub_ans,sub_diff  FROM `subject` WHERE sub_type='基础题' ";
     	$result = $this->db->query($res)->result_array();
@@ -170,13 +138,6 @@ public function sel_stu_que($s_id){
 	}
 
 
-
-
-/*	public function d_num(){
-    	$res="SELECT COUNT(sub_id) FROM `subject` WHERE sub_type='PHP'OR sub_type='JAVA' OR sub_type='前端' OR sub_type='Python' ";
-    	$result = $this->db->query($res)->result_array();
-    	return $result[0]['COUNT(sub_id)'];
-	}*/
 	public function inf_d($type){
     	$res="SELECT sub_id,sub_que,sub_ans,sub_type,sub_diff  FROM `subject` WHERE sub_type='$type'";
     	$result = $this->db->query($res)->result_array();
@@ -186,13 +147,7 @@ public function sel_stu_que($s_id){
 
 /*基础题检索*/
 
-/*public function diff_num($diff){
-		$res = "SELECT COUNT(sub_id)  FROM `subject` WHERE sub_diff='$diff' AND sub_type='基础题' ";
-		$result = $this->db->query($res)->result_array();
-    	return $result[0]['COUNT(sub_id)'];
 
-	}
-*/
 
 	public function b_sel($diff){
 		$res = "SELECT sub_id,sub_que,sub_ans,sub_diff  FROM `subject` WHERE sub_diff='$diff'AND sub_type = '基础题' ";
@@ -205,45 +160,13 @@ public function sel_stu_que($s_id){
 
 /*方向题检索*/
 
-/*public function num_d($diff,$type){
-		$res = "SELECT COUNT(sub_id) FROM `subject` WHERE sub_diff='$diff' AND sub_type='$type' ";
-		$result = $this->db->query($res)->result_array();
-    	return $result[0]['COUNT(sub_id)'];
-}
-*/
-/*public function diff_num_d($type,$diff){
-		$res = "SELECT COUNT(sub_id)  FROM `subject` WHERE sub_diff='$diff' AND sub_type='$type'";
-		$result = $this->db->query($res)->result_array();
-    	return $result[0]['COUNT(sub_id)'];
-
-	}*/
-
-/*public function type_num($type){
-		$res = "SELECT COUNT(sub_id)  FROM `subject` WHERE sub_type='$type' ";
-		$result = $this->db->query($res)->result_array();
-    	return $result[0]['COUNT(sub_id)'];
-}*/
-
-
-/*	public function d_sel($type,$perPage,$offset){
-		$res="SELECT sub_id,sub_que,sub_type,sub_diff  FROM `subject` WHERE sub_type= '$type'  LIMIT $offset,$perPage ";
-		$result = $this->db->query($res)->result_array();
-    	return $result;
-
-	}*/
 	public function d_sel($type,$diff){
-		$res="SELECT sub_id,sub_que,sub_ans,sub_type,sub_diff  FROM `subject` WHERE sub_diff= $diff AND sub_type='$type' ";
+		$res="SELECT sub_id,sub_que,sub_ans,sub_diff  FROM `subject` WHERE sub_diff= $diff AND sub_type='$type' ";
 		$result = $this->db->query($res)->result_array();
     	return $result;
 
 	}
-/*	public function all_sel($type,$diff,$perPage,$offset){
-		$res="SELECT sub_id,sub_que,sub_type,sub_diff FROM `subject`WHERE sub_type = '$type' AND sub_diff ='$diff' LIMIT $offset,$perPage ";
-		$result = $this->db->query($res)->result_array();
-    	return $result;
 
-	}
-*/
 /*显示试卷信息*/	
 	 public function test_inf($perPage,$offset){
     	$res="SELECT paper_id,create_id,include_id,paper_sum  FROM `paper` LIMIT $offset,$perPage";

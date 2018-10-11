@@ -50,6 +50,7 @@
 			<th>总分</th>
 			<th>批阅者</th>
 			<th>试卷详情</th>
+			<th>操作</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -66,6 +67,7 @@
 				<td><?php echo $item['grade'] ?></td>
 				<td><?php echo $item['correct_id'] ?></td>
 				<td><a href="<?php echo site_url('index/show_test').'?'.'id='.$item['stu_id']; ?>" style="color: #8B636C" >查看</a></td>
+				<td><a href="<?php echo site_url('index/grade/del_False').'?'.'id='.$item['stu_id']; ?>" style="color: #8B636C" onClick="return confirm('确定删除?');" >删除</a></td>
 			</tr>
 		<?php endforeach;?>
 		</tbody>

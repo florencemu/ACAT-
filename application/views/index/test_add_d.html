@@ -24,9 +24,9 @@
 
 	</div> 
 	<div class="nav">
-	<form method="get" action="<?php echo site_url('index/test/sel_d') ?>">
+	
 		选择难度:
-		<select name="diff">
+		<select name="diff" id = "select">
 			<option value ="0">-</option>
 			<option value ="1">1</option>
 	  		<option value ="2">2</option>
@@ -35,32 +35,34 @@
 	  		<option value="5">5</option>
 		</select>
 		<div class="submit1">
+
 				<input id="btn1" type="submit" value="查找">
 		</div>
-	</form>
-		<br><br>
+		<div class="submit2">
+				<input  type="submit" value="确认添加"  id="addSum"/>
+		</div>
+
 	
 
 	<div class = "table">
+	<h2> <font color="#8B2323">注意：点击添加按键后题目将无法退选！请谨慎选择！</font></h2>
 		<table id="tab1" border="0" width="800" cellspacing="0">
 		<thead>
 		<tr>
 			<th>试题号</th>
 			<th>题目</th>
 			<th>答案</th>
-			<th>方向</th>
 			<th>难度</th>
 			<th>选择</th>
 			</tr>
 		</thead>
-			<tbody>
-	
+			<tbody id="tbody">
 			<?php  foreach($sub as $item): ?>
 			<tr>
 				<td  ><p class="id"><?php echo $item['sub_id']  ?></p></td>
 				<td><?php echo $que=str_replace("\n","<br>",$item['sub_que']); ?></td>
 				<td><?php echo $que=str_replace("\n","<br>",$item['sub_ans']); ?></td>
-				<td><?php echo $item['sub_type'] ?></td>
+				
 				<td><?php echo $item['sub_diff'] ?></td>
 				<td><!-- <a href="<?php echo site_url('index/test_page/b_page'); ?>" style="color: #8B636C"  class="add">添加</a> -->
 				   <button class="add" style="color: #8B636C" >添加</button>
@@ -68,7 +70,7 @@
 			</tr>
 			<?php endforeach;?>
 				<!-- onClick="return confirm('确定添加?');" -->
-				<script type="text/javascript">
+			<!-- 	<script type="text/javascript">
 				      var id = document.querySelectorAll(".id");
 				      var add = document.querySelectorAll(".add");
 				      console.log(id);
@@ -110,7 +112,7 @@
 							xmlhttp.open("POST","<?php echo site_url('index/test_page/b_page_ok') ?>",true);
 							xmlhttp.send(JSON.stringify({num:value}));
 						}
-				</script>   
+				</script>   --> 
 			</tr>
 			
 		</tbody>
@@ -123,3 +125,81 @@
 
 </body>
 </html>
+<script type="text/javascript">
+
+     var select = document.getElementById('select');
+     let tbody = document.getElementById("tbody");
+      var id = document.querySelectorAll(".id");
+      var questions = [];
+      var add = document.querySelectorAll(".add");
+			 for(var j=0;j<add.length;j++){
+			           	  console.log(id[j].value);
+			              (function(k){
+			                   add[k].onclick=function(){
+			                   	  if(this.innerHTML=="已添加")  return;
+			                   	   alert("成功添加第"+id[k].innerHTML+"题！");
+			                   	  questions.push(id[k].innerHTML);
+			                   	  this.innerHTML="已添加";
+
+			                   }
+			              })(j)
+			           }
+				
+
+  // 这里做的就是点击其中的选择难度的按钮将其中的题目进行刷新
+  $("#btn1").click(function(){
+  	    tbody.innerHTML="";
+		$.post("<?php echo site_url('index/test/sel_d')?>",JSON.stringify({num:select.value}),
+		function(data,status){
+			let subject = JSON.parse(data).sub;
+			console.log(subject);
+			for (let i = 0; i <subject.length; i++) {
+				var tr = document.createElement("tr");
+				var td1 = document.createElement("td");td1.innerHTML=subject[i].sub_id;	
+				var td2 = document.createElement("td");td2.innerHTML=subject[i].sub_que;
+				var td3 = document.createElement("td");td3.innerHTML=subject[i].sub_ans;
+				var td4 = document.createElement("td");td4.innerHTML=subject[i].sub_diff;
+				var td5 = document.createElement("td"); 
+				var button = document.createElement("button"); 
+				button.className="add";
+				button.innerHTML="添加";
+				button.index=subject[i].sub_id;
+				td5.appendChild(button);
+				tr.appendChild(td1);
+				tr.appendChild(td2);
+				tr.appendChild(td3);
+				tr.appendChild(td4);
+				tr.appendChild(td5);
+				tbody.appendChild(tr);
+			}
+			postId()
+		});
+	});
+
+	   function postId(){
+	   		var add = document.querySelectorAll(".add");
+				 for(var j=0;j<add.length;j++){
+				              (function(k){
+				                   add[k].onclick=function(){
+				                   	  if(this.innerHTML=="已添加")  return;
+				                   	   alert("成功添加第"+this.index+"题！");
+				  
+				                   	   questions.push(this.index);
+				                   	   this.innerHTML="已添加";
+
+				                   }
+				              })(j)
+				           }
+
+	   }
+
+	   $("#addSum").click(function(){
+	   	  alert("你添加的方向题有："+questions);
+	   	  $.post("<?php echo site_url('index/test/add_d') ?>",JSON.stringify({questions:questions}),
+	   	  function(data,status){
+              alert("添加成功");
+              window.location.href="<?php echo site_url('index/test/test_add_html') ?>?id="+questions;
+	   	  })
+	   });
+
+</script>

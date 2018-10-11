@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>创建试卷 -@ACAT</title>
+	<script type="text/javascript" src="/CI_test/js/jquery.js"></script>
 	<link rel="stylesheet" type="text/css" href="<?php  echo base_url() .'style/index' ?>/css/test-add.css">
 </head>
 <body>
@@ -15,13 +16,13 @@
 	     <input type="submit" value="返回主页面" onclick="location.href='<?php echo site_url('index/home') ?>'">
 
 	</div> 
-<form method="POST" action="<?php echo site_url('index/student/stu_add') ?>">
+
 		<div class="nav">
 		<br>
 		<h1>&nbsp;&nbsp;考官您好！欢迎来到出题页，请仔细阅读以下出题规范:&nbsp;&nbsp;</h1>
 		<p>&nbsp;&nbsp;1.请选择基础题10道，其中选择题与简答题共8道，编程题2道&nbsp;&nbsp;</p>
 		<p>&nbsp;&nbsp;2.请选择方向题5道，请合理分配题型占比。&nbsp;&nbsp;</p>
-		<p>&nbsp;&nbsp;3.请保证出题过程中不会因外界干扰而中断出题。&nbsp;&nbsp;</p>
+		<p>&nbsp;&nbsp;3.如果在登录状态下连续出卷，有可能出现下方题目栏数据未更新情况，不必惊慌，选择添加新试题即可更新。&nbsp;&nbsp;</p>
 		<h4>&nbsp;&nbsp;<font color="red">4.一旦提交上传，试卷将不可修改，请谨慎提交！</font>&nbsp;&nbsp;</h4>
 		<p>&nbsp;&nbsp;在确保已知晓以上出题规范后，请点击以下按钮按类目添加试题！&nbsp;&nbsp;</p>
 		&nbsp;&nbsp;
@@ -33,7 +34,6 @@
 		</div>
 		<br>
 		<p>&nbsp;&nbsp;已添加题目：</p> 
-		<form method="POST" action="<?php echo site_url('index/test/test_add') ?>">
 		<div class = "table">
 		<table id="tab1" border="0" width="500" cellspacing="0">
 		<thead>
@@ -48,41 +48,61 @@
 			<tbody>
 			
 			<tr>
-				<td ><?php $this->load->library('session');
+				<td><?php $this->load->library('session');
  		                  $type=$this->session->userdata('type'); echo $type; ?></td>
-				<td id="num"><?php $num=$this->session->userdata('num'); if($num) echo $num; else echo"未添加";?>
+				<td id="b_sub"><?php  $b=$this->session->userdata('b_sub'); if($b) echo $b;  else echo"未添加";?>
 				</td>
-				<script type="text/javascript">
-    var num = document.getElementById('num').innerHTML;
-    console.log(num);
-    localStorage.site=num;
-   
-    
-
-
-</script>
-				<td><?php $d_id=$this->session->userdata('d_id'); if($d_id)echo $d_id; else echo"未添加";?>
+				<td id="d_sub"><?php  $d=$this->session->userdata('d_sub'); if($d) echo $d;  else echo"未添加";?>
 				</td>
-			
-				
-				
+	
 			</tr>
 		</tbody>
 	</table>
 	</div>
-		</form>
 		<br>
 		<div class = "submit">
-			<input type="submit" value="上传试卷" name="" >
+			<input type="submit" value="上传试卷" id="add" >
 			<br><br>
 		</div>
 		</div>
-		</form>
+
 		<br>
 	</div>
+				<script type="text/javascript">
+//    function GetQueryString(name) {
+//     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+//     var r = window.location.search.substr(1).match(reg);
+//     if (r != null) return unescape(r[2]); return null;
+// }
 
+// var id = GetQueryString("id");
+
+var question1 = document.getElementById("b_sub");
+var question2 = document.getElementById("d_sub");
+console.log(question1);
+
+// question.innerHTML=id;
+
+
+// function postInformation(){
+// 	$.post("<?php echo site_url('index/test/test_add') ?>",JSON.stringify({question:question}),
+// 	   	  function(data,status){
+//              // 这里表示的就是将其中的判断其中是否给你把数据发送过去
+// 	   	  })
+// }
+  $("#add").click(function(){
+	   	 $.post("<?php echo site_url('index/test/test_add') ?>",JSON.stringify({question1:question1.innerHTML,question2: question2.innerHTML}),
+	   	  function(data,status){
+	   	  	if(data!=-1) alert("添加成功");
+	   	  	else alert("题目数量有误！请重新添加！");
+             
+	   	  })
+	   });
+
+
+</script>		
 	
 
-</form>
+
 </body>
 </html>

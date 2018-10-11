@@ -34,7 +34,7 @@
 		 <?php  $id=$this->session->userdata('s_id'); ?>
  		
  			<?php foreach( $ans as $v):?>
-		 <h4><?php echo ' · '.$que=str_replace("\n","<br>",$test[++$i-1]);?></h4>
+		 <b><?php echo ' · '.$que=str_replace("\n","<br>",$test[++$i-1]);?></b>
 		
 		 <div class ="1" style="text-align:center">
 		 	&nbsp;<table id="tab1" border="1" width="500" cellspacing="0" >
@@ -53,7 +53,7 @@
 			</table>	
 		</div>
         
-       <p><font color="	#8B4C39">>====================================================================================<</font></p>
+       <p><font color="	#8B4C39">>==============================================================================<</font></p>
        		
 		<?php endforeach;?>
 		</div>

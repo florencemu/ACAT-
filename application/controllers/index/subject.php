@@ -32,10 +32,10 @@ class Subject extends CI_Controller {
 		$sub_type = $this->input->post('sub_type');
 		switch ($sub_type) {
 			case '1':$sub_type = '基础题';break;
-			case '2':$sub_type = 'PHP';break;
-			case '3':$sub_type = '前端';break;
-			case '4':$sub_type = 'JAVA';break;
-			case '5':$sub_type = 'Python';break;
+			case '2':$sub_type = '前端';break;
+			case '3':$sub_type = '后台';break;
+			case '4':$sub_type = '服务端';break;
+			case '5':$sub_type = '机器学习';break;
 		}
 		$sub_que = $sub_type.":".$sub_que ;
 		$sub_diff = $this->input->post('sub_diff');
@@ -71,10 +71,10 @@ class Subject extends CI_Controller {
 			{ 	
 				switch ($type) {
 					case '1': $type= '基础题';break;
-					case '2': $type= 'PHP';break;
-					case '3': $type= '前端';break;
-					case '4': $type= 'JAVA';break;
-					case '5':$type= 'Python';break;
+					case '2': $type= '前端';break;
+					case '3': $type= '后台';break;
+					case '4': $type= '服务端';break;
+					case '5':$type= '机器学习';break;
 			    	}
 					$data['sub'] = $this ->subjects ->seek_out_type($type);
 			}
@@ -85,10 +85,10 @@ class Subject extends CI_Controller {
 			{
 				switch ($type) {
 					case '1': $type= '基础题';break;
-					case '2': $type= 'PHP';break;
-					case '3': $type= '前端';break;
-					case '4': $type= 'JAVA';break;
-					case '5':$type= 'Python';break;
+					case '2': $type= '前端';break;
+					case '3': $type= '后台';break;
+					case '4': $type= '服务端';break;
+					case '5':$type= '机器学习';break;
 			    }
 				$data['sub'] = $this ->subjects->seek_out_all($type,$diff);
 			}
@@ -126,10 +126,10 @@ class Subject extends CI_Controller {
 		$type = $this->input->post('sub_type');
 		switch ($type) {
 					case '1': $type= '基础题';break;
-					case '2': $type= 'PHP';break;
-					case '3': $type= '前端';break;
-					case '4': $type= 'JAVA';break;
-					case '5':$type= 'Python';break;
+					case '2': $type= '前端';break;
+					case '3': $type= '后台';break;
+					case '4': $type= '服务端';break;
+					case '5':$type= '机器学习';break;
 					default:error("请选择试题类型！");
 			    }
 		$res=$this->subjects->sub_mod($id,$que,$ans,$diff,$type);

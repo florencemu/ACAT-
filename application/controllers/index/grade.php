@@ -66,5 +66,25 @@ class Grade extends CI_Controller {
 		if($data) $this->load->view('index/grade.html',$data);
 		
 	}
+	/*异常试卷过滤*/
+	/*public function choose_False(){
+		$this->load->model('grades','grades');
+		$data['grades'] = $this->grades->choose_f_Paper();
+		//var_dump($data);
+		$this->load->view('index/grade.html',$data);
+	}*/
+
+
+	/*删除异常试卷*/
+	public function del_False(){
+		$id=$this->input->get("id");
+		$this->load->model('grades','grades');
+		$res= $this->grades->del_f_Paper($id);
+		if($res) success('index/gra_page/page','删除成功！');
+		else error("删除失败");
+
+	}
+
+
 
 }

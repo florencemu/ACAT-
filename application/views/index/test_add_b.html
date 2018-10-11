@@ -37,11 +37,15 @@
 		<div class="submit1">
 				<input id="btn1" type="submit" value="查找">
 		</div>
+		<div class="submit2">
+				<input  type="submit" value="确认添加"  id="addSum"/>
+		</div>
 	
-		<br><br>
+		
 	
 
 	<div class = "table">
+	<h2> <font color="#8B2323">注意：点击添加按键后题目将无法退选！请谨慎选择！</font></h2>
 		<table id="tab1" border="0" width="800" cellspacing="0">
 		<thead>
 		<tr>
@@ -84,46 +88,23 @@
      var select = document.getElementById('select');
      let tbody = document.getElementById("tbody");
       var id = document.querySelectorAll(".id");
+      var questions = [];
       var add = document.querySelectorAll(".add");
 			 for(var j=0;j<add.length;j++){
 			           	  console.log(id[j].value);
 			              (function(k){
 			                   add[k].onclick=function(){
 			                   	  if(this.innerHTML=="已添加")  return;
-			                   	  loadXMLDoc(id[k].innerHTML,this);
-			                   	  alert(id[k].innerHTML);
+			                   	  alert("成功添加第"+id[k].innerHTML+"题！");
+			                   	  questions.push(id[k].innerHTML);
+			                   	  this.innerHTML="已添加";
 
 			                   }
 			              })(j)
 			           }
-					function loadXMLDoc(value,obj)
+				
 
-						{
-							var xmlhttp;
-							if (window.XMLHttpRequest)
-							{
-								xmlhttp=new XMLHttpRequest();
-							}
-							else
-							{
-								xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-							}
-							xmlhttp.onreadystatechange=function()
-							{
-								if (xmlhttp.readyState==4 && xmlhttp.status==200)
-								{
-									if(xmlhttp.reponseText=="-1"){
-										alert("添加失败");
-									}
-									else{
-										alert("添加成功");
-										obj.innerHTML="已添加";
-									}
-								}
-							}
-							xmlhttp.open("POST","<?php echo site_url('index/test/add_b') ?>",true);
-							xmlhttp.send(JSON.stringify({num:value}));
-				}
+  // 这里做的就是点击其中的选择难度的按钮将其中的题目进行刷新
   $("#btn1").click(function(){
   	    tbody.innerHTML="";
 		$.post("<?php echo site_url('index/test/sel_b')?>",JSON.stringify({num:select.value}),
@@ -153,53 +134,30 @@
 		});
 	});
 
-   function postId(){
-   		var add = document.querySelectorAll(".add");
-			 for(var j=0;j<add.length;j++){
-			              (function(k){
-			                   add[k].onclick=function(){
-			                   	  if(this.innerHTML=="已添加")  return;
-			                   	   alert(this.index);
-			                   	  load(this.index,this);
+	   function postId(){
+	   		var add = document.querySelectorAll(".add");
+				 for(var j=0;j<add.length;j++){
+				              (function(k){
+				                   add[k].onclick=function(){
+				                   	  if(this.innerHTML=="已添加")  return;
+				                   	  alert("成功添加第"+this.index+"题！");
+				                 
+				                   	  
+				                   	   questions.push(this.index);
+				                   	   this.innerHTML="已添加";
 
-			                   }
-			              })(j)
-			           }
+				                   }
+				              })(j)
+				           }
 
-   }
+	   }
 
-
-
-                          function load(index,obj)
-
-						{
-							var xmlhttp;
-							if (window.XMLHttpRequest)
-							{
-								xmlhttp=new XMLHttpRequest();
-							}
-							else
-							{
-								xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-							}
-							xmlhttp.onreadystatechange=function()
-							{
-								if (xmlhttp.readyState==4 && xmlhttp.status==200)
-								{
-									alert(1);
-									if(xmlhttp.reponseText=="-1"){
-										alert("添加失败");
-									}
-									else{
-										alert("添加成功");
-										obj.innerHTML="已添加";
-									}
-								}
-							}
-							xmlhttp.open("POST","<?php echo site_url('index/test/add_b') ?>",true);
-							xmlhttp.send(JSON.stringify({num:indexs}));
-				}
-
-
-  
+	   $("#addSum").click(function(){
+	   	  alert("你添加的基础题有："+questions);
+	   	  $.post("<?php echo site_url('index/test/add_b') ?>",JSON.stringify({questions:questions}),
+	   	  function(data,status){
+              alert("添加成功");
+              window.location.href="<?php echo site_url('index/test/test_add_html') ?>?id="+questions;
+	   	  })
+	   });
 </script>

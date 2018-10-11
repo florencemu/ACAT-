@@ -41,9 +41,10 @@ class P_student extends CI_Model {
 /*标记作答*/
 public function ans_flag($id,$p_id)
 {
-
 $res="INSERT INTO `student_paper` (`paper_id`, `stu_id`, `stu_ans`, `base_grade`, `dir_grade`, `grade`, `correct_id`) VALUES ('$p_id', '$id', NULL, NULL, NULL, NULL, NULL)";
+$res2="UPDATE `paper` set `paper_sum` = `paper_sum`+1 WHERE paper_id = '$p_id'";
 $result = $this->db->query($res);
+$result2 = $this->db->query($res2);
 return $result;
 }
 
@@ -51,9 +52,15 @@ return $result;
 /*是否作答*/
 public function check_ans($id){
 	$res="SELECT * FROM `student_paper` WHERE stu_id='$id'";
-		$result = $this->db->query($res)->result_array();
-	//	var_dump($result);
-    	return $result;
+	$result = $this->db->query($res)->result_array();
+    return $result;
+}
+
+/*提交答案*/
+public function ans_add($ans,$id){
+	$res="UPDATE `student_paper` SET `stu_ans` = '$ans' WHERE `student_paper`.`stu_id` = '$id'";
+	$result = $this->db->query($res)->result_array();
+    return $result;
 }
 
 /*查看成绩*/

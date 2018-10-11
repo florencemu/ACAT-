@@ -16,10 +16,12 @@ class Student_grade extends CI_Controller {
     	$session_inf['id']=$this->session->userdata('user');
 		$res= $this->p_student->grade_sel($inf);
 		//var_dump($res);
-		if($res)
+		if(is_null($res))
+
 		{
 
 		//$data = $this->p_student->paper_sel($inf);
+		//var_dump($res);die;
 		$this->session->set_userdata('b_grade',$res[0]['base_grade']);
 		$this->session->set_userdata('d_grade',$res[0]['dir_grade']);
 		$this->session->set_userdata('grade',$res[0]['grade']);

@@ -96,9 +96,9 @@ class Student extends CI_Controller {
 		$group = $this->input->post('group');
 		switch ($group) {
 				case '1': $group= '前端';break;
-				case '2': $group= 'PHP';break;
-				case '3': $group= 'Python';break;
-				case '4':$group= 'JAVA';break;
+				case '2': $group= '后台';break;
+				case '3': $group= '服务端';break;
+				case '4':$group= '机器学习';break;
 				default: error("请选择方向！");
 			}
 		$res=$this->students->stu_mod($id,$s_id,$name,$major,$sex,$group);

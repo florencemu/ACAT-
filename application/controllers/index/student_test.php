@@ -17,9 +17,9 @@ class Student_test extends CI_Controller {
 		$this->load->library('session');
         $id=$this->session->userdata('user');
         $this->load->model('p_student','p_student');
-        $res=$this->p_student->check_ans($id);
-		if($res) error("你已完成测试！请耐心等待成绩。");
-		else $this->load->view('student/inf.html');
+        // $res=$this->p_student->check_ans($id);
+		// if($res) error("你已完成测试！请耐心等待成绩。");
+		/*else*/ $this->load->view('student/inf.html');
 	}
 
 	/*加载答卷*/
@@ -27,10 +27,12 @@ class Student_test extends CI_Controller {
  		$this->load->library('session');
         $id=$this->session->userdata('user');
 		$this->load->model('p_student','p_student');
+		$res=$this->p_student->check_ans($id);
+		// if($res) error("你已完成测试！请耐心等待成绩。");
 		$paper['inf']=$this->p_student->stu_test($id);
 		if($paper['inf']){
 		$p_id=$paper['inf'][0]['paper_id'];
-		$this->p_student->ans_flag($id,$p_id);
+		// $this->p_student->ans_flag($id,$p_id);
 		$res=$this->p_student->get_sub($p_id);
 		$s_id=explode('.', $res,-1);
 		$length=sizeof($s_id);
@@ -49,8 +51,21 @@ class Student_test extends CI_Controller {
 	}
 	/*提交答案*/
 	public function stu_ans(){
-		$ans=$this->input->post('answer');
-		var_dump($ans);
+		$this->load->library('session');
+        $id=$this->session->userdata('user');
+		$ans=file_get_contents("php://input");
+		$a=json_decode($result,TRUE);
+		$length=count($a);
+		for($i=0,$j=0;$i<$length;$i++,$j++)
+		{
+			 $b[$j] = $a[$i][$i];
+				if(empty($b[$j])==TRUE){ echo "typeFalse";exit;}
+		}
+		$this->load->model('p_student','p_student');
+		$res=$this->p_student->ans_add($ans,$id);
+		if($res) echo "Success";
+			else echo "Error";
+		//var_dump($ans);
 
 
 	}
