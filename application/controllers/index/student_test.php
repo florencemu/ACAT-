@@ -17,24 +17,27 @@ class Student_test extends CI_Controller {
 		$this->load->library('session');
         $id=$this->session->userdata('user');
         $this->load->model('p_student','p_student');
-        // $res=$this->p_student->check_ans($id);
-		// if($res) error("你已完成测试！请耐心等待成绩。");
-		/*else*/ $this->load->view('student/inf.html');
+        $res=$this->p_student->check_ans($id);
+		if($res) error("你已完成测试！请耐心等待成绩。");
+		else $this->load->view('student/inf.html');
 	}
 
 	/*加载答卷*/
 	public function test(){
  		$this->load->library('session');
         $id=$this->session->userdata('user');
+        // var_dump($id);
 		$this->load->model('p_student','p_student');
 		$res=$this->p_student->check_ans($id);
-		// if($res) error("你已完成测试！请耐心等待成绩。");
+		if($res) error("你已完成测试！请耐心等待成绩。");
 		$paper['inf']=$this->p_student->stu_test($id);
+		//var_dump($paper);
 		if($paper['inf']){
 		$p_id=$paper['inf'][0]['paper_id'];
-		// $this->p_student->ans_flag($id,$p_id);
+		$this->p_student->ans_flag($id,$p_id);
 		$res=$this->p_student->get_sub($p_id);
-		$s_id=explode('.', $res,-1);
+		$s_id=explode(',', $res,-1);
+		//var_dump($s_id);
 		$length=sizeof($s_id);
 		for($i=0;$i<$length;$i++)
 		{
@@ -43,6 +46,7 @@ class Student_test extends CI_Controller {
 		}
 		$data['test']=$res2;
 		//var_dump($data);
+		
 		$this->load->view('student/stu_test.html',$data);
 		}
 		else error("请在个人信息页完善你要加入的方向后再进行测试！");
@@ -54,18 +58,20 @@ class Student_test extends CI_Controller {
 		$this->load->library('session');
         $id=$this->session->userdata('user');
 		$ans=file_get_contents("php://input");
-		$a=json_decode($result,TRUE);
-		$length=count($a);
-		for($i=0,$j=0;$i<$length;$i++,$j++)
-		{
-			 $b[$j] = $a[$i][$i];
-				if(empty($b[$j])==TRUE){ echo "typeFalse";exit;}
+		$a=json_decode($ans,TRUE);
+		foreach($a as $k=>$v){
+			foreach($v as $key=>$val){
+				$arr[$key]=$val;
+			}
 		}
+		$data=implode(',', $arr);
+		$ans=$data.',';
+		//echo $ans;
 		$this->load->model('p_student','p_student');
 		$res=$this->p_student->ans_add($ans,$id);
 		if($res) echo "Success";
 			else echo "Error";
-		//var_dump($ans);
+	//	var_dump($ans);
 
 
 	}

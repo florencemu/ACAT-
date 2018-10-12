@@ -25,6 +25,7 @@ class P_student extends CI_Model {
 	public function create($s_id){
 		$res="SELECT sub_que FROM subject WHERE sub_id = $s_id";
 		$result = $this->db->query($res)->result_array();
+		
     	return $result; 
 	}
 
@@ -59,7 +60,7 @@ public function check_ans($id){
 /*提交答案*/
 public function ans_add($ans,$id){
 	$res="UPDATE `student_paper` SET `stu_ans` = '$ans' WHERE `student_paper`.`stu_id` = '$id'";
-	$result = $this->db->query($res)->result_array();
+	$result = $this->db->query($res);
     return $result;
 }
 
