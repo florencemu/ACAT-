@@ -5,7 +5,7 @@ body{
 }
 .logo{
 		position: absolute;
-		left: 565px;
+		left: 580px;
 		top: 10px;
 		width: 100px;
 		height: 30px;
@@ -14,11 +14,12 @@ body{
 		width: 100px;
 		height: 100px;
 	}
+
 .nav{
 	position: absolute;
 	top: 150px;
 	font-size:12px;
-	left: 350px;
+	left: 380px;
 }
 .nav1{
 	height: 30px;
@@ -87,7 +88,7 @@ position: absolute;
 	appearance:none;
 		moz-appearance: none;
 		width:70px;
-		height:22px;
+		height:25px;
 		font-family:"方正姚体";
 		font-size:15px;
 		border-radius:10px;

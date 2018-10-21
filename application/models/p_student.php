@@ -68,6 +68,7 @@ public function ans_add($ans,$id){
 	public function grade_sel($inf){
 		$res="SELECT base_grade,dir_grade,grade FROM `student_paper` WHERE stu_id='$inf'";
 		$result = $this->db->query($res)->result_array();
+		//var_dump($result);
 		
     	return $result;
 	}

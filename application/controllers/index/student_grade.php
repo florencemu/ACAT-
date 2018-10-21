@@ -16,7 +16,7 @@ class Student_grade extends CI_Controller {
     	$session_inf['id']=$this->session->userdata('user');
 		$res= $this->p_student->grade_sel($inf);
 		//var_dump($res);
-		if(is_null($res))
+		if(!is_null($res))
 
 		{
 
@@ -26,7 +26,7 @@ class Student_grade extends CI_Controller {
 		$this->session->set_userdata('d_grade',$res[0]['dir_grade']);
 		$this->session->set_userdata('grade',$res[0]['grade']);
 		$res1 = $this->p_student->paper_ans($inf);
-		$s_id=explode('.', $res1[0]['include_id'],-1);
+		$s_id=explode(',', $res1[0]['include_id'],-1);
 		$this->session->set_userdata('s_id',$s_id);
 		$length=sizeof($s_id);
 		for($i=0;$i<$length;$i++)

@@ -7,17 +7,14 @@
 </head>
 <body>
 
-
-
-
-
     <div class="logo">
         <img src="<?php  echo base_url() .'style/index/' ?>images/login/logo.png">
     </div>
         <form method="POST" action="<?php echo site_url('index/regist/register') ?>">
     <div class="nav">
         <form class="navForm" method="POST">
-            <h2>注&nbsp;&nbsp;册</h2>
+            <h2 class="h2">register</h2>
+            <br><br>
             <label>姓名：</label>
             <input type="text" name="user_name" placeholder="请输入姓名">
             <br><br>
@@ -27,18 +24,23 @@
             <label>密码：</label>
             <input type="password" name="password" placeholder="请输入密码">
             <br><br>
-            <label>确认密码：</label>
+            <label style="margin-left: -30px;">确认密码：</label>
             <input type="password" name="password1" placeholder="请确认密码">
             <br><br>
-          <br>
           <div class = "submit">
             <input type="submit"  value="完成注册">
             </div>
         </form>
-    </div>
-	<div class="bt">
-        <input type="button" value="返回" onclick="javascript:history.back();" style="color:grey;font-size: 0.85em;"> 
-    </div>
+
+     &nbsp;&nbsp;
+
+       
+            <div class="zuce">
+            <a href="<?php  echo base_url() .'index'  ?>">已有账号？立即登录</a>
+            </div>
+        </div>
+
+<footer>Copyright (C)   &nbsp;&nbsp;  [ACAT-2018]  &nbsp;&nbsp;By- Whale -</footer>
 
    
 

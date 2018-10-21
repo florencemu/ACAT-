@@ -16,15 +16,16 @@ body{
 
 .logo{
 		position: absolute;
-		left: 660px;
+		left: 580px;
 		top: 10px;
 		width: 100px;
 		height: 30px;
 	}
 	.logo img{
-		width: 150px;
-		height: 150px;
+		width: 100px;
+		height: 100px;
 	}
+
 .nav{
 	height: 30px;
 	width: 100%;
@@ -32,20 +33,20 @@ body{
 .nav p{
 	float: right;
 	font-family: 方正姚体;
-	font-size: 1.3em;
+	font-size: 1.2em;
 	color:black;
 } 
 .nav input{
 	float: right;
 	font-family: 方正姚体;
-	font-size: 1em;
+	font-size: 0.8em;
 	color:rgb(0,0,0);
 	background-color: rgb(255,255,255); 
 } 
 .content{
 	position: relative;
-	margin-top: 150px;
-	height: 480px;
+	margin-top: 100px;
+	height: 460px;
 	width: 800px;
 	opacity:0.7;
 	border:6px rgb(170,138,87) solid ;
@@ -76,12 +77,12 @@ body{
 }
 .middle-left{
 	position: absolute;
-	top:180px;
+	top:175px;
 	left: 150px;
 }
 .middle-right{
 	position: absolute;
-	top:180px;
+	top:175px;
 	left: 500px;
 }
 .bottom-left{
@@ -100,10 +101,10 @@ body{
 	/*top: 245px;
 	left: 180px;*/
 	appearance:none;
-		width:55px;
-		height:30px;
+		width:50px;
+		height:28px;
 		font-family:"方正姚体";
-		font-size:18px;
+		font-size:15px;
 		border-radius:10px;
 		border-width: 2px;
 		background-color: rgba(244,244,244,0.2);

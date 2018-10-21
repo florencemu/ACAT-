@@ -5,21 +5,22 @@ body{
 	background-attachment:scroll;
 }
 .logo{
-		position: absolute;
-		left: 565px;
-		top: 10px;
-		width: 100px;
-		height: 30px;
-	}
-	.logo img{
-		width: 100px;
-		height: 100px;
-	}
+        position: absolute;
+        left: 580px;
+        top: 10px;
+        width: 100px;
+        height: 30px;
+    }
+    .logo img{
+        width: 100px;
+        height: 100px;
+    }
+
 .nav{
 	position: absolute;
 	top: 150px;
 	font-size:13px;
-	left: 350px;
+	left: 380px;
    /* border:4px rgb(170,138,87) solid ;
     border-radius:10px;
     border-style:dashed;*/

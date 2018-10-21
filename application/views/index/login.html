@@ -11,34 +11,45 @@
         <img src="<?php  echo base_url() .'style/index/' ?>images/login/logo.png">
     </div>
         <form method="POST" action="<?php echo site_url('index/login/login_in') ?>">
+
+       <form method="POST" action="<?php echo site_url('index/login/login_in') ?>">
     <div class="nav">
         <form class="navForm" method="POST">
-            <h2>登&nbsp;&nbsp;录</h2>
-            <label>用户名/学号：</label>
-            <input type="text" name="user_id" placeholder="请输入用户名（学生填学号）">
-            <br><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>密码：</label>&nbsp;&nbsp;&nbsp;
-            <input type="password" name="password" placeholder="请输入密码">
-            <br><br>
-             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<label>验证码：</label>&nbsp;&nbsp;
-            <input type="text" name="captcha" placeholder="请输入验证码">
-            <br><br>
-          <div class="captcha"><?php echo $captcha ?></div>
-             <br><br>
-            <label>身份：</label>
-            <input type="radio" name="people" value="2" /><label>学生</label>
-            <input type="radio" name="people" value="1" /><label>考官</label> 
-            <br><br>
-            <div class = "submit">
-            &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit"  value="登录">
-            </div>
+            <div class="h2">Login<br></div>
+            <div class="list">
+                <label >用户名/学号：</label>
+                <input type="text" name="user_id" placeholder="请输入用户名（学生填学号)">
+                <br><br>
+                 <label style="margin-left: 70px;">密码：</label>
+                <input type="password" name="password" placeholder="请输入密码">
+                <br><br>
+                  <label style="margin-left: 50px;">验证码：</label>
+                <input type="text" name="captcha" placeholder="请输入验证码" >
+                <br><br>
+              <!-- <div class="captcha" id="captcha"><img src="1.jpg" style="width: 100px;height: 50px;"><?php echo $captcha?></div> -->
+              <div class="captcha" ><?php echo $captcha ?></div>
+                 <br>
+                 <br>
+                <label>身份:</label> &nbsp;&nbsp;<input type="radio" name="people" value="2"/ checked="checked"><label>学生</label>
+                 &nbsp;
+                <input type="radio" name="people" value="1" /><label>考官</label>
+                <div class = "submit">
+                <input type="submit"  value="登录">
+                </div>
+        </div>
     </form>
             &nbsp;&nbsp;
+
             <div class="zuce">
-            <a href="<?php  echo base_url() .'index/regist'  ?>">点击注册</a>
+            <a href="<?php  echo base_url() .'index/regist'  ?>">还没有账号？立即注册</a>
             </div>
 
     </div>
+</form>
+<footer>Copyright (C)   &nbsp;&nbsp;  [ACAT-2018]  &nbsp;&nbsp;By- Whale -</footer>
+           
+
 	
 </body>
 </html>
+ 

@@ -3,8 +3,8 @@
 	/*border: 1px solid black;*/
 	height: 600px;
 	float: right;
-	margin-right: 100px;
-	margin-top: 50px;
+	margin-right: 40px;
+	margin-top: 85px;
 	background-image: url(../../images/student/inf.jpg);
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
@@ -14,18 +14,24 @@
 #content_inf .inside_word{
 	/*border: 1px solid black;*/
 	width: 800px;
-	margin-top: 113px;
+	font-family: 方正姚体;
+	margin-top: 125px;
+	font-size: 17px;
 	margin-left: 100px; 
 }
-h2{
-	margin-top: 40px;
-	margin-left: 700px; 
+h3{
+	margin-top: 28px;
+	font-family: 方正姚体;
+	font-size: 30px;
+	opacity:0.8;
+	margin-left: 100px; 
 
 }
 #content_inf .footer{
 	/*border:1px solid black;*/
 	width: 230px;
 	margin-left: 360px;
+	font-family: 方正姚体;
 	background-color: #f1f1f1;
 	/*text-decoration: underline;*/
 	box-shadow: 4px 4px 8px 0 rgba(0,0,0,0.2);

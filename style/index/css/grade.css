@@ -8,7 +8,7 @@ body{
 }
 .logo{
 		position: absolute;
-		left: 565px;
+		left: 580px;
 		top: 10px;
 		width: 100px;
 		height: 30px;
@@ -22,7 +22,7 @@ body{
 	position: absolute;
 	top: 150px;
 	font-size:12px;
-	left: 350px;
+	left: 380px;
 }
 .nav1{
 	height: 30px;
@@ -126,5 +126,22 @@ position: absolute;
 		border-width: 2px;
 		background-color: rgba(244,244,244,0.2);
 		color: black;
-		padding: 2px;
+		padding: 1px;
+}
+
+.submit1 input{
+position: absolute;
+	top: 495px;
+	left :400px;
+	appearance:none;
+		moz-appearance: none;
+		width:100px;
+		height:25px;
+		font-family:"方正姚体";
+		font-size:15px;
+		border-radius:10px;
+		border-width: 2px;
+		background-color: rgba(244,244,244,0.2);
+		color: black;
+		padding: 1px;
 }

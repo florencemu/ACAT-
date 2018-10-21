@@ -5,7 +5,7 @@ body{
 }
 .logo{
 		position: absolute;
-		left: 565px;
+		left: 580px;
 		top: 10px;
 		width: 100px;
 		height: 30px;
@@ -15,11 +15,12 @@ body{
 		height: 100px;
 	}
 
+
 .nav{
 	position: absolute;
 	top: 150px;
 	font-size:12px;
-	left: 200px;
+	left: 230px;
 }
 .nav1{
 	height: 30px;

@@ -1,6 +1,6 @@
 body{
 	background-image: url(../images/login/000045.jpg);
-	background-size: 100% 800px;
+	background-size: 100% 1000px;
 	background-repeat: no-repeat;
 }
 /*h1{
@@ -10,19 +10,41 @@ body{
 		font-family:"黑体";
 		text-align:center;
 	}*/
-	h2{
+	.h2{
 		font-family:"方正姚体";
 		text-align:center;
-		font-size:35;
+		font-size: 35px;
+		font-weight: bolder;
+		border-bottom: 1px solid black;
+		/*line-height: center;*/
+	}
+	.nav{
+		/*margin-top: 10px;*/
+		/*background-image:url(http://img1.juimg.com/150402/330617-1504020Z33187.jpg);*/
+		/*background-size: 100% 100%;*/
+	}
+	.list{
+		margin-top:40px;
 	}
 	label{
 		font-size:20;
+		font-weight: bolder;
 	}
 
 	input{
 		text-align: center;
-		font-size:18;
+		font-size:20px;
+		border-radius: 10px;
+		outline: none;
+		/*background-color:transparent;*/
 	}
+
+	 input::-webkit-input-placeholder {
+       /* placeholder颜色  */
+       color: #aab2bd;
+       /* placeholder字体大小  */
+       font-size: 13px;
+    }
 	
 	.logo{
 		position: absolute;
@@ -33,24 +55,25 @@ body{
 		height: 30px;
 	}
 	.logo img{
-		width: 600px;
+		width: 700px;
 		height: 350px;
 	}
 	.logo{
 		position: absolute;
 		left: 450px;
-		top: -30px;
-		width: 100px;
-		height: 30px;
+		top: -20px;
+		width: 700px;
+		height: 350px;
+		/*border:1px solid black;*/
 	}
 	.nav{
 		padding: 10px;
 		position: absolute;
-		left: 475px;
-		top: 230px;
+		left: 550px;
+		top: 280px;
 		border: 1px solid grey;
 		width: 480px;
-		height:400px;
+		height:380px;
 		background-color: rgba(255,251,240,0.5);
 		font-family:"方正姚体";
 		font-weight: 800;
@@ -59,30 +82,49 @@ body{
 	}
 	.captcha{
 		position: absolute;
-		top: 245px;
-		left: 230px;
+		top: 235px;
+		left: 220px;
 		width: 100px;
 		height: 50px;
 	}
 	.submit input{
+		margin-top: 20px;
 		appearance:none;
 		/*-web-kit-appearance:none;*/
 		moz-appearance: none;
-		width:85px;
+		width:250px;
 		height:45px;
 		font-family:"方正姚体";
 		font-size:20px;
 		border-radius:10px;
 		border-width: 2px;
-		background-color: rgba(244,244,244,0.2);
+		background-color: rgb(244,244,244,0.2);
 		color: black;
 		padding: 10px;
+		cursor: pointer;
+		background-color: #856155;
+		color: #fff;
+		font-weight: bolder;
+		border:1px solid #856155;
 	}
 .zuce a{
 	position: absolute;
-		top: 345px;
-		left: 310px;
+		top: 375px;
+		left: 125px;
 		font-family:"方正姚体";
-		font-size:20px;
-
+		font-size:15px;
+		color: #48475F;
+		text-decoration: none;
 }
+.zuce a:hover{
+	text-decoration: underline;
+}
+footer {
+position: fixed;
+background-color: #856155;
+color: #FFF;
+bottom: 0;
+left: 0;
+right: 0;
+text-align: center;
+height: 20px;}
