@@ -35,7 +35,7 @@ class Login extends CI_Controller {
 		$a=$this->session->userdata('cap');
 		$data['captcha'] = $cap['image'];
 		$this->load->view('index/login.html',$data);
-		var_dump($a);
+		//var_dump($a);
 		/*var_dump($cap['word']);*/
 	}
 
@@ -51,8 +51,8 @@ class Login extends CI_Controller {
  			$this->load->model('index', 'index');
 //考官登录
 //
-			var_dump($cap);
-		var_dump($captcha);
+		//	var_dump($cap);
+		//var_dump($captcha);
 
  			if($cap != $captcha)
  				error("验证码输入有误！");
