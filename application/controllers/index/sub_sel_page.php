@@ -1,5 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+error_reporting(E_ALL ^ E_NOTICE);
+if($_SERVER['HTTP_REFERER'] == ""){
+    error("本系统不允许从地址栏访问!");
+exit;
+
+}
  
 class Sub_sel_page extends CI_Controller {
   

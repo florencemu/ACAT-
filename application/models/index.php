@@ -37,10 +37,30 @@ class Index extends CI_Model {
 		$result3 = $this->db->query($sql3)->result_array();
 		return $result3;
 	}
-*/
+
+//管理员密码修改
+
+/*核查密码*/
+
+	public function admin_check($inf)
+	{
+		$res = "SELECT * FROM `admin_id` WHERE admin='$inf'";
+		$result = $this ->db ->query($res)->result_array();
+		//var_dump($result[0]['ad_passwd']);
+		return $result[0]['ad_passwd'];
+	}
+
+
+/*修改密码*/
+	public function admin_pwd_mod($inf,$npwd){
+		$res="UPDATE admin_id SET ad_passwd ='$npwd' WHERE admin='$inf'";
+		$result = $this->db->query($res);
+    	return $result;
+	}
+
 		public function s_id($user_id){
 		//echo $username;die;
-		$sql5 = "select * from student_info where `stu_id` = '$user_id '";
+		$sql5 = "select * from admin_id where `admin` = '$user_id'";
 		//echo $sql;die;
 		$result5 = $this->db->query($sql5)->row();
 		//print_r($result);die;

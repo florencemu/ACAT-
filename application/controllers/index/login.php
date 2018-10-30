@@ -35,8 +35,10 @@ class Login extends CI_Controller {
 		$a=$this->session->userdata('cap');
 		$data['captcha'] = $cap['image'];
 		$this->load->view('index/login.html',$data);
-		//var_dump($a);
-		/*var_dump($cap['word']);*/
+		// var_dump(base_url(''));
+		// 		var_dump(site_url(''));
+
+		
 	}
 
 
@@ -51,11 +53,16 @@ class Login extends CI_Controller {
  			$this->load->model('index', 'index');
 //考官登录
 //
-		//	var_dump($cap);
-		//var_dump($captcha);
+		// 	var_dump($cap);
+		// var_dump($captcha);
 
  			if($cap != $captcha)
+ 			{
+ 				//echo"6";
  				error("验证码输入有误！");
+ 	// 			var_dump($cap);
+		// var_dump($captcha);
+ 			}
  			else
  			{
 
@@ -71,10 +78,11 @@ class Login extends CI_Controller {
 
  					success('index/home/index','登录成功');
  				}else{
- 					error('用户名或者密码不正确');
+ 					
+ 						error("密码有误！");
  				}	
  			}else{
- 				error('用户名或者密码不正确');
+ 					error("用户名有误！");
  			}
  			}
 //学生登录
@@ -89,11 +97,11 @@ class Login extends CI_Controller {
  				if($user->stu_passwd == $password){
  					success('index/home/stu_home','登录成功！');
  				}else{
- 					error('用户名或者密码不正确3');
+ 						error("密码有误！");
  				}	
 
  			}else{
- 				error('用户名或者密码不正确4');
+ 					error("学号有误！");
  			}
 
  			}

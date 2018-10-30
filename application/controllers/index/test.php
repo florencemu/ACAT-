@@ -1,5 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+error_reporting(E_ALL ^ E_NOTICE);
+if($_SERVER['HTTP_REFERER'] == ""){
+    error("本系统不允许从地址栏访问!");
+exit;
+
+}
 
 
 /*试卷管理*/
@@ -26,14 +32,17 @@ class Test extends CI_Controller {
 		$id=$this->input->get('id');
 		$this->load->model('paper','paper');
 		$res = $this->paper->admin_show($id);
-		$s_id=explode('.', $res[0]['include_id'],-1);
+		//var_dump($res);die;
+		$s_id=explode(',', $res[0]['include_id'],-1);
 		$length=sizeof($s_id);
 		for($i=0;$i<$length;$i++)
 		{
 			$res1=$this->paper->admin_show_test($s_id[$i]);
 			$res2[$i]=$res1;
 		}
+		//var_dump($res2);die;
 		$data['test']=$res2;
+
 		/*var_dump($res2);die;*/
 		$this->load->view('index/admin_show.html',$data);
 	}

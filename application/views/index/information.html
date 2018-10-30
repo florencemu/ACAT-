@@ -15,13 +15,14 @@
 	     <input type="submit" value="返回主页面" onclick="location.href='<?php echo site_url('index/home') ?>'">	
 
 	</div>
+	 <form method="POST" action="<?php echo site_url('index/information/change_pwd') ?>">
 	<div class="nav">
 <br>
 			<label>&nbsp;&nbsp;&nbsp;> 原密码:&nbsp;&nbsp;&nbsp;<input type="password" name="password" placeholder="请输入原密码">&nbsp;&nbsp;&nbsp;
 			<br><br>
-			<label>&nbsp;&nbsp;&nbsp;> 新密码:&nbsp;&nbsp;&nbsp;<input type="password" name="password" placeholder="请输入新密码">&nbsp;&nbsp;&nbsp;
+			<label>&nbsp;&nbsp;&nbsp;> 新密码:&nbsp;&nbsp;&nbsp;<input type="password" name="newpassword" placeholder="请输入新密码">&nbsp;&nbsp;&nbsp;
 			<br><br>
-			<label>> 确认密码:&nbsp;&nbsp;&nbsp;<input type="password" name="password" placeholder="请确认密码">&nbsp;&nbsp;&nbsp;
+			<label>> 确认密码:&nbsp;&nbsp;&nbsp;<input type="password" name="repassword" placeholder="请确认密码">&nbsp;&nbsp;&nbsp;
 			<br>
 			<br>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -30,7 +31,7 @@
 			</div>
 		</form>
 	<br>
-	</div>
+
 	
 
 </body>

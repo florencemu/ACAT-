@@ -3,7 +3,11 @@
 error_reporting(E_ALL ^ E_NOTICE);
 error_reporting(E_ALL ^ E_WARNING);
 defined('BASEPATH') OR exit('No direct script access allowed');
+if($_SERVER['HTTP_REFERER'] == ""){
+    error("本系统不允许从地址栏访问!");
+exit;
 
+}
 
 
 class Show_test extends CI_Controller {

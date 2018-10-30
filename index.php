@@ -153,7 +153,7 @@ switch (ENVIRONMENT)
  */
 	// The directory name, relative to the "controllers" directory.  Leave blank
 	// if your controller is not in a sub-directory within the "controllers" one
-	// $routing['directory'] = '';
+	// $routing['directory'] = 'login';
 
 	// The controller class file name.  Example:  mycontroller
 	// $routing['controller'] = '';
